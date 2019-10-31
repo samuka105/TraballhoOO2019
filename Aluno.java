@@ -9,7 +9,7 @@ package com.mycompany.trabalhooo2019;
  *
  * @author Geral
  */
-public class Aluno {
+public class Aluno extends Pessoa{
     private String matricula;
     /**
      * @return the matricula

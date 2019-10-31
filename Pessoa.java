@@ -17,6 +17,14 @@ public class Pessoa { //metodos padrao para aluno e professor
     /**
      * @return the nomeComp
      */
+
+    public Pessoa(String nc, String id, String em, String cod){
+        this.nomeComp = nc;
+        this.idade = id;
+        this.email = em;
+        this.cpf = cpf;
+    }    
+
     public String getNomeComp() {
         return nomeComp;
     }

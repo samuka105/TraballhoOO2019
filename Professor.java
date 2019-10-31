@@ -9,7 +9,7 @@ package com.mycompany.trabalhooo2019;
  *
  * @author Geral
  */
-public class Professor {
+public class Professor extends Pessoa {
     // anexado a uma ou mais disciplinas, a uma ou mais turmas e pode alterar as notas dos alunos
     String siap;
     
