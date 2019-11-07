@@ -29,6 +29,10 @@ public class Aluno extends Pessoa{
         this.matricula = matricula;
     }
     
+    public void Matricular(){
+        //conferir se a turma nao esta cheia, se sim, colocar a matricula na lista de matriculados e ordenar por ordem alfabetica
+        
+    }
     //metodo matricular 
     // metodo ver nota
     // metodo ver historico
