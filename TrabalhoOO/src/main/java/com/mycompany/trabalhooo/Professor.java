@@ -13,8 +13,9 @@ public class Professor extends Pessoa {
     // anexado a uma ou mais disciplinas, a uma ou mais turmas e pode alterar as notas dos alunos
     String siap;
 
-    public Professor(String nomeComp, int idade, String email, String cpf) {
+    public Professor(String nomeComp, int idade, String email, String cpf,String siap) {
         super(nomeComp, idade, email, cpf);
+        this.siap = siap; //Enedilson : adicionando Siap na construçao
     }
     
     

@@ -10,6 +10,5 @@ package com.mycompany.trabalhooo2019;
  * @author Geral
  */
 public class Historico {
-    // guardar as notas do aluno em diversas disciplinas, fazer a impressao
-    
+    // guardar as notas do aluno em diversas disciplinas
 }
