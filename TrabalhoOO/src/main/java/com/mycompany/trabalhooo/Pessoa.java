@@ -9,7 +9,8 @@ package com.mycompany.trabalhooo;
  *
  * @author Geral
  */
-public class Pessoa { //metodos padrao para aluno e professor
+abstract class Pessoa { //classe abstrata - não instacia objetos
+//metodos padrao para aluno e professor
     private String nomeComp;
     private int idade;
     private String email;
