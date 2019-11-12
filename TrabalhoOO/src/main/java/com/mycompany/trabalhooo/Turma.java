@@ -18,6 +18,11 @@ public class Turma {
     private Professor docente;
     private List<Aluno> alunos;
     private int maxAlunos;
+    public List<Notas> notasAlunos;
+    
+    public Turma(String codigo){
+        
+    }
     
     
     
