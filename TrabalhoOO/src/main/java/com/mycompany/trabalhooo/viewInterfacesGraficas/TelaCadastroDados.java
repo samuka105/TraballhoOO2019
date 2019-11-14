@@ -37,46 +37,54 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        jlbNomeCompleto = new javax.swing.JLabel();
+        jlbIdade = new javax.swing.JLabel();
+        jlbEmail = new javax.swing.JLabel();
+        jlbCPF = new javax.swing.JLabel();
+        jlbLogin = new javax.swing.JLabel();
+        jlbSenha = new javax.swing.JLabel();
+        jtfNomeCompleto = new javax.swing.JTextField();
+        jtfIdade = new javax.swing.JTextField();
+        jtfEmail = new javax.swing.JTextField();
+        jtfCPF = new javax.swing.JTextField();
+        jtfLogin = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jpfSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nome Completo");
+        jlbNomeCompleto.setText("Nome Completo");
 
-        jLabel2.setText("Data de Nascimento");
+        jlbIdade.setText("Idade");
 
-        jLabel3.setText("Email");
+        jlbEmail.setText("Email");
 
-        jLabel4.setText("CPF");
+        jlbCPF.setText("CPF");
 
-        jLabel5.setText("Login");
+        jlbLogin.setText("Login");
 
-        jLabel6.setText("Senha");
+        jlbSenha.setText("Senha");
 
-        jTextField1.setText("jTextField1");
+        jtfNomeCompleto.setText("jtfNomeCompleto");
+        jtfNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfNomeCompletoActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("jTextField2");
+        jtfIdade.setText("jtfIdade");
 
-        jTextField3.setText("jTextField3");
+        jtfEmail.setText("jtfEmail");
+        jtfEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfEmailActionPerformed(evt);
+            }
+        });
 
-        jTextField4.setText("jTextField4");
+        jtfCPF.setText("jtfCPF");
 
-        jTextField5.setText("jTextField5");
-
-        jTextField6.setText("jTextField6");
+        jtfLogin.setText("jtfLogin");
 
         jButton1.setText("Concluir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +100,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }
         });
 
+        jpfSenha.setText("jPasswordField1");
+        jpfSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jpfSenhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,29 +116,33 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
+                                    .addComponent(jlbEmail)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField3))
+                                    .addComponent(jtfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jlbCPF)
+                                                .addComponent(jlbLogin))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jlbSenha)
+                                            .addGap(7, 7, 7)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                                        .addComponent(jTextField6)
-                                        .addComponent(jTextField4))))
+                                        .addComponent(jtfLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                                        .addComponent(jtfCPF)
+                                        .addComponent(jpfSenha))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(jlbIdade)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtfIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(jlbNomeCompleto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jtfNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jButton1)
@@ -136,28 +155,28 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbNomeCompleto)
+                    .addComponent(jtfNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbIdade)
+                    .addComponent(jtfIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbEmail)
+                    .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbCPF)
+                    .addComponent(jtfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbLogin)
+                    .addComponent(jtfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlbSenha)
+                    .addComponent(jpfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -169,11 +188,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // BOTÃO CONCLUIR:
         
         Login login = new Login();
-        login.setLogin(jTextField5.getText());
-        login.setSenha(jTextField6.getText());
+        login.setLogin(jtfLogin.getText());
+        login.setSenha(jtfSenha.getText());
         
         logins.add(login);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -184,6 +203,18 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         String toJson = gson.toJson(logins);
         System.out.println("toJson = " + toJson);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jpfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpfSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpfSenhaActionPerformed
+
+    private void jtfNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeCompletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfNomeCompletoActionPerformed
+
+    private void jtfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,17 +255,17 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel jlbCPF;
+    private javax.swing.JLabel jlbEmail;
+    private javax.swing.JLabel jlbIdade;
+    private javax.swing.JLabel jlbLogin;
+    private javax.swing.JLabel jlbNomeCompleto;
+    private javax.swing.JLabel jlbSenha;
+    private javax.swing.JPasswordField jpfSenha;
+    private javax.swing.JTextField jtfCPF;
+    private javax.swing.JTextField jtfEmail;
+    private javax.swing.JTextField jtfIdade;
+    private javax.swing.JTextField jtfLogin;
+    private javax.swing.JTextField jtfNomeCompleto;
     // End of variables declaration//GEN-END:variables
 }
