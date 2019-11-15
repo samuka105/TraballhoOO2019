@@ -11,11 +11,11 @@ package com.mycompany.trabalhooo;
  */
 public class Aluno extends Pessoa{
     private String matricula;
-    private Login login = new Login();
+    
 
-    public Aluno(String nomeComp, int idade, String email, String cpf, String matricula) {
-        super(nomeComp, idade, email, cpf);
-        this.matricula = matricula; //Enedilson : adicionando Matricula na construçao
+    public Aluno() {
+        super();
+        
     }
     /**
      * @return the matricula
@@ -27,13 +27,11 @@ public class Aluno extends Pessoa{
     /**
      * @param matricula the matricula to set
      */
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setMatricula(int cont) {
+        int aux = cont -14;
+        this.matricula = Integer.toString(aux) + "-" + "A";
     }
-    public void setLogin(String usuario, String senha){
-        login.setLogin(usuario);
-        login.setSenha(senha);
-    }
+    
     //metodo matricular 
     // metodo ver nota
     // metodo ver historico
@@ -45,7 +43,7 @@ public class Aluno extends Pessoa{
         System.out.println("Email:"+ this.getEmail());
         System.out.println("Cpf:"+ this.getCpf());
         System.out.println("Matricula:"+ this.getMatricula());
-        System.out.println("Login:"+ this.login.getLogin());
-        System.out.println("Senha:"+ this.login.getSenha());
+        //System.out.println("Login:"+ this.login.getLogin());
+        //System.out.println("Senha:"+ this.login.getSenha());
     }
 }

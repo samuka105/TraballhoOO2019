@@ -12,18 +12,24 @@ package com.mycompany.trabalhooo;
 abstract class Pessoa { //classe abstrata - não instacia objetos
 //metodos padrao para aluno e professor
     private String nomeComp;
-    private int idade;
+    private String idade;
     private String email;
     private String cpf;
+    private Login login = new Login();
+    
+    public void setLogin(String usuario, String senha){
+        login.setLogin(usuario);
+        login.setSenha(senha);
+    }
+    public Login getLogin(){
+        return login;
+    }
     /**
      * @return the nomeComp
      */
 
-    public Pessoa(String nomeComp, int idade, String email, String cpf){
-        this.nomeComp = nomeComp;
-        this.idade = idade;
-        this.email = email;
-        this.cpf = cpf;
+    public Pessoa(){
+        
     }    
 
     public String getNomeComp() {
@@ -40,14 +46,14 @@ abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @return the idade
      */
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
     /**
      * @param idade the idade to set
      */
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 

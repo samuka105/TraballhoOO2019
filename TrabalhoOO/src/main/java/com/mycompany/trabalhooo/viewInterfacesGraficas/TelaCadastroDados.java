@@ -6,7 +6,9 @@
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.google.gson.Gson;
+import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Login;
+import com.mycompany.trabalhooo.Professor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +24,16 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     
     
     List<Login> logins;
-    
-    public TelaCadastroDados() {
+    List<Aluno> alunos;
+    List<Professor> professores;
+    private boolean div;
+    private int cont;
+    public TelaCadastroDados(boolean marca, int cont) {
         initComponents();
         logins = new ArrayList<>();
+        this.div = marca;
+        this.cont = cont;
+        
     }
 
     /**
@@ -74,6 +82,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         });
 
         jtfIdade.setText("jtfIdade");
+        jtfIdade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfIdadeActionPerformed(evt);
+            }
+        });
 
         jtfEmail.setText("jtfEmail");
         jtfEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -187,12 +200,37 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void alocaProf(){
+        Professor p = new Professor();
+        p.setCpf(jtfCPF.getText());
+        p.setEmail(jtfEmail.getText());
+        p.setIdade(jtfIdade.getText());
+        p.setNomeComp(jtfNomeCompleto.getText());
+        p.setLogin(jtfLogin.getText(), jpfSenha.getText());
+        p.setSiap(cont);
+        cont =-13;
+        professores.add(p);
+        logins.add(p.getLogin());
+        
+    }
+    private void alocaAluno(){
+        Aluno a = new Aluno();
+        a.setCpf(jtfCPF.getText());
+        a.setEmail(jtfEmail.getText());
+        a.setIdade(jtfIdade.getText());
+        a.setNomeComp(jtfNomeCompleto.getText());
+        a.setLogin(jtfLogin.getText(), jpfSenha.getText());
+        logins.add(a.getLogin());
+        cont =-14;
+        alunos.add(a);
+    }   
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTÃO CONCLUIR:
+        if(div == true) alocaProf();
+        else alocaAluno();
         
-        Login login = new Login();
-        login.setLogin(jtfLogin.getText());
-        login.setSenha(jtfSenha.getText());
         
         logins.add(login);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -216,6 +254,12 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfEmailActionPerformed
 
+    private void jtfIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfIdadeActionPerformed
+    
+
+    
     /**
      * @param args the command line arguments
      */

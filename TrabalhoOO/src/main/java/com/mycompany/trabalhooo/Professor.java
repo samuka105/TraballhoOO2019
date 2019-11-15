@@ -10,13 +10,22 @@ package com.mycompany.trabalhooo;
  * @author Geral
  */
 public class Professor extends Pessoa {
+    private String siap;
+    public String getSiap() {
+        return siap;
+    }
+
+    public void setSiap(int cont) {
+        int aux = (cont -13);
+        this.siap = Integer.toString(aux);
+    }
     // anexado a uma ou mais disciplinas, a uma ou mais turmas e pode alterar as notas dos alunos
-    String siap;
+    
     
 
-    public Professor(String nomeComp, int idade, String email, String cpf,String siap) {
-        super(nomeComp, idade, email, cpf);
-        this.siap = siap; //Enedilson : adicionando Siap na construçao
+    public Professor() {
+        super();
+        
     }
     
     

@@ -11,8 +11,6 @@ package com.mycompany.trabalhooo;
  */
 public class Main {
     public static void main(String[] args) {
-        Aluno novo = new Aluno("Ronan", 20, "ronansr@live.com", "1111111111", "2017");
-        novo.setLogin("ronan123", "123");
-        novo.imprimeAluno();
+        
     }
 }
