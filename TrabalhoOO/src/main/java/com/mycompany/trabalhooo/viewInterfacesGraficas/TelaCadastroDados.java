@@ -36,6 +36,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         
     }
 
+    /*
+    private TelaCadastroDados() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,8 +61,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         jtfEmail = new javax.swing.JTextField();
         jtfCPF = new javax.swing.JTextField();
         jtfLogin = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbConcluir = new javax.swing.JButton();
         jpfSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,17 +103,10 @@ public class TelaCadastroDados extends javax.swing.JFrame {
 
         jtfLogin.setText("jtfLogin");
 
-        jButton1.setText("Concluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbConcluir.setText("Concluir");
+        jbConcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("toJson");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbConcluirActionPerformed(evt);
             }
         });
 
@@ -158,9 +155,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                                 .addComponent(jtfNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(jbConcluir)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -191,9 +186,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                     .addComponent(jlbSenha)
                     .addComponent(jpfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jbConcluir)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -226,21 +219,30 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         alunos.add(a);
     }   
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConcluirActionPerformed
         // BOTÃO CONCLUIR:
-        if(div == true) alocaProf();
-        else alocaAluno();
+        if(div == true){
+            alocaProf();
+            Gson gsonProfessor = new Gson();
+            String toJson = gsonProfessor.toJson(professores);
+            
+            
+        }
+        else {
+            alocaAluno();
+            Gson gsonAluno = new Gson();
+            String toJson = gsonAluno.toJson(alunos);
+            
+            
+            System.out.println(gsonAluno.toJson(alunos));
+            
+        }
         
         
-        logins.add(login);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        Gson gson = new Gson();
-        String toJson = gson.toJson(logins);
-        System.out.println("toJson = " + toJson);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        //logins.add(login);
+        Gson gsonLogin = new Gson();
+        String toJson = gsonLogin.toJson(logins);
+    }//GEN-LAST:event_jbConcluirActionPerformed
 
     private void jpfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpfSenhaActionPerformed
         // TODO add your handling code here:
@@ -287,18 +289,29 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //USAR O METODO CONFERE OU SETAR UM VALOR BOOL PRA TESTAR
+        TelaCadastroDados tela = new TelaCadastroDados();
+        tela.setVisible(true);
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroDados().setVisible(true);
+               TelaCadastroDados tela = new TelaCadastroDados();
+               tela.setVisible(true);
             }
         });
     }
+    
+    
+    
+    /* EXEMPLO PARA IMPRIMIR GSON - GLEIPH
+    Gson gson = new Gson();
+        String toJson = gson.toJson(logins);
+        System.out.println("toJson = " + toJson);
+    */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jbConcluir;
     private javax.swing.JLabel jlbCPF;
     private javax.swing.JLabel jlbEmail;
     private javax.swing.JLabel jlbIdade;

@@ -19,6 +19,10 @@ public class TelaCadastro extends javax.swing.JFrame {
         this.cont = cont;
     }
 
+    private TelaCadastro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,11 +115,14 @@ public class TelaCadastro extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        TelaCadastro tela =  new TelaCadastro();
+              tela.setVisible(true);
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastro().setVisible(true);
+              TelaCadastro tela =  new TelaCadastro();
+              tela.setVisible(true);
             }
         });
     }
