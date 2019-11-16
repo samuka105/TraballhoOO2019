@@ -58,7 +58,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlbIdade" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jtfIdade" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtfIdade" min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlbNomeCompleto" min="-2" max="-2" attributes="0"/>
@@ -148,38 +148,26 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfNomeCompleto">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jtfNomeCompleto"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfNomeCompletoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfIdade">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jtfIdade"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfIdadeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfEmail">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jtfEmail"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfEmailActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfCPF">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jtfCPF"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfCPFActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfLogin">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jtfLogin"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbConcluir">
       <Properties>
@@ -190,9 +178,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jpfSenha">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jpfSenhaActionPerformed"/>
       </Events>
