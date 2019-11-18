@@ -5,6 +5,8 @@
  */
 package com.mycompany.trabalhooo;
 
+import java.util.List;
+
 /**
  *
  * @author Geral
@@ -30,9 +32,10 @@ public class Aluno extends Pessoa{
     public void setMatricula(int cont) {
         int aux = cont -14;
         this.matricula = Integer.toString(aux) + "-" + "A";
-    }
+    }   
     
-    //metodo matricular 
+    //metodo matricular DEFININDO
+   
     // metodo ver nota
     // metodo ver historico
     // metodo tranca

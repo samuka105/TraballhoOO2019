@@ -16,11 +16,16 @@ import java.io.PrintWriter;
  *
  * @author Enedilson
  */
-public class ArquivoAlunos {
-    public static String Read(String Caminho){
+public class ManipulacaoDeArquivos {
+    
+    /**
+     *
+     */
+    public static  String caminho = "C:\\Users\\Enedilson\\Documents\\NetBeansProjects\\TraballhoOO2019\\TrabalhoOO";
+    public static String Read(String caminho){
        String conteudo = "";
        try{
-           FileReader arq = new FileReader(Caminho);
+           FileReader arq = new FileReader(caminho);
            BufferedReader lerArq = new BufferedReader(arq);
            String linha="";
            try{
@@ -46,9 +51,9 @@ public class ArquivoAlunos {
 }
 
 
-public static boolean Write(String Caminho, String Text){
+public static boolean Write(String caminho, String Text){
     try{
-        FileWriter arq = new FileWriter(Caminho);
+        FileWriter arq = new FileWriter(caminho);
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.println(Text);
         gravarArq.close();
@@ -57,4 +62,6 @@ public static boolean Write(String Caminho, String Text){
         System.out.println(e.getMessage());
         return false;
     }
+ }
+
 }
