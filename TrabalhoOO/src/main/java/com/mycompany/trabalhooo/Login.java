@@ -10,9 +10,10 @@ package com.mycompany.trabalhooo;
  * @author Ronan
  */
 public class Login {
-
+    
     private String login;
     private String senha;
+    
     /**
      * @return the login
      */
