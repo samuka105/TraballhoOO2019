@@ -91,7 +91,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jCheckBox1)
-                        .addGap(113, 113, 113)
+                        .addGap(110, 110, 110)
                         .addComponent(jButton1))
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox3)
@@ -103,7 +103,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
                     .addComponent(jCheckBox9)
                     .addComponent(jCheckBox10)
                     .addComponent(jCheckBox11))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
