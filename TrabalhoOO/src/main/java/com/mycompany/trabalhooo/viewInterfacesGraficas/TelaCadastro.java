@@ -10,17 +10,13 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
  * @author Geral
  */
 public class TelaCadastro extends javax.swing.JFrame {
-    private int cont;
+    private int cont = 5000;
     /**
      * Creates new form TelaCadastro
      */
     public TelaCadastro(int cont) {
         initComponents();
         this.cont = cont;
-    }
-
-    private TelaCadastro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -115,14 +111,12 @@ public class TelaCadastro extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        TelaCadastro tela =  new TelaCadastro();
-              tela.setVisible(true);
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              TelaCadastro tela =  new TelaCadastro();
-              tela.setVisible(true);
+                int cont = 2000;
+                new TelaCadastro(cont).setVisible(true);
             }
         });
     }

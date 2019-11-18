@@ -11,6 +11,7 @@ import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 /**
  *
@@ -23,9 +24,10 @@ public class TelaCadastroDados extends javax.swing.JFrame {
      */
     
     
-    List<Login> logins;
-    List<Aluno> alunos;
-    List<Professor> professores;
+    private HashMap<String, String> logins;
+    
+    public List<Aluno> alunos;
+    public List<Professor> professores;
     private boolean div;
     private int cont;
     public TelaCadastroDados(boolean marca, int cont) {
@@ -35,7 +37,9 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         this.cont = cont;
         
     }
-
+    public HashMap getLogins(){
+        return logins;
+    }
     /*
     private TelaCadastroDados() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -202,7 +206,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         p.setSiap(cont);
         cont =-13;
         professores.add(p);
-        logins.add(p.getLogin());
+        logins.put(jtfLogin.getText(), jpfSenha.getText());
         
     }
     private void alocaAluno(){
@@ -212,9 +216,9 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         a.setIdade(jtfIdade.getText());
         a.setNomeComp(jtfNomeCompleto.getText());
         a.setLogin(jtfLogin.getText(), jpfSenha.getText());
-        logins.add(a.getLogin());
         cont =-14;
         alunos.add(a);
+        logins.put(jtfLogin.getText(), jpfSenha.getText());
     }   
     
     private void jbConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConcluirActionPerformed
@@ -295,14 +299,14 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //USAR O METODO CONFERE OU SETAR UM VALOR BOOL PRA TESTAR
-        TelaCadastroDados tela = new TelaCadastroDados(true, 5000);
-        tela.setVisible(true);
+        //TelaCadastroDados tela = new TelaCadastroDados(true, 5000);
+       // tela.setVisible(true);
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               TelaCadastroDados tela = new TelaCadastroDados(true, 5000);
-               tela.setVisible(true);
+                
+                //new TelaCadastroDados(marca, cont).setVisible(true);
             }
         });
     }
