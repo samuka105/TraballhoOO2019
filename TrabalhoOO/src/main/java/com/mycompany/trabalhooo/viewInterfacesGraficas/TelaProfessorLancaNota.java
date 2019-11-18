@@ -7,14 +7,14 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 /**
  *
- * @author ice
+ * @author Enedilson
  */
-public class TelaSecundaria extends javax.swing.JFrame {
+public class TelaProfessorLancaNota extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaSecundaria
+     * Creates new form TelaProfessorLancaNota
      */
-    public TelaSecundaria() {
+    public TelaProfessorLancaNota() {
         initComponents();
     }
 
@@ -60,20 +60,20 @@ public class TelaSecundaria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaSecundaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessorLancaNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaSecundaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessorLancaNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaSecundaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessorLancaNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaSecundaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaProfessorLancaNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaSecundaria().setVisible(true);
+                new TelaProfessorLancaNota().setVisible(true);
             }
         });
     }
