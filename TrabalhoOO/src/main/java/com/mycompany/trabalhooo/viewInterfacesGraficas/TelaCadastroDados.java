@@ -231,8 +231,6 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         if(div == true) alocaProf();
         else alocaAluno();
         
-        
-        logins.add(login);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -291,7 +289,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastroDados().setVisible(true);
+                
+                //new TelaCadastroDados(marca, cont).setVisible(true);
             }
         });
     }
