@@ -108,6 +108,10 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Fazendo a analise da string
         String id = jtfId.getText();
+        TelaCadastroDados tela = new TelaCadastroDados();
+        if(tela.logins.get(id).equals(jPassword.getText())){
+            
+        } 
         TelaPrincipalAluno tela2 = new TelaPrincipalAluno();
         tela2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         tela2.setVisible(true);

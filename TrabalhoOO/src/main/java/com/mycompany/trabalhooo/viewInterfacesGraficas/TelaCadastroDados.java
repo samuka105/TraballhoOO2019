@@ -12,6 +12,7 @@ import com.mycompany.trabalhooo.Professor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,22 +25,24 @@ public class TelaCadastroDados extends javax.swing.JFrame {
      */
     
     
-    private HashMap<String, String> logins;
+    public HashMap<String, String> logins;
     
     public List<Aluno> alunos;
     public List<Professor> professores;
-    private boolean div;
+    private boolean marca;
     private int cont;
     public TelaCadastroDados(boolean marca, int cont) {
         initComponents();
-        logins = new ArrayList<>();
-        this.div = marca;
+        
+        this.marca = marca;
         this.cont = cont;
         
     }
-    public HashMap getLogins(){
-        return logins;
+
+    TelaCadastroDados() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     /*
     private TelaCadastroDados() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -223,30 +226,30 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     
     private void jbConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConcluirActionPerformed
         // BOTÃO CONCLUIR:
-        if(div == true){
+        if(marca == true){
             alocaProf();
-            Gson gsonProfessor = new Gson();
-            String toJsonProfessor = gsonProfessor.toJson(professores);
-            System.out.println("toJson = " + toJsonProfessor);
+            //Gson gsonProfessor = new Gson();
+            //String toJsonProfessor = gsonProfessor.toJson(professores);
+            //System.out.println("toJson = " + toJsonProfessor);
             
             
         }
         else {
             alocaAluno();
-            Gson gsonAluno = new Gson();
-            String toJsonAluno = gsonAluno.toJson(alunos);
+            //Gson gsonAluno = new Gson();
+            //String toJsonAluno = gsonAluno.toJson(alunos);
             
             
             
-            System.out.println("toJson = " + toJsonAluno);
+            //System.out.println("toJson = " + toJsonAluno);
             
         }
         
         
         //logins.add(login);
-        Gson gsonLogin = new Gson();
-        String toJsonLogin = gsonLogin.toJson(logins);
-        System.out.println("toJson = " + toJsonLogin);
+        //Gson gsonLogin = new Gson();
+        //String toJsonLogin = gsonLogin.toJson(logins);
+        //System.out.println("toJson = " + toJsonLogin);
     }//GEN-LAST:event_jbConcluirActionPerformed
 
     private void jpfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpfSenhaActionPerformed
@@ -305,8 +308,9 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                //new TelaCadastroDados(marca, cont).setVisible(true);
+                boolean marca = true;
+                int cont = 5000;
+                new TelaCadastroDados(marca, cont).setVisible(true);
             }
         });
     }

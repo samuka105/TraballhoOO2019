@@ -115,8 +115,8 @@ public class TelaCadastro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                int cont = 2000;
-                new TelaCadastro(cont).setVisible(true);
+                //int cont = 2000;
+                //new TelaCadastro(cont).setVisible(true);
             }
         });
     }
