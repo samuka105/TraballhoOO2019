@@ -6,6 +6,7 @@
 package com.mycompany.trabalhooo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -18,14 +19,58 @@ public class Turma {
     private Professor docente;
     private List<Aluno> alunos;
     private int maxAlunos;
-    public List<Notas> notasAlunos;
+    private HashMap<Aluno, Notas> notasAlunos;
     
     public Turma(String codigo){
         
     }
     
+    //MATRICULAR
     
+    public void matricular(Aluno a) throws Exception{
+        
+        
+        try{
+            if(alunos.size() >= this.maxAlunos) throw new Exception();
+            else alunos.add(a);
+            //Turma com vagas
+        } catch(Exception e){
+            System.out.println("ERRO! Turma cheia.");
+            //Turma cheia
+        }
+    }
     
+    public void tranca(Aluno a){
+        alunos.remove(a);
+        //Remove objeto Aluno
+    }
+    
+    public void preencheNotas()
+    {
+        for(int i = 0; i < alunos.size(); i++){
+            Notas nota = new Notas();
+            notasAlunos.put(alunos.get(i),nota);
+        }
+    }
+    
+    public void lancarNota(Aluno a, float tvc1, float tvc2, float tvc3){
+        Notas nota = notasAlunos.get(a);
+        nota.setTvc1(tvc1);
+        nota.setTvc2(tvc2);
+        nota.setTvc3(tvc3);
+    }
+    
+    public void verNota(Aluno a){
+        Notas nota = notasAlunos.get(a);
+        nota.getTvc1();
+        nota.getTvc2();
+        nota.getTvc3();
+    }
+    //VER NOTA
+    /*public void verNota(Aluno a)
+    {
+        
+    }*/
     
     
     //criar metodos de inserção em ordem alfabetica
