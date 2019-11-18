@@ -19,8 +19,6 @@ public class TelaCadastro extends javax.swing.JFrame {
         this.cont = cont;
     }
 
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,14 +112,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         }
         //</editor-fold>
         
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
                 int cont = 2000;
                 new TelaCadastro(cont).setVisible(true);
-
             }
         });
     }
