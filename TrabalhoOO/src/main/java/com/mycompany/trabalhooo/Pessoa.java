@@ -17,7 +17,7 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     private String cpf;
     private Login login;
     
-    public void setLogin(String usuario, String senha){
+    public void setLogin(String usuario, char [] senha){
         login.setLogin(usuario);
         login.setSenha(senha);
     }
@@ -25,7 +25,6 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
         return login;
     }
     /**
-     * @return the nomeComp
      */
 
     public Pessoa(){

@@ -12,5 +12,6 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 public class Constantes {
     public static final String PROFESSOR = "Professor";
     public static final String ALUNO = "Aluno";
+    public static final String PADRAO = "Padrao";
     
 }

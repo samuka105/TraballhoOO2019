@@ -12,7 +12,7 @@ package com.mycompany.trabalhooo;
 public class Login {
     
     private String login;
-    private String senha;
+    private char[] senha;
 
     public Login() {
     }
@@ -30,18 +30,19 @@ public class Login {
     public void setLogin(String login) {
         this.login = login;
     }
-
-    /**
-     * @return the senha
-     */
-    public String getSenha() {
-        return senha;
-    }
-
+    
     /**
      * @param senha the senha to set
      */
-    public void setSenha(String senha) {
+    public void setSenha(char [] senha) {
         this.senha = senha;
     }
+    /**
+     * @return the senha
+     */
+    public char[] getSenha() {
+        return senha;
+    }
+
+    
 }

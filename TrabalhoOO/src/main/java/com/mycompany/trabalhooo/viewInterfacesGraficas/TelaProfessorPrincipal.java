@@ -5,17 +5,20 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Professor;
+
 /**
  *
  * @author Enedilson
  */
 public class TelaProfessorPrincipal extends javax.swing.JFrame {
-
+    private Professor p;
     /**
      * Creates new form TelaProfessorPrincipal
      */
-    public TelaProfessorPrincipal() {
+    public TelaProfessorPrincipal(Professor p) {
         initComponents();
+        this.p = p;
     }
 
     /**
@@ -83,7 +86,7 @@ public class TelaProfessorPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaProfessorPrincipal().setVisible(true);
+                
             }
         });
     }

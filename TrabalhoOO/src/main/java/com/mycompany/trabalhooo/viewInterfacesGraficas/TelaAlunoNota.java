@@ -5,17 +5,20 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Aluno;
+
 /**
  *
  * @author Geral
  */
 public class TelaAlunoNota extends javax.swing.JFrame {
-
+    private Aluno a;
     /**
      * Creates new form TelaNotaAluno
      */
-    public TelaAlunoNota() {
+    public TelaAlunoNota(Aluno a) {
         initComponents();
+        this.a = a;
     }
 
     /**
@@ -116,7 +119,7 @@ public class TelaAlunoNota extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaAlunoNota().setVisible(true);
+                //new TelaAlunoNota().setVisible(true);
             }
         });
     }

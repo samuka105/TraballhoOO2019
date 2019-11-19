@@ -5,6 +5,8 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Login;
+import java.util.Arrays;
 import javax.swing.JFrame;
 
 /**
@@ -12,11 +14,15 @@ import javax.swing.JFrame;
  * @author ice
  */
 public class TelaLogin extends javax.swing.JFrame {
-    private int cont = 5000;    /**
+    public TelaCadastroDados telaDados;
+    private int cont = 5000; 
+    public String padrao;
+    /**
      * Creates new form TelaInicial
      */
-    public TelaLogin() {
+    public TelaLogin(TelaCadastroDados telaDados) {
         initComponents();
+        this.telaDados = new TelaCadastroDados(padrao, cont);
     }
 
     /**
@@ -58,7 +64,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPassword.setText("jPasswordField1");
 
-        jLabel1.setText("CPF/SIAP");
+        jLabel1.setText("Login");
 
         jLabel2.setText("Senha");
 
@@ -86,7 +92,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jtfId)
                             .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,15 +117,35 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        // Fazendo a analise da string
         String id = jtfId.getText();
-        TelaCadastroDados tela = new TelaCadastroDados();
-        if(tela.logins.get(id).equals(jPassword.getText())){
-            
-        } 
-        TelaPrincipalAluno tela2 = new TelaPrincipalAluno();
-        tela2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        tela2.setVisible(true);
+        char[] senha = jPassword.getPassword();
+        if(telaDados.logins.containsKey(id)) {
+            System.out.println("confirmou login");
+            if(telaDados.logins.get(id) == senha){
+                System.out.println("confirmou senha");
+                int i = 0;
+                while(telaDados.alunos.get(i)!= null){
+                    if(telaDados.alunos.get(i).getLogin().getLogin().equals(id)){
+                        TelaPrincipalAluno proxima = new TelaPrincipalAluno(telaDados.alunos.get(i));
+                        proxima.setVisible(true);
+                        break;
+                    }
+                    i++;
+                }
+                i = 0;
+                while(telaDados.professores.get(i).getLogin().getLogin().equals(id)){
+                    if(telaDados.alunos.get(i).getLogin().getLogin().equals(id)){
+                        TelaProfessorPrincipal prox = new TelaProfessorPrincipal(telaDados.professores.get(i));
+                        prox.setVisible(true);
+                        break;
+                    }
+                    i++;
+                }
+                
+            }
+        } else{
+            System.out.println("Errou");
+        }
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -130,13 +156,13 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // CADASTRO
+        //TelaLogin tela = new TelaLogin();
         TelaCadastro t = new TelaCadastro(cont);
-        t.show(true);
+        t.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        
         System.out.println("Abri janela");
         telaDados.
     }//GEN-LAST:event_formWindowOpened
@@ -172,18 +198,13 @@ public class TelaLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                TelaCadastroDados telaDados = new TelaCadastroDados(Constantes.PADRAO, 5000);
+                //new TelaLogin().setVisible(true);
             }
         });
     }
     
-    private void entraAluno(String id, String senha){
-        
-    }
     
-    private void entraProfessor(String id, String senha){
-        
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
