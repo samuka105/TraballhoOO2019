@@ -156,7 +156,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // CADASTRO
-        TelaLogin tela = new TelaLogin();
+        //TelaLogin tela = new TelaLogin();
         TelaCadastro t = new TelaCadastro(cont);
         t.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -203,13 +203,7 @@ public class TelaLogin extends javax.swing.JFrame {
         });
     }
     
-    private void entraAluno(String id, String senha){
-        
-    }
     
-    private void entraProfessor(String id, String senha){
-        
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
