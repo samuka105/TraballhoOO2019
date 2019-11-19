@@ -25,8 +25,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
      */
     
     
-    public HashMap<String, String> logins;
-    
+    public HashMap<String, char []> logins;
     public List<Aluno> alunos;
     public List<Professor> professores;
     private String marca;
@@ -37,13 +36,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         this.logins = new HashMap<>();
         this.marca = marca;
         this.cont = cont;
+        this.professores = new ArrayList<>();
         
     }
 
-    TelaCadastroDados() {
-        this.alunos = new ArrayList<>();
-        this.logins = new HashMap<>();
-    }
+    
     
     /*
     private TelaCadastroDados() {
@@ -59,6 +56,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jlbNomeCompleto = new javax.swing.JLabel();
         jlbIdade = new javax.swing.JLabel();
         jlbEmail = new javax.swing.JLabel();
@@ -72,6 +70,9 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         jtfLogin = new javax.swing.JTextField();
         jbConcluir = new javax.swing.JButton();
         jpfSenha = new javax.swing.JPasswordField();
+        jButtonVoltar = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,6 +125,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }
         });
 
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,7 +170,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                                 .addComponent(jtfNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
-                        .addComponent(jbConcluir)))
+                        .addComponent(jbConcluir))
+                    .addComponent(jButtonVoltar))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -194,7 +203,9 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                     .addComponent(jpfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(jbConcluir)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVoltar)
+                .addContainerGap())
         );
 
         pack();
@@ -207,11 +218,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         p.setEmail(jtfEmail.getText());
         p.setIdade(jtfIdade.getText());
         p.setNomeComp(jtfNomeCompleto.getText());
-        p.setLogin(jtfLogin.getText(), jpfSenha.getText());
+        p.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
         p.setSiap(cont);
         cont =-13;
         professores.add(p);
-        logins.put(jtfLogin.getText(), jpfSenha.getText());
+        logins.put(jtfLogin.getText(), jpfSenha.getPassword());
         
     }
     private void alocaAluno(){
@@ -220,20 +231,20 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         a.setEmail(jtfEmail.getText());
         a.setIdade(jtfIdade.getText());
         a.setNomeComp(jtfNomeCompleto.getText());
-        a.setLogin(jtfLogin.getText(), jpfSenha.getText());
+        a.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
         cont =-14;
         alunos.add(a);
-        logins.put(jtfLogin.getText(), jpfSenha.getText());
-    }   
+        logins.put(jtfLogin.getText(), jpfSenha.getPassword());
+    }
     
     private void jbConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConcluirActionPerformed
         // BOTÃO CONCLUIR:
         if(marca.equals(Constantes.PROFESSOR)){
             System.out.println("Prof");
             alocaProf();
-            //Gson gsonProfessor = new Gson();
-            //String toJsonProfessor = gsonProfessor.toJson(professores);
-            //System.out.println("toJson = " + toJsonProfessor);
+            Gson gsonProfessor = new Gson();
+            String toJsonProfessor = gsonProfessor.toJson(professores);
+            System.out.println("toJson = " + toJsonProfessor);
             
             
         }
@@ -248,8 +259,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("toJson = " + toJsonAluno);
             
         }
-        
-        
+        jtfCPF.setText("");
+        jtfEmail.setText("");
+        jtfIdade.setText("");
+        jtfLogin.setText("");
+        jtfNomeCompleto.setText("");
+        jpfSenha.setText("");
+        //TelaLogin login = new TelaLogin();
         //logins.add(login);
         //Gson gsonLogin = new Gson();
         //String toJsonLogin = gsonLogin.toJson(logins);
@@ -259,11 +275,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     private void jpfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpfSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jpfSenhaActionPerformed
-
+    
     private void jtfNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeCompletoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfNomeCompletoActionPerformed
-
+    
     private void jtfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfEmailActionPerformed
@@ -275,6 +291,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     private void jtfCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfCPFActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
     
 
     
@@ -326,6 +347,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JButton jbConcluir;
     private javax.swing.JLabel jlbCPF;
     private javax.swing.JLabel jlbEmail;

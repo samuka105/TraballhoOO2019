@@ -5,17 +5,20 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Aluno;
+
 /**
  *
  * @author ice
  */
 public class TelaPrincipalAluno extends javax.swing.JFrame {
-
+    private Aluno a;
     /**
      * Creates new form TelaSecundaria
      */
-    public TelaPrincipalAluno() {
+    public TelaPrincipalAluno(Aluno a) {
         initComponents();
+        this.a = a;
     }
 
     /**
@@ -27,17 +30,32 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonVerNotas = new javax.swing.JButton();
+        jButtonMatricula = new javax.swing.JButton();
+        jButtonTrancar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Ver Notas");
+        jButtonVerNotas.setText("Ver Notas");
+        jButtonVerNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerNotasActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Matricula");
+        jButtonMatricula.setText("Matricula");
+        jButtonMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMatriculaActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Trancar");
+        jButtonTrancar.setText("Trancar");
+        jButtonTrancar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTrancarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,10 +64,10 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonTrancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonVerNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jButtonMatricula)
                 .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
@@ -57,15 +75,33 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonVerNotas)
+                    .addComponent(jButtonMatricula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jButtonTrancar)
                 .addGap(75, 75, 75))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVerNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerNotasActionPerformed
+        // TODO add your handling code here:
+        TelaAlunoNota notas = new TelaAlunoNota(a);
+        notas.setVisible(true);
+    }//GEN-LAST:event_jButtonVerNotasActionPerformed
+
+    private void jButtonMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMatriculaActionPerformed
+        // TODO 
+        TelaAlunoMatricula matricula = new TelaAlunoMatricula(a);
+        matricula.setVisible(true);
+    }//GEN-LAST:event_jButtonMatriculaActionPerformed
+
+    private void jButtonTrancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrancarActionPerformed
+        // TODO add your handling code here:
+        TelaAlunoTrancamento trancar = new TelaAlunoTrancamento(a);
+        trancar.setVisible(true);
+    }//GEN-LAST:event_jButtonTrancarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,14 +134,14 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipalAluno().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonMatricula;
+    private javax.swing.JButton jButtonTrancar;
+    private javax.swing.JButton jButtonVerNotas;
     // End of variables declaration//GEN-END:variables
 }

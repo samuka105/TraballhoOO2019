@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
+    
+import com.mycompany.trabalhooo.Aluno;
 
 /**
  *
  * @author Geral
  */
 public class TelaAlunoMatricula extends javax.swing.JFrame {
-
+    
+    private Aluno a;
     /**
      * Creates new form TelaAlunoMatricula
      */
-    public TelaAlunoMatricula() {
+    public TelaAlunoMatricula(Aluno a) {
         initComponents();
+        this.a = a;
     }
 
     /**
@@ -175,7 +179,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaAlunoMatricula().setVisible(true);
+                //new TelaAlunoMatricula().setVisible(true);
             }
         });
     }
