@@ -16,12 +16,12 @@ import java.io.PrintWriter;
  *
  * @author Enedilson
  */
-public class ManipulacaoDeArquivos {
+public class Arquivo {
     
     /**
      *
      */
-    public static  String caminho = "C:\\Users\\Enedilson\\Documents\\NetBeansProjects\\TraballhoOO2019\\TrabalhoOO";
+    public static  String caminho = "Arquivos/DadosUniversitarios";
     public static String Read(String caminho){
        String conteudo = "";
        try{

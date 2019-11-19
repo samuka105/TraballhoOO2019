@@ -6,6 +6,7 @@
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.google.gson.Gson;
+import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
@@ -24,6 +25,15 @@ public class TelaCadastroDados extends javax.swing.JFrame {
      * Creates new form TelaCadastroAluno
      */
     
+    
+    public Arquivo readProf;
+    public String arqProf = "ArquivoProfessores.txt";
+    
+    public Arquivo readAluno;
+    public String arqAluno = "ArquivoAlunos.txt";
+    
+    public Arquivo readLogins;
+    public String arqLogins = "ArquivoAlunos.txt";
     
     public HashMap<String, String> logins;
     
@@ -231,9 +241,15 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         if(marca.equals(Constantes.PROFESSOR)){
             System.out.println("Prof");
             alocaProf();
-            //Gson gsonProfessor = new Gson();
-            //String toJsonProfessor = gsonProfessor.toJson(professores);
+            Gson gsonProfessor = new Gson();
+            String toJsonProfessor = gsonProfessor.toJson(professores);
             //System.out.println("toJson = " + toJsonProfessor);
+            if(Arquivo.Write(arqProf, toJsonProfessor)){    
+                System.out.println("Texto salvo");
+            }
+             else{
+            System.out.println("Erro!");
+            }
             
             
         }
@@ -246,6 +262,14 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             
             
             System.out.println("toJson = " + toJsonAluno);
+            
+            if(Arquivo.Write(arqAluno, toJsonAluno)){    
+                System.out.println("Texto salvo");
+            }
+            else{
+            System.out.println("Erro!");
+            }
+            
             
         }
         
