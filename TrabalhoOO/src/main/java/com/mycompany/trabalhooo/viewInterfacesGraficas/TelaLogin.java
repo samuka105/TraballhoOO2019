@@ -138,6 +138,7 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         System.out.println("Abri janela");
+        telaDados.
     }//GEN-LAST:event_formWindowOpened
 
     /**
