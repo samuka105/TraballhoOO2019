@@ -9,13 +9,13 @@ package com.mycompany.trabalhooo;
  *
  * @author Geral
  */
-abstract class Pessoa { //classe abstrata - não instacia objetos
+public abstract class Pessoa { //classe abstrata - não instacia objetos
 //metodos padrao para aluno e professor
     private String nomeComp;
     private String idade;
     private String email;
     private String cpf;
-    private Login login = new Login();
+    private Login login;
     
     public void setLogin(String usuario, String senha){
         login.setLogin(usuario);
@@ -29,7 +29,7 @@ abstract class Pessoa { //classe abstrata - não instacia objetos
      */
 
     public Pessoa(){
-        
+        this.login = new Login();
     }    
 
     public String getNomeComp() {

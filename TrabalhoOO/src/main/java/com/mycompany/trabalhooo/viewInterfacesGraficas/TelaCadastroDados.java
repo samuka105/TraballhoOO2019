@@ -29,18 +29,20 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     
     public List<Aluno> alunos;
     public List<Professor> professores;
-    private boolean marca;
+    private String marca;
     private int cont;
-    public TelaCadastroDados(boolean marca, int cont) {
+    public TelaCadastroDados(String marca, int cont) {
         initComponents();
-        
+        this.alunos = new ArrayList<>();
+        this.logins = new HashMap<>();
         this.marca = marca;
         this.cont = cont;
         
     }
 
     TelaCadastroDados() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.alunos = new ArrayList<>();
+        this.logins = new HashMap<>();
     }
     
     /*
@@ -226,7 +228,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     
     private void jbConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConcluirActionPerformed
         // BOTÃO CONCLUIR:
-        if(marca == true){
+        if(marca.equals(Constantes.PROFESSOR)){
+            System.out.println("Prof");
             alocaProf();
             //Gson gsonProfessor = new Gson();
             //String toJsonProfessor = gsonProfessor.toJson(professores);
@@ -235,13 +238,14 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             
         }
         else {
+            System.out.println("Aluno");
             alocaAluno();
-            //Gson gsonAluno = new Gson();
-            //String toJsonAluno = gsonAluno.toJson(alunos);
+            Gson gsonAluno = new Gson();
+            String toJsonAluno = gsonAluno.toJson(alunos);
             
             
             
-            //System.out.println("toJson = " + toJsonAluno);
+            System.out.println("toJson = " + toJsonAluno);
             
         }
         
@@ -308,9 +312,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                boolean marca = true;
-                int cont = 5000;
-                new TelaCadastroDados(marca, cont).setVisible(true);
+                
             }
         });
     }

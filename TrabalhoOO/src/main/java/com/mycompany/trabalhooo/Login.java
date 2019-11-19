@@ -13,6 +13,9 @@ public class Login {
     
     private String login;
     private String senha;
+
+    public Login() {
+    }
     
     /**
      * @return the login
