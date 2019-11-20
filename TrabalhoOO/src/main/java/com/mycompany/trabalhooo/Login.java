@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author Ronan
  */
 public class Login {
-    public TelaCadastroDados telaDados;
+    private TelaCadastroDados telaDados;
     private String login;
     private char[] senha;
 
@@ -29,20 +29,17 @@ public class Login {
 
     /**
      * @param login the login to set
+     * @throws java.lang.Exception
      */
-    public void setLogin(String login) throws Exception {
-        try{
-            if(telaDados.logins.containsKey(login)) throw new Exception();
-            else this.login = login;
-        }catch(Exception a){
-            JOptionPane.showMessageDialog(null, "Login ja existe!");
-        }
+    public void setLogin(String login){
+        this.login = login;
     }
     
     /**
      * @param senha the senha to set
+     * @throws java.lang.Exception
      */
-    public void setSenha(char [] senha) {
+    public void setSenha(char [] senha){
         this.senha = senha;
     }
     /**

@@ -24,7 +24,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
      */
     public TelaDepartamentoDados() {
         initComponents();
-        dep = new Departamento();
+        this.dep = new Departamento();
     }
 
     /**
@@ -35,7 +35,9 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
     
     
     //Recebe os Dados das Disciplinas da TelaDisciplinaDados
-   
+    public void adicionaDisciplina(){
+        
+    }
    
     
     

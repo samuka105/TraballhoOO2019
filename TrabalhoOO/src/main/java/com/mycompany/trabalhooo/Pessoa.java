@@ -42,7 +42,7 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
      */
     public void setNomeComp(String nomeComp) throws Exception {
 
-        if(nomeComp.split(" ").length >= 3)  this.nomeComp = nomeComp;
+        if(nomeComp.split(" ").length >= 2)  this.nomeComp = nomeComp;
         else{
             JOptionPane.showMessageDialog(null, "Digite seu nome completo!");
             throw new Exception ();

@@ -241,6 +241,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         p.setEmail(jtfEmail.getText());
         p.setIdade(jtfIdade.getText());
         p.setNomeComp(jtfNomeCompleto.getText());
+        confereLogin(jtfLogin.getText()); confereSenha(jpfSenha.getPassword());
         p.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
         p.setSiap(cont);
         cont =-13;
@@ -256,11 +257,26 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         a.setEmail(jtfEmail.getText());
         a.setIdade(jtfIdade.getText());
         a.setNomeComp(jtfNomeCompleto.getText());
+        confereLogin(jtfLogin.getText()); confereSenha(jpfSenha.getPassword());
         a.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
         cont =-14;
+        System.out.println("Aluno adicionado");
         alunos.add(a);
         logins.put(jtfLogin.getText(), jpfSenha.getPassword());
         
+    }
+    
+    private void confereLogin(String id) throws Exception{
+        if(logins.containsKey(id)){
+            JOptionPane.showMessageDialog(null, "Login ja existe!");
+            throw new Exception();
+        }
+    }
+    private void confereSenha(char [] senha) throws Exception{
+        if(senha.length <= 3) {
+            JOptionPane.showMessageDialog(null, "Digite uma senha com mais de 3 caracteres!");
+            throw new Exception();
+        }
     }
     
     private void jbConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConcluirActionPerformed

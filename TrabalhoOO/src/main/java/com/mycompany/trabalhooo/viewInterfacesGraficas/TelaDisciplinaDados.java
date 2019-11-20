@@ -17,6 +17,7 @@ import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Professor;
 import com.mycompany.trabalhooo.Turma;
+import java.util.ArrayList;
 
 
 
@@ -42,23 +43,32 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
  Gson gsonTurmaB = new Gson();
  String toJsonTurmaB;
  
- public Disciplina d;
- public Turma tA;
- public Turma tB;
- public Professor pA;
- public Professor pB;
+ public TelaCadastroDados telaDados;
+ public ArrayList<Disciplina> disciplinas;
  //DADOS DOS PROFESSORES PARA ASSOCIÁ-LOS
     
     /**
      * Creates new form TelaDisciplinaDados
      */
-    public TelaDisciplinaDados() {
-        initComponents();
-        d = new Disciplina();
-        tA = new Turma(Constantes.MAX_ALUNOS);
-        tB = new Turma(Constantes.MAX_ALUNOS);
+    public TelaDisciplinaDados(TelaCadastroDados telaDados) {
+        initComponents();   
+        this.telaDados = telaDados;
     }
-
+    
+    private void adicionaDisciplina(){
+        Turma a = new Turma("A");
+        Turma b = new Turma("B");
+        a.AlocaProfTurma(pA);
+        Disciplina d = new Disciplina();
+        d.setNome(jtfNomeDisc.getText());
+        d.turmas.add(tA);
+    }
+    private Professor buscaProf(String nome){
+        int i = 0;
+        while(i < telaDados.professores.size()){
+            if(telaDados.professores.get(i))
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +95,8 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         jtfProfessorB = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         jTextField2.setText("jTextField2");
 
@@ -146,6 +158,8 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
 
         jLabel8.setText("B");
 
+        jLabel9.setText("Codigo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,7 +173,11 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlNomeDisc)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtfNomeDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jtfNomeDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -186,7 +204,11 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlNomeDisc)
                     .addComponent(jtfNomeDisc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,7 +224,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jtfProfessorB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbDiscVoltar)
                     .addComponent(jbAdicionarDisc))
@@ -215,7 +237,6 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
     private void jbAdicionarDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAdicionarDiscActionPerformed
         // TODO add your handling code here:
         
-        d.setNome(jtfNomeDisc.getText());
         
         
     }//GEN-LAST:event_jbAdicionarDiscActionPerformed
@@ -285,6 +306,8 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton jbAdicionarDisc;
     private javax.swing.JButton jbDiscVoltar;
