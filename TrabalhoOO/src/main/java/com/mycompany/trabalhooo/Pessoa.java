@@ -5,6 +5,8 @@
  */
 package com.mycompany.trabalhooo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Geral
@@ -38,8 +40,18 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param nomeComp the nomeComp to set
      */
-    public void setNomeComp(String nomeComp) {
-        this.nomeComp = nomeComp;
+    public void setNomeComp(String nomeComp) throws Exception {
+        try{
+             if(nomeComp.split(" ").length >= 3)  this.nomeComp = nomeComp;
+             
+             else throw new Exception ();
+             
+        }catch (Exception a) {
+            
+        }
+        
+       
+        
     }
 
     /**
@@ -52,8 +64,19 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param idade the idade to set
      */
-    public void setIdade(String idade) {
-        this.idade = idade;
+    public void setIdade(String idade) throws Exception {
+        try{
+            int i = Integer.parseInt(idade);
+            if(i < 16 || i > 100)throw new Exception();
+            
+            else this.idade = idade;
+        } catch(Exception a)
+        {
+            JOptionPane.showMessageDialog(null, "Idade inválida! A idade deve ser maior que 16 e menor que 100!");
+        }
+        
+        
+        
     }
 
     /**
@@ -68,6 +91,8 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
      */
     public void setEmail(String email) {
         this.email = email;
+        
+        
     }
 
     /**
@@ -80,8 +105,17 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param cpf the cpf to set
      */
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpf(String cpf) throws Exception {
+        try{
+            
+            if(cpf.length() != 11) throw new Exception();
+            
+            else this.cpf = cpf;
+        } catch(Exception a){
+        
+            JOptionPane.showMessageDialog(null, "CPF Inválido!");
+        }
+        
     }
     
 }
