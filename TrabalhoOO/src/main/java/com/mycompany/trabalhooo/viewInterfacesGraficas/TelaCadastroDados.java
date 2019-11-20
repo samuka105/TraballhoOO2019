@@ -14,6 +14,8 @@ import com.mycompany.trabalhooo.Professor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -233,7 +235,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void alocaProf(){
+    private void alocaProf() throws Exception{
         Professor p = new Professor();
         p.setCpf(jtfCPF.getText());
         p.setEmail(jtfEmail.getText());
@@ -242,11 +244,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         p.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
         p.setSiap(cont);
         cont =-13;
+        System.out.println("Prof adicionado");
         professores.add(p);
         logins.put(jtfLogin.getText(), jpfSenha.getPassword());
         
     }
-    private void alocaAluno(){
+    private void alocaAluno() throws Exception{
+        
         Aluno a = new Aluno();
         a.setCpf(jtfCPF.getText());
         a.setEmail(jtfEmail.getText());
@@ -256,13 +260,18 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         cont =-14;
         alunos.add(a);
         logins.put(jtfLogin.getText(), jpfSenha.getPassword());
+        
     }
     
     private void jbConcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConcluirActionPerformed
         // BOTÃO CONCLUIR:
         if(marca.equals(Constantes.PROFESSOR)){
             System.out.println("Prof");
-            alocaProf();
+            try {
+                alocaProf();
+            }catch(Exception a){
+                JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
+            }
             toJsonProfessor = gsonProfessor.toJson(professores);
             //System.out.println("toJson = " + toJsonProfessor);
             if(readProf.Write(arqProf, toJsonProfessor)){    
@@ -276,7 +285,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         }
         else {
             System.out.println("Aluno");
-            alocaAluno();
+            try {
+                alocaAluno();
+            }catch(Exception a){
+                JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
+            }
             toJsonAluno = gsonAluno.toJson(alunos);
             
             

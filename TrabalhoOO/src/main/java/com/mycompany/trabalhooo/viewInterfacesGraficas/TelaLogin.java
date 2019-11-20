@@ -15,7 +15,7 @@ import javax.swing.JFrame;
  */
 public class TelaLogin extends javax.swing.JFrame {
     public TelaCadastroDados telaDados;
-    private int cont = 5000; 
+    private int cont;
     public String padrao;
     /**
      * Creates new form TelaInicial

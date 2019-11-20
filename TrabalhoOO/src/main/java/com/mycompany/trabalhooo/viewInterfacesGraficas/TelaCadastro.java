@@ -10,7 +10,7 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
  * @author Geral
  */
 public class TelaCadastro extends javax.swing.JFrame {
-    private int cont = 5000;
+    private int cont;
     private TelaCadastroDados telaDados;
     /**
      * Creates new form TelaCadastro
