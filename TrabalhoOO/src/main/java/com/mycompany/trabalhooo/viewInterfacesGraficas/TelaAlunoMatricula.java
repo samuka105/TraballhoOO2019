@@ -20,6 +20,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     public TelaAlunoMatricula(Aluno a) {
         initComponents();
         this.a = a;
+        jLabel1.setText(a.getNomeComp());
     }
 
     /**

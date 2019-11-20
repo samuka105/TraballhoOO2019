@@ -11,12 +11,14 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
  */
 public class TelaCadastro extends javax.swing.JFrame {
     private int cont = 5000;
+    private TelaCadastroDados telaDados;
     /**
      * Creates new form TelaCadastro
      */
-    public TelaCadastro(int cont) {
+    public TelaCadastro(int cont, TelaCadastroDados telaDados) {
         initComponents();
         this.cont = cont;
+        this.telaDados = telaDados;
     }
 
     /**
@@ -87,16 +89,14 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTÃO ALUNO:
-       
-        TelaCadastroDados prox = new TelaCadastroDados(Constantes.ALUNO, cont);
-        prox.setVisible(true);
+        telaDados.setMarca(Constantes.ALUNO);
+        telaDados.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // BOTAO PROFESSOR:
-       
-        TelaCadastroDados prox = new TelaCadastroDados(Constantes.PROFESSOR, cont);
-        prox.setVisible(true);
+        telaDados.setMarca(Constantes.PROFESSOR);
+        telaDados.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed

@@ -19,6 +19,7 @@ public class TelaAlunoNota extends javax.swing.JFrame {
     public TelaAlunoNota(Aluno a) {
         initComponents();
         this.a = a;
+        jLabel1.setText(a.getNomeComp());
     }
 
     /**

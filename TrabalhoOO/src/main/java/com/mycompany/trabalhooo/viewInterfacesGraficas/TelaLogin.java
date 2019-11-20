@@ -130,6 +130,8 @@ public class TelaLogin extends javax.swing.JFrame {
         } else{
             System.out.println("Errou");
         }
+        jtfId.setText("");
+        jPassword.setText("");
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -153,7 +155,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 System.out.println(telaDados.professores.get(i).getLogin().getLogin());
                 System.out.println(id);
                 while(i<telaDados.professores.size()){
-                    if(telaDados.alunos.get(i).getLogin().getLogin().equals(id)){
+                    if(telaDados.professores.get(i).getLogin().getLogin().equals(id)){
                         TelaProfessorPrincipal prox = new TelaProfessorPrincipal(telaDados.professores.get(i));
                         prox.setVisible(true);
                         break;
