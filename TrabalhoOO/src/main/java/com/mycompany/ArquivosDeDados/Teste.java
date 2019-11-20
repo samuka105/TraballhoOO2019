@@ -12,7 +12,7 @@ package com.mycompany.ArquivosDeDados;
 public class Teste {
     public static void main(String[] args) {
         String arq = "Riso.txt";
-      /*  String text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry";
+       /* String text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry";
         
         if(Arquivo.Write(arq, text)){
             System.out.println("Texto salvo");           
@@ -20,8 +20,8 @@ public class Teste {
         else{
             System.out.println("Erro!");
         }
-        
-    }*/
+        */
+    
        
         String texto = Arquivo.Read(arq);
         if(texto.isEmpty()){

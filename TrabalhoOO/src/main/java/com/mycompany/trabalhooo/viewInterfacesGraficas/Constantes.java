@@ -13,5 +13,6 @@ public class Constantes {
     public static final String PROFESSOR = "Professor";
     public static final String ALUNO = "Aluno";
     public static final String PADRAO = "Padrao";
+    public static final int MAX_ALUNOS = 12;
     
 }

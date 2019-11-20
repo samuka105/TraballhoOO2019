@@ -9,12 +9,32 @@ public class Disciplina {
     // tem turmas, professores, alunos, notas, departamento
     //ronan: acredito que os atributos alunos e notas devam estar em turma
     private String nome;
-    private int cargaHoraria;
-    private String codigo; //seria necessário?
-    private Departamento departamento;
+    
+     //seria necessário?
+    
     
     //lista de todas as turmas
-    List<Turma> turmas = new ArrayList<>();
+    public List<Turma> turmas;
+    
+    public Disciplina(){
+         turmas = new ArrayList<>();
+    }
     
     //
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    
 }

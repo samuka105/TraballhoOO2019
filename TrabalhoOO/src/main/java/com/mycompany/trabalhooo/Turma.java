@@ -77,10 +77,22 @@ public class Turma {
     //metodo de lançar notas no historico escolar
     //metodo 
 
-    public Turma(String codigo, Professor docente, int maxAlunos) {
-        this.codigo = codigo;
-        this.docente = docente;
+    public Turma(  int maxAlunos) {
+        
+        
         this.maxAlunos = maxAlunos;
         this.alunos = new ArrayList<>();
     }
+    
+    public Professor getProfessor(){
+    return docente;
 }
+    
+    public void AlocaProfTurma(Professor docente){
+        this.docente = docente;
+    }
+
+
+}
+
+ 

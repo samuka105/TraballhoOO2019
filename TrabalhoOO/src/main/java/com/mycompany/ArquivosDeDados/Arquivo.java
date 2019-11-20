@@ -5,6 +5,7 @@
  */
 package com.mycompany.ArquivosDeDados;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -21,6 +22,7 @@ public class Arquivo {
     /**
      *
      */
+    
     public static  String caminho = "Arquivos/DadosUniversitarios";
     public static String Read(String caminho){
        String conteudo = "";
@@ -53,6 +55,10 @@ public class Arquivo {
 
 public static boolean Write(String caminho, String Text){
     try{
+        File way = new File("Arquivo" + File.separator + "DadosUniversitarios");
+        if(!way.isDirectory()){
+            way.mkdirs();
+        }
         FileWriter arq = new FileWriter(caminho);
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.println(Text);
