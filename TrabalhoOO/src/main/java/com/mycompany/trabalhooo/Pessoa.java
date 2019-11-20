@@ -5,6 +5,8 @@
  */
 package com.mycompany.trabalhooo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Geral
@@ -66,8 +68,13 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param email the email to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email) throws Exception {
+        try{
+            if(email.contains("@")) this.email = email;
+            else throw new Exception();
+        }catch(Exception a){
+            JOptionPane.showMessageDialog(null, "Email invalido!");
+        }
     }
 
     /**
