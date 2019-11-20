@@ -6,6 +6,7 @@
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Login;
@@ -40,7 +41,14 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     public List<Professor> professores;
     private String marca;
     private int cont;
-    public TelaCadastroDados(int cont) {
+    
+    Gson gsonAluno = new Gson();
+    String toJsonAluno;
+    
+    Gson gsonProfessor = new Gson();
+    String toJsonProfessor; 
+    
+    public TelaCadastroDados(String marca, int cont) {
         initComponents();
         this.alunos = new ArrayList<>();
         this.logins = new HashMap<>();
@@ -255,11 +263,9 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         if(marca.equals(Constantes.PROFESSOR)){
             System.out.println("Prof");
             alocaProf();
-            Gson gsonProfessor = new Gson();
-            String toJsonProfessor = gsonProfessor.toJson(professores);
-            System.out.println("toJson = " + toJsonProfessor);
+            toJsonProfessor = gsonProfessor.toJson(professores);
             //System.out.println("toJson = " + toJsonProfessor);
-            if(Arquivo.Write(arqProf, toJsonProfessor)){    
+            if(readProf.Write(arqProf, toJsonProfessor)){    
                 System.out.println("Texto salvo");
             }
              else{
@@ -271,14 +277,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         else {
             System.out.println("Aluno");
             alocaAluno();
-            Gson gsonAluno = new Gson();
-            String toJsonAluno = gsonAluno.toJson(alunos);
+            toJsonAluno = gsonAluno.toJson(alunos);
             
             
             
             System.out.println("toJson = " + toJsonAluno);
             
-            if(Arquivo.Write(arqAluno, toJsonAluno)){    
+            if(readAluno.Write(arqAluno, toJsonAluno)){    
                 System.out.println("Texto salvo");
             }
             else{
@@ -365,6 +370,83 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }
         });
     }
+    
+    public List<Aluno> retornarArquivoAlunos(){
+      
+        toJsonAluno = readAluno.read(arqAluno);
+        
+        java.lang.reflect.Type myType = new TypeToken<List<Aluno>>(){}.getType();
+        List<Aluno> fromJson = gsonAluno.fromJson(toJsonAluno, myType);
+       
+        for (Aluno aluno : fromJson) {
+            System.out.println(aluno);
+        }
+        
+        
+        return alunos;
+    }
+    
+        public List<Professor> retornarArquivoProfessor(){
+      
+        toJsonProfessor = readProf.read(arqProf);
+        
+        java.lang.reflect.Type myType = new TypeToken<List<Professor>>(){}.getType();
+        List<Professor> fromJson = gsonProfessor.fromJson(toJsonProfessor, myType);
+       
+        for (Professor professor : fromJson) {
+            System.out.println(professor);
+        }
+        
+        
+        return professores;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

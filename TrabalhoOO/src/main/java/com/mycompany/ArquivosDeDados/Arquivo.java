@@ -64,4 +64,8 @@ public static boolean Write(String caminho, String Text){
     }
  }
 
+    public String read(String arqAluno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
