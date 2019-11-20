@@ -48,7 +48,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     Gson gsonProfessor = new Gson();
     String toJsonProfessor; 
     
-    public TelaCadastroDados(String marca, int cont) {
+    public TelaCadastroDados(int cont) {
         initComponents();
         this.alunos = new ArrayList<>();
         this.logins = new HashMap<>();
