@@ -5,6 +5,8 @@
  */
 package com.mycompany.trabalhooo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Geral
@@ -17,7 +19,7 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     private String cpf;
     private Login login;
     
-    public void setLogin(String usuario, char [] senha){
+    public void setLogin(String usuario, char [] senha) throws Exception{
         login.setLogin(usuario);
         login.setSenha(senha);
     }
@@ -38,8 +40,13 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param nomeComp the nomeComp to set
      */
-    public void setNomeComp(String nomeComp) {
-        this.nomeComp = nomeComp;
+    public void setNomeComp(String nomeComp) throws Exception {
+
+        if(nomeComp.split(" ").length >= 3)  this.nomeComp = nomeComp;
+        else{
+            JOptionPane.showMessageDialog(null, "Digite seu nome completo!");
+            throw new Exception ();
+        }   
     }
 
     /**
@@ -52,8 +59,15 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param idade the idade to set
      */
-    public void setIdade(String idade) {
-        this.idade = idade;
+    public void setIdade(String idade) throws Exception {
+    
+        int i = Integer.parseInt(idade);
+        if(i < 16 || i > 100){
+            JOptionPane.showMessageDialog(null, "Idade inválida! A idade deve ser maior que 16 e menor que 100!");
+            throw new Exception();
+        }    
+        else this.idade = idade;
+        
     }
 
     /**
@@ -66,8 +80,14 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param email the email to set
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email) throws Exception {
+        
+        if(email.contains("@")) this.email = email;
+        else{
+            JOptionPane.showMessageDialog(null, "Email invalido!");
+            throw new Exception();
+        }
+        
     }
 
     /**
@@ -80,8 +100,12 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     /**
      * @param cpf the cpf to set
      */
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCpf(String cpf) throws Exception {
+            
+        if(cpf.length() != 11){
+            JOptionPane.showMessageDialog(null, "CPF Inválido!");
+            throw new Exception();
+        }
+        else this.cpf = cpf;  
     }
-    
 }

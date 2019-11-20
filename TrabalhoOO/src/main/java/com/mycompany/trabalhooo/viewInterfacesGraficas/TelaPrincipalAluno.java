@@ -33,6 +33,7 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
         jButtonVerNotas = new javax.swing.JButton();
         jButtonMatricula = new javax.swing.JButton();
         jButtonTrancar = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +58,13 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
             }
         });
 
+        jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,11 +77,15 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jButtonMatricula)
                 .addGap(82, 82, 82))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButtonSair)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addComponent(jButtonSair)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVerNotas)
                     .addComponent(jButtonMatricula))
@@ -102,6 +114,11 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
         TelaAlunoTrancamento trancar = new TelaAlunoTrancamento(a);
         trancar.setVisible(true);
     }//GEN-LAST:event_jButtonTrancarActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +158,7 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonMatricula;
+    private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonTrancar;
     private javax.swing.JButton jButtonVerNotas;
     // End of variables declaration//GEN-END:variables

@@ -19,6 +19,7 @@ public class TelaAlunoNota extends javax.swing.JFrame {
     public TelaAlunoNota(Aluno a) {
         initComponents();
         this.a = a;
+        jLabel1.setText(a.getNomeComp());
     }
 
     /**
@@ -56,7 +57,15 @@ public class TelaAlunoNota extends javax.swing.JFrame {
             new String [] {
                 "Disciplina", "TVC 1", "TVC 2", "TVC 3", "MÉDIA", "SITUAÇÃO"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Nome do Aluno");

@@ -20,6 +20,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     public TelaAlunoMatricula(Aluno a) {
         initComponents();
         this.a = a;
+        jLabel1.setText(a.getNomeComp());
     }
 
     /**
@@ -56,6 +57,11 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         jLabel1.setText("Nome do Aluno");
 
         jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         jCheckBox2.setText("jCheckBox2");
 
@@ -148,6 +154,11 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments

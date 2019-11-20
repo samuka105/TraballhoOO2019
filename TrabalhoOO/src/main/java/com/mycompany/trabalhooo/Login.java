@@ -5,12 +5,15 @@
  */
 package com.mycompany.trabalhooo;
 
+import com.mycompany.trabalhooo.viewInterfacesGraficas.TelaCadastroDados;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ronan
  */
 public class Login {
-    
+    public TelaCadastroDados telaDados;
     private String login;
     private char[] senha;
 
@@ -27,8 +30,13 @@ public class Login {
     /**
      * @param login the login to set
      */
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLogin(String login) throws Exception {
+        try{
+            if(telaDados.logins.containsKey(login)) throw new Exception();
+            else this.login = login;
+        }catch(Exception a){
+            JOptionPane.showMessageDialog(null, "Login ja existe!");
+        }
     }
     
     /**
