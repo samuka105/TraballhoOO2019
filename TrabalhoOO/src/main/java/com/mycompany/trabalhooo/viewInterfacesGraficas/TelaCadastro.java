@@ -12,13 +12,17 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 public class TelaCadastro extends javax.swing.JFrame {
     private int cont;
     private TelaCadastroDados telaDados;
+    private TelaDepartamentoDados telaDep;
+    private TelaDisciplinaDados telaDisc;
     /**
      * Creates new form TelaCadastro
      */
-    public TelaCadastro(int cont, TelaCadastroDados telaDados) {
+    public TelaCadastro(int cont, TelaCadastroDados telaDados, TelaDisciplinaDados telaDisc, TelaDepartamentoDados telaDep) {
         initComponents();
         this.cont = cont;
         this.telaDados = telaDados;
+        this.telaDep = telaDep;
+        this.telaDisc = telaDisc;
     }
 
     /**
@@ -67,6 +71,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
 
         jButton4.setText("Departamento");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,7 +134,13 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        telaDisc.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        telaDep.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -18,6 +18,9 @@ import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Professor;
 import com.mycompany.trabalhooo.Turma;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 
@@ -53,21 +56,36 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
     public TelaDisciplinaDados(TelaCadastroDados telaDados) {
         initComponents();   
         this.telaDados = telaDados;
+        this.disciplinas = new ArrayList<>();
     }
     
-    private void adicionaDisciplina(){
+    private void adicionaDisciplina() {
         Turma a = new Turma("A");
         Turma b = new Turma("B");
-        a.AlocaProfTurma(pA);
+        Professor p1 = buscaProf(jtfProfessorA.getText());
+        Professor p2 = buscaProf(jtfProfessorB.getText());
+        a.AlocaProfTurma(p1);
+        b.AlocaProfTurma(p2);
+        p1.nomeDisciplinas.add(jtfNomeDisc.getText());
+        p2.nomeDisciplinas.add(jtfNomeDisc.getText());
         Disciplina d = new Disciplina();
         d.setNome(jtfNomeDisc.getText());
-        d.turmas.add(tA);
+        d.setCodigo(jTextField1.getText());
+        d.turmas.add(a); d.turmas.add(b);
+        disciplinas.add(d);
     }
-    private Professor buscaProf(String nome){
+    private Professor buscaProf(String nome) {
+        //try{
         int i = 0;
         while(i < telaDados.professores.size()){
-            if(telaDados.professores.get(i))
+            if(telaDados.professores.get(i).getNomeComp().equals(nome)) return telaDados.professores.get(i);
+            i++;
         }
+        //throw new Exception();
+        //}catch(Exception a){
+        //    JOptionPane.showMessageDialog(null,"Professor nao existe!");
+        //}
+        return null;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,11 +172,23 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
             }
         });
 
+        jtfProfessorB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfProfessorBActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("A");
 
         jLabel8.setText("B");
 
         jLabel9.setText("Codigo");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,7 +207,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -235,10 +265,17 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAdicionarDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAdicionarDiscActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
+     //try {
+         // TODO add your handling code here:
+         adicionaDisciplina();
+         System.out.println("Disciplina adicionada");
+         jTextField1.setText(" ");
+         jtfNomeDisc.setText(" ");
+         jtfProfessorA.setText(" ");
+         jtfProfessorB.setText(" ");
+     //} catch (Exception ex) {
+       //  JOptionPane.showMessageDialog(null, "Erro no preenchimento");
+     //}
     }//GEN-LAST:event_jbAdicionarDiscActionPerformed
 
     private void jtfNomeDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeDiscActionPerformed
@@ -261,6 +298,14 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jbDiscVoltarActionPerformed
+
+    private void jtfProfessorBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfProfessorBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfProfessorBActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,7 +337,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDisciplinaDados().setVisible(true);
+                //new TelaDisciplinaDados().setVisible(true);
             }
         });
     }

@@ -7,6 +7,9 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.mycompany.trabalhooo.Departamento;
 import com.mycompany.trabalhooo.Disciplina;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,15 +19,13 @@ import com.mycompany.trabalhooo.Disciplina;
 
 public class TelaDepartamentoDados extends javax.swing.JFrame {
 
-     public Departamento dep;
-     public Disciplina d1;
-     public Disciplina d2;
+     public TelaDisciplinaDados telaDisc;
     /**
      * Creates new form TelaDepartamentoDados
      */
-    public TelaDepartamentoDados() {
+    public TelaDepartamentoDados(TelaDisciplinaDados a) {
         initComponents();
-        this.dep = new Departamento();
+        this.telaDisc = a;
     }
 
     /**
@@ -35,10 +36,28 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
     
     
     //Recebe os Dados das Disciplinas da TelaDisciplinaDados
-    public void adicionaDisciplina(){
-        
+    public void adicionaDepartamento() {
+        Departamento dep = new Departamento();
+        dep.addDisciplina(buscaDisciplina(jtfDisciplina1.getText()));
+        dep.addDisciplina(buscaDisciplina(jtfDisciplina2.getText()));
+        dep.setNome(jtfNomeDepto.getText());
     }
-   
+    
+    private Disciplina buscaDisciplina(String d) {
+        //try{
+        int i = 0;
+        while(i < telaDisc.disciplinas.size()){
+            if(telaDisc.disciplinas.get(i).getNome().equals(d)){
+                return telaDisc.disciplinas.get(i);
+            }
+            i++;  
+        }
+        //throw new Exception();
+        //}catch(Exception a){
+        //    JOptionPane.showMessageDialog(null,"Erro no preenchimento dos dados");
+        //}
+        return null;
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -59,6 +78,12 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setText("Nome");
+
+        jtfNomeDepto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfNomeDeptoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Disciplinas");
 
@@ -148,9 +173,21 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVoltarActionPerformed
 
     private void jbAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAdicionarActionPerformed
-        // TODO add your handling code here:
-        dep.setNome(jtfNomeDepto.getText());
+         //try {
+             // TODO add your handling code here:
+             adicionaDepartamento();
+             JOptionPane.showMessageDialog(null, "Departamento Criado!");
+             jtfDisciplina1.setText("");
+             jtfDisciplina2.setText("");
+             jtfNomeDepto.setText("");
+         //} catch (Exception ex) {
+         //    JOptionPane.showMessageDialog(null,"Falha no cadastro");
+         //}
     }//GEN-LAST:event_jbAdicionarActionPerformed
+
+    private void jtfNomeDeptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeDeptoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfNomeDeptoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,7 +219,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaDepartamentoDados().setVisible(true);
+                //new TelaDepartamentoDados().setVisible(true);
             }
         });
     }

@@ -17,12 +17,16 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaCadastroDados telaDados;
     private int cont;
     public String padrao;
+    private TelaDepartamentoDados telaDep;
+    private TelaDisciplinaDados telaDisc;
     /**
      * Creates new form TelaInicial
      */
-    public TelaLogin(TelaCadastroDados telaDados) {
+    public TelaLogin(TelaCadastroDados telaDados, TelaDisciplinaDados telaDisc, TelaDepartamentoDados telaDep) {
         initComponents();
         this.telaDados = telaDados;
+        this.telaDep = telaDep;
+        this.telaDisc = telaDisc;
     }
 
     /**
@@ -141,7 +145,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 System.out.println(id);
                 while(i<telaDados.alunos.size()){
                     if(telaDados.alunos.get(i).getLogin().getLogin().equals(id)){
-                        TelaPrincipalAluno proxima = new TelaPrincipalAluno(telaDados.alunos.get(i));
+                        TelaPrincipalAluno proxima = new TelaPrincipalAluno(telaDados.alunos.get(i), telaDados, telaDisc, telaDep);
                         proxima.setVisible(true);
                         break;
                         
@@ -156,7 +160,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 System.out.println(id);
                 while(i<telaDados.professores.size()){
                     if(telaDados.professores.get(i).getLogin().getLogin().equals(id)){
-                        TelaProfessorPrincipal prox = new TelaProfessorPrincipal(telaDados.professores.get(i));
+                        TelaProfessorPrincipal prox = new TelaProfessorPrincipal(telaDados.professores.get(i), telaDados, telaDisc, telaDep);
                         prox.setVisible(true);
                         break;
                     }
@@ -170,7 +174,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // CADASTRO
         //TelaLogin tela = new TelaLogin();
-        TelaCadastro t = new TelaCadastro(cont, telaDados);
+        TelaCadastro t = new TelaCadastro(cont, telaDados, telaDisc, telaDep);
         t.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -212,7 +216,9 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastroDados telaDados = new TelaCadastroDados(5000);
-                new TelaLogin(telaDados).setVisible(true);
+                TelaDisciplinaDados t = new TelaDisciplinaDados(telaDados);
+                TelaDepartamentoDados te = new TelaDepartamentoDados(t);
+                new TelaLogin(telaDados,t,te ).setVisible(true);
             }
         });
     }

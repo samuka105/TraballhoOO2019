@@ -5,17 +5,25 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Disciplina;
+
 /**
  *
  * @author Enedilson
  */
 public class TelaProfessorLancaNota extends javax.swing.JFrame {
-
+    
+    private Disciplina d;
+    private TelaDisciplinaDados telaDisc;
     /**
      * Creates new form TelaProfessorLancaNota
      */
-    public TelaProfessorLancaNota() {
+    public TelaProfessorLancaNota(Disciplina d, TelaDisciplinaDados telaDisc) {
         initComponents();
+        this.d = d;
+        this.telaDisc = telaDisc;
+        jLabel1.setText(d.getNome());
+       
     }
 
     /**
@@ -83,6 +91,11 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         });
 
         jbLancaNota.setText("Lançar Nota");
+        jbLancaNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLancaNotaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,8 +110,8 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(62, 62, 62)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextField1))
@@ -134,8 +147,8 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbVoltar)
                     .addComponent(jbLancaNota))
@@ -153,6 +166,11 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jbVoltarActionPerformed
+
+    private void jbLancaNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLancaNotaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jbLancaNotaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,7 +202,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaProfessorLancaNota().setVisible(true);
+                //new TelaProfessorLancaNota().setVisible(true);
             }
         });
     }

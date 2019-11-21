@@ -44,11 +44,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     private String marca;
     private int cont;
     
-    Gson gsonAluno = new Gson();
-    String toJsonAluno;
-    
-    Gson gsonProfessor = new Gson();
-    String toJsonProfessor; 
+//    public Gson gsonAluno;
+//    public String toJsonAluno;
+//    
+//    public Gson gsonProfessor;
+//    public String toJsonProfessor; 
     
     public TelaCadastroDados(int cont) {
         initComponents();
@@ -56,6 +56,10 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         this.logins = new HashMap<>();
         this.cont = cont;
         this.professores = new ArrayList<>();
+//        this.gsonAluno = new Gson();
+//        this.gsonProfessor = new Gson();
+//        this.toJsonAluno = " ";
+//        this.toJsonProfessor = " ";
         
     }
     public String getMarca(){
@@ -243,11 +247,12 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         p.setNomeComp(jtfNomeCompleto.getText());
         confereLogin(jtfLogin.getText()); confereSenha(jpfSenha.getPassword());
         p.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
-        p.setSiap(cont);
+        p.setIdentificacao(cont);
         cont =-13;
         System.out.println("Prof adicionado");
         professores.add(p);
         logins.put(jtfLogin.getText(), jpfSenha.getPassword());
+        System.out.println(p.getNomeComp());
         
     }
     private void alocaAluno() throws Exception{
@@ -259,6 +264,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         a.setNomeComp(jtfNomeCompleto.getText());
         confereLogin(jtfLogin.getText()); confereSenha(jpfSenha.getPassword());
         a.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
+        a.setIdentificacao(cont);
         cont =-14;
         System.out.println("Aluno adicionado");
         alunos.add(a);
@@ -288,8 +294,14 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
-            toJsonProfessor = gsonProfessor.toJson(professores);
-            //System.out.println("toJson = " + toJsonProfessor);
+            Gson gsonLogins = new Gson();
+            String toJsonLogins = gsonLogins.toJson(logins);
+            System.out.println("toJson = " + toJsonLogins);
+            Gson gsonProfessor = new Gson();
+            System.out.println("Ate aqui tudo ok");
+            String toJsonProfessor = gsonProfessor.toJson(professores);
+            System.out.println("Progresso");
+            System.out.println("toJson = " + toJsonProfessor);
             if(readProf.Write(arqProf, toJsonProfessor)){    
                 System.out.println("Texto salvo");
             }
@@ -306,7 +318,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
-            toJsonAluno = gsonAluno.toJson(alunos);
+            Gson gsonAluno = new Gson();
+            String toJsonAluno = gsonAluno.toJson(alunos);
             
             
             
@@ -399,7 +412,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }
         });
     }
-    
+    /*
     public List<Aluno> retornarArquivoAlunos(){
       
         toJsonAluno = readAluno.read(arqAluno);
@@ -429,7 +442,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         
         return professores;
     }
-    
+    */
     
  
     

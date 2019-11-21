@@ -5,19 +5,35 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Disciplina;
+import com.mycompany.trabalhooo.Professor;
+
 /**
  *
  * @author Enedilson
  */
 public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
-
+    private TelaDisciplinaDados telaDisc;
+    private Professor p;
+    private Disciplina d;
     /**
      * Creates new form TelaProfessorMinhasDisciplinas
      */
-    public TelaProfessorMinhasDisciplinas() {
+    public TelaProfessorMinhasDisciplinas(Professor p, TelaDisciplinaDados telaDisc) {
         initComponents();
+        this.d = d;
+        this.p = p;
+        this.telaDisc = telaDisc;
+        jLabel1.setText(p.nomeDisciplinas.get(0));
+        jLabel2.setText(p.nomeDisciplinas.get(1));
     }
-
+    private Disciplina buscaDisciplina(String disc){
+        int i = 0;
+        while(i<telaDisc.disciplinas.size()){
+            if(telaDisc.disciplinas.get(i).getNome().equals(disc)) return telaDisc.disciplinas.get(i);
+        }
+        return null;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,6 +46,8 @@ public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
         jbVolta = new javax.swing.JButton();
         jbDisciplinaA = new javax.swing.JButton();
         jbDisciplinaB = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,14 +58,23 @@ public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
             }
         });
 
-        jbDisciplinaA.setText("Disciplina A");
+        jbDisciplinaA.setText("Acessar");
         jbDisciplinaA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbDisciplinaAActionPerformed(evt);
             }
         });
 
-        jbDisciplinaB.setText("Disciplina B");
+        jbDisciplinaB.setText("Acessar");
+        jbDisciplinaB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbDisciplinaBActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,25 +83,31 @@ public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jbVolta))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbDisciplinaA, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(jbDisciplinaB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jbVolta)))
+                            .addComponent(jbDisciplinaB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbDisciplinaA)
-                .addGap(60, 60, 60)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbDisciplinaB)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jbVolta)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -87,7 +120,17 @@ public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
 
     private void jbDisciplinaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDisciplinaAActionPerformed
         // TODO add your handling code here:
+        d = buscaDisciplina(p.nomeDisciplinas.get(0));
+        TelaProfessorLancaNota telaProfNota = new TelaProfessorLancaNota(d,telaDisc);
+        telaProfNota.setVisible(true);
     }//GEN-LAST:event_jbDisciplinaAActionPerformed
+
+    private void jbDisciplinaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDisciplinaBActionPerformed
+        // TODO add your handling code here:
+        d = buscaDisciplina(p.nomeDisciplinas.get(1));
+        TelaProfessorLancaNota telaProfNota = new TelaProfessorLancaNota(d, telaDisc);
+        telaProfNota.setVisible(true);
+    }//GEN-LAST:event_jbDisciplinaBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,12 +162,14 @@ public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaProfessorMinhasDisciplinas().setVisible(true);
+                //new TelaProfessorMinhasDisciplinas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jbDisciplinaA;
     private javax.swing.JButton jbDisciplinaB;
     private javax.swing.JButton jbVolta;

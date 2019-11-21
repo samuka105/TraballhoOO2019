@@ -5,7 +5,6 @@
  */
 package com.mycompany.trabalhooo;
 
-import java.util.List;
 
 /**
  *
@@ -14,22 +13,22 @@ import java.util.List;
 public class Aluno extends Pessoa{
     private String matricula;
     
-
     public Aluno() {
         super();
-        
     }
     /**
      * @return the matricula
      */
-    public String getMatricula() {
+    @Override
+    public String getIdentificacao() {
         return matricula;
     }
 
     /**
      * @param matricula the matricula to set
      */
-    public void setMatricula(int cont) {
+    @Override
+    public void setIdentificacao(int cont) {
         int aux = cont -14;
         this.matricula = Integer.toString(aux) + "-" + "A";
     }   
@@ -45,7 +44,7 @@ public class Aluno extends Pessoa{
         System.out.println("Idade:"+ this.getIdade());
         System.out.println("Email:"+ this.getEmail());
         System.out.println("Cpf:"+ this.getCpf());
-        System.out.println("Matricula:"+ this.getMatricula());
+        //System.out.println("Matricula:"+ this.getMatricula());
         //System.out.println("Login:"+ this.login.getLogin());
         //System.out.println("Senha:"+ this.login.getSenha());
     }

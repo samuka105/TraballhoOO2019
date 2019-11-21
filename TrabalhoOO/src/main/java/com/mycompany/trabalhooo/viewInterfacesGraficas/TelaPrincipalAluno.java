@@ -13,12 +13,18 @@ import com.mycompany.trabalhooo.Aluno;
  */
 public class TelaPrincipalAluno extends javax.swing.JFrame {
     private Aluno a;
+    private TelaDepartamentoDados telaDep;
+    private TelaDisciplinaDados telaDisc;
+    private TelaCadastroDados telaDados;
     /**
      * Creates new form TelaSecundaria
      */
-    public TelaPrincipalAluno(Aluno a) {
+    public TelaPrincipalAluno(Aluno a,TelaCadastroDados telaDados, TelaDisciplinaDados telaDisc, TelaDepartamentoDados telaDep) {
         initComponents();
         this.a = a;
+        this.telaDados = telaDados;
+        this.telaDep = telaDep;
+        this.telaDisc = telaDisc;
     }
 
     /**
@@ -105,7 +111,7 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
 
     private void jButtonMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMatriculaActionPerformed
         // TODO 
-        TelaAlunoMatricula matricula = new TelaAlunoMatricula(a);
+        TelaAlunoMatricula matricula = new TelaAlunoMatricula(a, telaDisc);
         matricula.setVisible(true);
     }//GEN-LAST:event_jButtonMatriculaActionPerformed
 

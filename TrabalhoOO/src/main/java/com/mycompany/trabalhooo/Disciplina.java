@@ -6,18 +6,32 @@ import java.util.*;
  * @author Geral
  */
 public class Disciplina {
+
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
     // tem turmas, professores, alunos, notas, departamento
     //ronan: acredito que os atributos alunos e notas devam estar em turma
     private String nome;
     
-     //seria necessário?
+    private String codigo;
     
     
     //lista de todas as turmas
     public List<Turma> turmas;
-    
+    //public List<Professor> professores;
     public Disciplina(){
-         turmas = new ArrayList<>();
+        this.turmas = new ArrayList<>();
     }
     
     //

@@ -14,13 +14,15 @@ import com.mycompany.trabalhooo.Aluno;
 public class TelaAlunoMatricula extends javax.swing.JFrame {
     
     private Aluno a;
+    private TelaDisciplinaDados telaDisc;
     /**
      * Creates new form TelaAlunoMatricula
      */
-    public TelaAlunoMatricula(Aluno a) {
+    public TelaAlunoMatricula(Aluno a, TelaDisciplinaDados telaDisc) {
         initComponents();
         this.a = a;
         jLabel1.setText(a.getNomeComp());
+        this.telaDisc = telaDisc;
     }
 
     /**
@@ -157,7 +159,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**

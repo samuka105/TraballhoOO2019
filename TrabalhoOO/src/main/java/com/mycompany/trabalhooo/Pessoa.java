@@ -18,8 +18,12 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
     private String email;
     private String cpf;
     private Login login;
+    private String id;
     
-    public void setLogin(String usuario, char [] senha) throws Exception{
+    public abstract void setIdentificacao(int cont);
+    public abstract String getIdentificacao();
+    
+    public void setLogin(String usuario, char [] senha){
         login.setLogin(usuario);
         login.setSenha(senha);
     }
@@ -39,8 +43,9 @@ public abstract class Pessoa { //classe abstrata - não instacia objetos
 
     /**
      * @param nomeComp the nomeComp to set
+     * @throws java.lang.Exception
      */
-    public void setNomeComp(String nomeComp) throws Exception {
+    public void setNomeComp(String nomeComp) throws Exception{
 
         if(nomeComp.split(" ").length >= 2)  this.nomeComp = nomeComp;
         else{
