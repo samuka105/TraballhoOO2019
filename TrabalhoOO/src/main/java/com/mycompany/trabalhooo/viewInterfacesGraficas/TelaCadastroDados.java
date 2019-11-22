@@ -47,10 +47,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         this.logins = new HashMap<>();
         this.cont = cont;
         this.professores = pr;
-//        this.gsonAluno = new Gson();
-//        this.gsonProfessor = new Gson();
-//        this.toJsonAluno = " ";
-//        this.toJsonProfessor = " ";
+        this.marca = marca;
         this.arq = new Arquivo();
         
         

@@ -5,24 +5,32 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Aluno;
+import com.mycompany.trabalhooo.Departamento;
+import com.mycompany.trabalhooo.Disciplina;
+import com.mycompany.trabalhooo.Professor;
+import java.util.List;
+
 /**
  *
  * @author Geral
  */
 public class TelaCadastro extends javax.swing.JFrame {
     private int cont;
-    private TelaCadastroDados telaDados;
-    private TelaDepartamentoDados telaDep;
-    private TelaDisciplinaDados telaDisc;
+    public List<Aluno> alunos;
+    public List<Professor> professores;
+    public List<Disciplina> disciplinas;
+    public List<Departamento> departamentos;
     /**
      * Creates new form TelaCadastro
      */
-    public TelaCadastro(int cont, TelaCadastroDados telaDados, TelaDisciplinaDados telaDisc, TelaDepartamentoDados telaDep) {
+    public TelaCadastro(int cont, List<Departamento> departamentos, List<Disciplina> disciplinas, List<Aluno> alunos, List<Professor> professores) {
         initComponents();
         this.cont = cont;
-        this.telaDados = telaDados;
-        this.telaDep = telaDep;
-        this.telaDisc = telaDisc;
+        this.professores = professores;
+        this.alunos = alunos;
+        this.departamentos = departamentos;
+        this.disciplinas = disciplinas;
     }
 
     /**
@@ -117,14 +125,16 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTÃO ALUNO:
-        telaDados.setMarca(Constantes.ALUNO);
-        telaDados.setVisible(true);
+        TelaCadastroDados tela = new TelaCadastroDados(cont, alunos, professores);
+        tela.setMarca(Constantes.ALUNO);
+        tela.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // BOTAO PROFESSOR:
-        telaDados.setMarca(Constantes.PROFESSOR);
-        telaDados.setVisible(true);
+        TelaCadastroDados tela = new TelaCadastroDados(cont, alunos, professores);
+        tela.setMarca(Constantes.PROFESSOR);
+        tela.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -134,12 +144,14 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        telaDisc.setVisible(true);
+        TelaDisciplinaDados tela = new TelaDisciplinaDados(disciplinas, professores);
+        tela.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        telaDep.setVisible(true);
+        TelaDepartamentoDados tela = new TelaDepartamentoDados(disciplinas, departamentos);
+        tela.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

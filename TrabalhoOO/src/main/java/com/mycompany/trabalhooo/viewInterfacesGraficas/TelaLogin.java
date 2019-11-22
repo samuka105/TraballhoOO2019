@@ -20,19 +20,17 @@ import javax.swing.JFrame;
  * @author ice
  */
 public class TelaLogin extends javax.swing.JFrame {
-    public TelaCadastroDados telaDados;
     private int cont;
     public String padrao;
-    private TelaDepartamentoDados telaDep;
-    private TelaDisciplinaDados telaDisc;
+    public List<Aluno> retornarArquivoAlunos;
+    public List<Professor> retornarArquivoProfessor;
+    public List<Disciplina> retornarArquivoDisciplina;
     /**
      * Creates new form TelaInicial
      */
-    public TelaLogin(TelaCadastroDados telaDados, TelaDisciplinaDados telaDisc, TelaDepartamentoDados telaDep) {
+    public TelaLogin() {
         initComponents();
-        this.telaDados = telaDados;
-        this.telaDep = telaDep;
-        this.telaDisc = telaDisc;
+        
     }
 
     /**
@@ -126,15 +124,15 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String id = jtfId.getText();
         char[] senha = jPassword.getPassword();
-        System.out.println(telaDados.logins.size());
-        System.out.println(telaDados.alunos.size());
-        System.out.println(telaDados.logins.get(id));
+        System.out.println(logins.size());
+        System.out.println(alunos.size());
+        System.out.println(logins.get(id));
         System.out.println(senha);
-        if(telaDados.logins.containsKey(id)) {
+        if(logins.containsKey(id)) {
             System.out.println("confirmou login");
-            if(Arrays.equals(telaDados.logins.get(id), senha)){
+            if(Arrays.equals(logins.get(id), senha)){
                 System.out.println("confirmou senha");
-                if(telaDados.getMarca().equals(Constantes.ALUNO)) procuraAluno(id);
+                if(getMarca().equals(Constantes.ALUNO)) procuraAluno(id);
                 else procuraProfessor(id);            
             }
         } else{
@@ -147,9 +145,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     private void procuraAluno(String id){
         int i = 0;
-                System.out.println(telaDados.alunos.get(i).getLogin().getLogin());
+                System.out.println(retornarArquivoAlunos.get(i).getLogin().getLogin());
                 System.out.println(id);
-                while(i<telaDados.alunos.size()){
+                while(i<alunos.size()){
                     if(telaDados.alunos.get(i).getLogin().getLogin().equals(id)){
                         TelaPrincipalAluno proxima = new TelaPrincipalAluno(telaDados.alunos.get(i), telaDados, telaDisc, telaDep);
                         proxima.setVisible(true);
@@ -188,10 +186,10 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Abri janela");
         Dados dadosPessoais = new Dados();
-        List<Aluno> retornarArquivoAlunos = dadosPessoais.retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
-        List<Professor> retornarArquivoProfessor = dadosPessoais.retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
-        List<Disciplina> retornarArquivoDisciplina = dadosPessoais.retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
-        List<Departamento> retornarArquivoDepartamento = dadosPessoais.retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
+        retornarArquivoAlunos = dadosPessoais.retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
+        retornarArquivoProfessor = dadosPessoais.retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
+        retornarArquivoDisciplina = dadosPessoais.retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
+        retornarArquivoDepartamento = dadosPessoais.retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
         
         
         for (Aluno retornarArquivoAluno : retornarArquivoAlunos) {

@@ -24,7 +24,9 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         jLabel1.setText(a.getNomeComp());
         this.telaDisc = telaDisc;
     }
-
+    public void setNomesNoCheck(){
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,9 +48,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jCheckBox7 = new javax.swing.JCheckBox();
         jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jCheckBox11 = new javax.swing.JCheckBox();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -96,12 +95,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
         jCheckBox8.setText("jCheckBox8");
 
-        jCheckBox9.setText("jCheckBox9");
-
-        jCheckBox10.setText("jCheckBox10");
-
-        jCheckBox11.setText("jCheckBox11");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,10 +114,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
                     .addComponent(jCheckBox5)
                     .addComponent(jCheckBox6)
                     .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jCheckBox10)
-                    .addComponent(jCheckBox11))
+                    .addComponent(jCheckBox8))
                 .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,14 +140,8 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCheckBox7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox10)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox11)
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(jCheckBox8)))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
@@ -219,8 +203,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox10;
-    private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
@@ -228,7 +210,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
