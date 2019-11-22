@@ -12,10 +12,10 @@ import com.mycompany.trabalhooo.Aluno;
  * @author ice
  */
 public class TelaPrincipalAluno extends javax.swing.JFrame {
-    private Aluno a;
-    private TelaDepartamentoDados telaDep;
-    private TelaDisciplinaDados telaDisc;
-    private TelaCadastroDados telaDados;
+    public Aluno a;
+    public TelaDepartamentoDados telaDep;
+    public TelaDisciplinaDados telaDisc;
+    public TelaCadastroDados telaDados;
     /**
      * Creates new form TelaSecundaria
      */

@@ -55,10 +55,10 @@ public class Arquivo {
 
 public static boolean Write(String caminho, String Text){
     try{
-        File way = new File("Arquivo" + File.separator + "DadosUniversitarios");
+       /* File way = new File("Arquivo" + File.separator + "DadosUniversitarios");
         if(!way.isDirectory()){
             way.mkdirs();
-        }
+        }*/
         FileWriter arq = new FileWriter(caminho);
         PrintWriter gravarArq = new PrintWriter(arq);
         gravarArq.println(Text);

@@ -13,8 +13,8 @@ import com.mycompany.trabalhooo.Aluno;
  */
 public class TelaAlunoMatricula extends javax.swing.JFrame {
     
-    private Aluno a;
-    private TelaDisciplinaDados telaDisc;
+    public Aluno a;
+    public TelaDisciplinaDados telaDisc;
     /**
      * Creates new form TelaAlunoMatricula
      */
@@ -37,7 +37,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jcbCalc2A = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jCheckBox4 = new javax.swing.JCheckBox();
@@ -58,16 +58,26 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
         jLabel1.setText("Nome do Aluno");
 
-        jCheckBox1.setText("jCheckBox1");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jcbCalc2A.setText("jCheckBox1");
+        jcbCalc2A.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jcbCalc2AActionPerformed(evt);
             }
         });
 
         jCheckBox2.setText("jCheckBox2");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         jCheckBox3.setText("jCheckBox3");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
 
         jCheckBox4.setText("jCheckBox4");
 
@@ -102,7 +112,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
+                        .addComponent(jcbCalc2A)
                         .addGap(110, 110, 110)
                         .addComponent(jButton1))
                     .addComponent(jCheckBox2)
@@ -125,7 +135,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox1)
+                            .addComponent(jcbCalc2A)
                             .addComponent(jButton1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCheckBox2)
@@ -157,9 +167,20 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void jcbCalc2AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCalc2AActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+        telaDisc.disciplinas.get(0).turmas.get(0).alunos.add(a);
+    }//GEN-LAST:event_jcbCalc2AActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+        telaDisc.disciplinas.get(0).turmas.get(1).alunos.add(a);
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+        telaDisc.disciplinas.get(1).turmas.get(0).alunos.add(a);
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,7 +219,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox2;
@@ -212,5 +232,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JCheckBox jcbCalc2A;
     // End of variables declaration//GEN-END:variables
 }

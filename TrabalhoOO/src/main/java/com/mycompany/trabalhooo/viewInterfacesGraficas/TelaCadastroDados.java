@@ -315,22 +315,28 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("Aluno");
             try {
                 alocaAluno();
+                Gson gsonAluno = new Gson();
+                String toJsonAluno = gsonAluno.toJson(alunos);
+                System.out.println("toJson = " + toJsonAluno);
+                if(readAluno.Write(arqAluno, toJsonAluno)){    
+                    System.out.println("Texto salvo");
+                }
+                else{
+                    System.out.println("Erro!");
+                }
+                
+                
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
-            Gson gsonAluno = new Gson();
-            String toJsonAluno = gsonAluno.toJson(alunos);
             
             
             
-            System.out.println("toJson = " + toJsonAluno);
             
-            if(readAluno.Write(arqAluno, toJsonAluno)){    
-                System.out.println("Texto salvo");
-            }
-            else{
-            System.out.println("Erro!");
-            }
+          
+            
+            
+            
             
             
         }

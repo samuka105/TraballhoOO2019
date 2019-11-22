@@ -17,7 +17,7 @@ public class Turma {
     // tem  Lista de alunos, professor associado e um código
     private String codigo;
     private Professor docente;
-    private List<Aluno> alunos;
+    public List<Aluno> alunos;
     private int maxAlunos;
     private HashMap<Aluno, Notas> notasAlunos;
     

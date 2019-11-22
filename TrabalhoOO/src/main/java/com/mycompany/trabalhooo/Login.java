@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author Ronan
  */
 public class Login {
-    private TelaCadastroDados telaDados;
+   // private TelaCadastroDados telaDados;
     private String login;
     private char[] senha;
 
