@@ -17,20 +17,13 @@ import java.util.List;
  */
 public class TelaCadastro extends javax.swing.JFrame {
     private int cont;
-    public List<Aluno> alunos;
-    public List<Professor> professores;
-    public List<Disciplina> disciplinas;
-    public List<Departamento> departamentos;
+    
     /**
      * Creates new form TelaCadastro
      */
-    public TelaCadastro(int cont, List<Departamento> departamentos, List<Disciplina> disciplinas, List<Aluno> alunos, List<Professor> professores) {
+    public TelaCadastro(int cont) {
         initComponents();
         this.cont = cont;
-        this.professores = professores;
-        this.alunos = alunos;
-        this.departamentos = departamentos;
-        this.disciplinas = disciplinas;
     }
 
     /**
@@ -125,14 +118,14 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTÃO ALUNO:
-        TelaCadastroDados tela = new TelaCadastroDados(cont, alunos, professores);
+        TelaCadastroDados tela = new TelaCadastroDados(cont);
         tela.setMarca(Constantes.ALUNO);
         tela.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // BOTAO PROFESSOR:
-        TelaCadastroDados tela = new TelaCadastroDados(cont, alunos, professores);
+        TelaCadastroDados tela = new TelaCadastroDados(cont);
         tela.setMarca(Constantes.PROFESSOR);
         tela.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -144,13 +137,13 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        TelaDisciplinaDados tela = new TelaDisciplinaDados(disciplinas, professores);
+        TelaDisciplinaDados tela = new TelaDisciplinaDados();
         tela.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        TelaDepartamentoDados tela = new TelaDepartamentoDados(disciplinas, departamentos);
+        TelaDepartamentoDados tela = new TelaDepartamentoDados();
         tela.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 

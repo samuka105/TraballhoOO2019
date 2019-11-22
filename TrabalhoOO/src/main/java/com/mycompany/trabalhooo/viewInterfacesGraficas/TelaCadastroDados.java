@@ -28,29 +28,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroAluno
      */
-    public HashMap<String, char []> logins;
-    public List<Aluno> alunos;
-    public List<Professor> professores;
-    private String marca;
-    private int cont;
-    public Arquivo arq;
-    
-//    public Gson gsonAluno;
-//    public String toJsonAluno;
-//    
-//    public Gson gsonProfessor;
-//    public String toJsonProfessor; 
-    
-    public TelaCadastroDados(int cont, List<Aluno> al, List<Professor> pr) {
-        initComponents();
-        this.alunos = al;
-        this.logins = new HashMap<>();
+    public String marca;
+    public int cont;
+    public TelaCadastroDados(int cont) {
+        initComponents();  
         this.cont = cont;
-        this.professores = pr;
-        this.marca = marca;
-        this.arq = new Arquivo();
-        
-        
     }
     public String getMarca(){
         return marca;
@@ -246,12 +228,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         
     }
     private void alocaAluno() throws Exception{
-        
+        try{
         Aluno a = new Aluno();
         a.setCpf(jtfCPF.getText());
+        a.setNomeComp(jtfNomeCompleto.getText());
+        confereExistenciaAluno()
         a.setEmail(jtfEmail.getText());
         a.setIdade(jtfIdade.getText());
-        a.setNomeComp(jtfNomeCompleto.getText());
         confereLogin(jtfLogin.getText()); confereSenha(jpfSenha.getPassword());
         a.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
         a.setIdentificacao(cont);
@@ -259,9 +242,17 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         System.out.println("Aluno adicionado");
         alunos.add(a);
         logins.put(jtfLogin.getText(), jpfSenha.getPassword());
+        }catch(Exception a){
+            
+        }
         
     }
-    
+    private void confereExistenciaAluno(String cpf, String nome) throws Exception{
+        int i = 0;
+        while(i<alunos.size()){
+            if(alunos.get(i).getNomeComp().equals(nome) && alunos.get(i).getCpf().equals(cpf)) throw new Exception();
+        }
+    }
     private void confereLogin(String id) throws Exception{
         if(logins.containsKey(id)){
             JOptionPane.showMessageDialog(null, "Login ja existe!");
@@ -305,6 +296,12 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("Aluno");
             try {
                 alocaAluno();
+                jtfCPF.setText("");
+                jtfEmail.setText("");
+                jtfIdade.setText("");
+                jtfLogin.setText("");
+                jtfNomeCompleto.setText("");
+                jpfSenha.setText("");
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
@@ -318,12 +315,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                     System.out.println("Erro!");
                 }
         }
-        jtfCPF.setText("");
-        jtfEmail.setText("");
-        jtfIdade.setText("");
-        jtfLogin.setText("");
-        jtfNomeCompleto.setText("");
-        jpfSenha.setText("");
+        
         //TelaLogin login = new TelaLogin();
         //logins.add(login);
         //Gson gsonLogin = new Gson();

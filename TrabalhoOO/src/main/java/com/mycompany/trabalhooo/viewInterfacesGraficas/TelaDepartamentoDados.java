@@ -7,6 +7,7 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.google.gson.Gson;
 import com.mycompany.ArquivosDeDados.Arquivo;
+import static com.mycompany.trabalhooo.Dados.disciplinas;
 import com.mycompany.trabalhooo.Departamento;
 import com.mycompany.trabalhooo.Disciplina;
 import java.util.List;
@@ -22,18 +23,14 @@ import javax.swing.JOptionPane;
 
 public class TelaDepartamentoDados extends javax.swing.JFrame {
 
-     public List<Disciplina> disciplinas;
-     public List<Departamento> departamentos;
-     public Arquivo arq;
+
     /**
      * Creates new form TelaDepartamentoDados
      */
 
-    public TelaDepartamentoDados(List<Disciplina> disc, List<Departamento> dep) {
+    public TelaDepartamentoDados() {
         initComponents();
-        this.disciplinas = disc;
-        this.departamentos = dep;
-        this.arq = new Arquivo();
+
     }
 
     /**
@@ -49,16 +46,6 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         dep.addDisciplina(buscaDisciplina(jtfDisciplina1.getText()));
         dep.addDisciplina(buscaDisciplina(jtfDisciplina2.getText()));
         dep.setNome(jtfNomeDepto.getText());
-        
-        Gson gson = new Gson();
-        String toJsonDepartamento  = gson.toJson(departamentos);
-                System.out.println("toJson = " + toJsonDepartamento);
-                if(arq.Write(Constantes.ARQUIVO_DEPARTAMENTO, toJsonDepartamento)){    
-                    System.out.println("Texto salvo");
-                }
-                else{
-                    System.out.println("Erro!");
-                }
     }
     
     private Disciplina buscaDisciplina(String d) {
