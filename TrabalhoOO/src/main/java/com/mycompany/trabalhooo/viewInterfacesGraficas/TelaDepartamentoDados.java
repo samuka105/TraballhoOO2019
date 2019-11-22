@@ -50,16 +50,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         dep.addDisciplina(buscaDisciplina(jtfDisciplina2.getText()));
         dep.setNome(jtfNomeDepto.getText());
         
-        Gson gson = new Gson();
-        String toJsonDepartamento  = gson.toJson(departamentos);
-                System.out.println("toJson = " + toJsonDepartamento);
-                if(arq.Write(Constantes.ARQUIVO_DEPARTAMENTO, toJsonDepartamento)){    
-                    System.out.println("Texto salvo");
-                }
-                else{
-                    System.out.println("Erro!");
-                }
-    }
+   
     
     private Disciplina buscaDisciplina(String d) {
         //try{

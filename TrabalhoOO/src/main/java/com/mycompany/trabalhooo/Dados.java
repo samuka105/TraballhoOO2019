@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.viewInterfacesGraficas.Constantes;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List; 
 
 /**
@@ -19,6 +20,74 @@ import java.util.List;
 public class Dados {
 
     public static Arquivo arq;
+    
+    //MÉTODOS DE SALVAMENTO
+    
+    public void salvaAlunos(List<Aluno> alunos){
+         Gson gsonAluno = new Gson();
+                String toJsonAluno = gsonAluno.toJson(alunos);
+                System.out.println("toJson = " + toJsonAluno);
+                if(arq.Write(Constantes.ARQUIVO_ALUNOS, toJsonAluno)){    
+                    System.out.println("Texto salvo");
+                }
+                else{
+                    System.out.println("Erro!");
+                }
+    }
+    
+    public void salvaPraofessores(List<Professor> professores){
+          Gson gsonProfessor = new Gson();
+         
+            String toJsonProfessor = gsonProfessor.toJson(professores);
+            
+            System.out.println("toJson = " + toJsonProfessor);
+            if(arq.Write(Constantes.ARQUIVO_PROFESSORES, toJsonProfessor)){    
+                System.out.println("Texto salvo");
+            }
+             else{
+            System.out.println("Erro!");
+            } 
+    }
+    
+    public void salvaDisciplinas(List<Disciplina> disciplinas){
+         Gson gson = new Gson();
+        String toJsonDisciplina  = gson.toJson(disciplinas);
+                System.out.println("toJson = " + toJsonDisciplina);
+                if(arq.Write(Constantes.ARQUIVO_DISCIPLINAS, toJsonDisciplina)){    
+                    System.out.println("Texto salvo");
+                }
+                else{
+                    System.out.println("Erro!");
+                }
+    
+    }
+    
+    public void salvaDepartamentos(List<Departamento> departamentos){
+          Gson gson = new Gson();
+          String toJsonDepartamento  = gson.toJson(departamentos);
+          System.out.println("toJson = " + toJsonDepartamento);
+          if(arq.Write(Constantes.ARQUIVO_DEPARTAMENTO, toJsonDepartamento)){    
+                System.out.println("Texto salvo");
+           }
+          else{
+                System.out.println("Erro!");
+          }
+    }
+    
+    public void salvaLogins(HashMap<String,char []> logins){
+        Gson gsonLogins = new Gson();
+        String toJsonLogins = gsonLogins.toJson(logins);
+        System.out.println("toJson = " + toJsonLogins);
+        if(arq.Write(Constantes.ARQUIVO_LOGINS, toJsonLogins)){    
+                System.out.println("Texto salvo");
+            }
+             else{
+            System.out.println("Erro!");
+            } 
+        
+    }
+    
+    //MÉTODOS DE LEITURA
     public List<Aluno> retornarArquivoAlunos(String arqAluno) {
 
         String toJsonAluno = arq.Read(arqAluno);

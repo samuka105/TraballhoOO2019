@@ -11,6 +11,7 @@ import com.mycompany.trabalhooo.Departamento;
 import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JFrame;
@@ -20,19 +21,24 @@ import javax.swing.JFrame;
  * @author ice
  */
 public class TelaLogin extends javax.swing.JFrame {
-    public TelaCadastroDados telaDados;
-    private int cont;
-    public String padrao;
-    private TelaDepartamentoDados telaDep;
-    private TelaDisciplinaDados telaDisc;
+        List<Aluno> alunos;
+        List<Professor> professores;
+        List<Disciplina> disciplinas;
+        List<Departamento> departamentos;
+        TelaCadastroDados telaDados;
     /**
      * Creates new form TelaInicial
      */
-    public TelaLogin(TelaCadastroDados telaDados, TelaDisciplinaDados telaDisc, TelaDepartamentoDados telaDep) {
+    public TelaLogin(TelaCadastroDados t) {
         initComponents();
-        this.telaDados = telaDados;
-        this.telaDep = telaDep;
-        this.telaDisc = telaDisc;
+        this.alunos = new ArrayList<>();
+        this.professores = new ArrayList<>();
+        this.disciplinas = new ArrayList<>();
+        this.departamentos = new ArrayList<>();
+        this.telaDados = t;
+        
+        
+        
     }
 
     /**
@@ -126,13 +132,13 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String id = jtfId.getText();
         char[] senha = jPassword.getPassword();
-        System.out.println(telaDados.logins.size());
-        System.out.println(telaDados.alunos.size());
-        System.out.println(telaDados.logins.get(id));
+        System.out.println(logins.size());
+        System.out.println(alunos.size());
+        System.out.println(logins.get(id));
         System.out.println(senha);
         if(telaDados.logins.containsKey(id)) {
             System.out.println("confirmou login");
-            if(Arrays.equals(telaDados.logins.get(id), senha)){
+            if(Arrays.equals(logins.get(id), senha)){
                 System.out.println("confirmou senha");
                 if(telaDados.getMarca().equals(Constantes.ALUNO)) procuraAluno(id);
                 else procuraProfessor(id);            
@@ -147,11 +153,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     private void procuraAluno(String id){
         int i = 0;
-                System.out.println(telaDados.alunos.get(i).getLogin().getLogin());
+                System.out.println(alunos.get(i).getLogin().getLogin());
                 System.out.println(id);
-                while(i<telaDados.alunos.size()){
-                    if(telaDados.alunos.get(i).getLogin().getLogin().equals(id)){
-                        TelaPrincipalAluno proxima = new TelaPrincipalAluno(telaDados.alunos.get(i), telaDados, telaDisc, telaDep);
+                while(i<alunos.size()){
+                    if(alunos.get(i).getLogin().getLogin().equals(id)){
+                        TelaPrincipalAluno proxima = new TelaPrincipalAluno(alunos.get(i),  disciplinas );
                         proxima.setVisible(true);
                         break;
                         
@@ -162,11 +168,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }
     private void procuraProfessor(String id){
         int i = 0;
-                System.out.println(telaDados.professores.get(i).getLogin().getLogin());
+                System.out.println(professores.get(i).getLogin().getLogin());
                 System.out.println(id);
-                while(i<telaDados.professores.size()){
-                    if(telaDados.professores.get(i).getLogin().getLogin().equals(id)){
-                        TelaProfessorPrincipal prox = new TelaProfessorPrincipal(telaDados.professores.get(i), telaDados, telaDisc, telaDep);
+                while(i<professores.size()){
+                    if(professores.get(i).getLogin().getLogin().equals(id)){
+                        TelaProfessorPrincipal prox = new TelaProfessorPrincipal(professores.get(i));
                         prox.setVisible(true);
                         break;
                     }
@@ -198,8 +204,9 @@ public class TelaLogin extends javax.swing.JFrame {
             System.out.println("retornarArquivoAluno = " + retornarArquivoAluno);
             System.out.println("Nome:" +retornarArquivoAluno.getNomeComp());
         }
-        TelaCadastroDados tela =  new TelaCadastroDados(cont, retornarArquivoAlunos, retornarArquivoProfessor);
-        
+        TelaCadastroDados tela =  new TelaCadastroDados(5000, alunos, professores);
+         TelaDisciplinaDados td = new TelaDisciplinaDados(disciplinas,professores);
+               TelaDepartamentoDados tdep = new TelaDepartamentoDados(disciplinas, departamentos);
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -234,10 +241,20 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-                TelaCadastroDados telaDados = new TelaCadastroDados(5000,null,null);
-                TelaDisciplinaDados t = new TelaDisciplinaDados(telaDados);
+                
+                Dados dadosPessoais = new Dados();
+                 retornarArquivoAlunos = dadosPessoais.retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
+                 retornarArquivoProfessor = dadosPessoais.retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
+                 retornarArquivoDisciplina = dadosPessoais.retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
+                 retornarArquivoDepartamento = dadosPessoais.retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
+                TelaCadastroDados telaDados = new TelaCadastroDados(5000,retornarArquivoAlunos,retornarArquivoProfessor);
+               /* TelaDisciplinaDados t = new TelaDisciplinaDados(telaDados);
                 TelaDepartamentoDados te = new TelaDepartamentoDados(t);
-                new TelaLogin(telaDados,t,te ).setVisible(true);
+                new TelaLogin(telaDados,t,te ).setVisible(true);*/
+               TelaDisciplinaDados td = new TelaDisciplinaDados(retornarArquivoDisciplina,retornarArquivoProfessor);
+               TelaDepartamentoDados tdep = new TelaDepartamentoDados(retornarArquivoDisciplina, retornarArquivoDepartamento);
+               
+               
             }
         });
     }

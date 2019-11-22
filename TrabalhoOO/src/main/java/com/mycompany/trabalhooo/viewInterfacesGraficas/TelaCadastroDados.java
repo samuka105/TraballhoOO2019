@@ -44,7 +44,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     public TelaCadastroDados(int cont, List<Aluno> al, List<Professor> pr) {
         initComponents();
         this.alunos = al;
-        this.logins = new HashMap<>();
+        this.logins = new HashMap<>(); //CRIAR GSON E PASSAGEM PARA ARQUIVO!
         this.cont = cont;
         this.professores = pr;
 //        this.gsonAluno = new Gson();
@@ -287,20 +287,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
-            Gson gsonLogins = new Gson();
-            String toJsonLogins = gsonLogins.toJson(logins);
-            System.out.println("toJson = " + toJsonLogins);
-            Gson gsonProfessor = new Gson();
-            System.out.println("Ate aqui tudo ok");
-            String toJsonProfessor = gsonProfessor.toJson(professores);
-            System.out.println("Progresso");
-            System.out.println("toJson = " + toJsonProfessor);
-            if(arq.Write(Constantes.ARQUIVO_PROFESSORES, toJsonProfessor)){    
-                System.out.println("Texto salvo");
-            }
-             else{
-            System.out.println("Erro!");
-            }
+            
+         
             
             
         }
@@ -311,15 +299,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
-            Gson gsonAluno = new Gson();
-                String toJsonAluno = gsonAluno.toJson(alunos);
-                System.out.println("toJson = " + toJsonAluno);
-                if(arq.Write(Constantes.ARQUIVO_ALUNOS, toJsonAluno)){    
-                    System.out.println("Texto salvo");
-                }
-                else{
-                    System.out.println("Erro!");
-                }
+           
         }
         jtfCPF.setText("");
         jtfEmail.setText("");
@@ -328,9 +308,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         jtfNomeCompleto.setText("");
         jpfSenha.setText("");
         //TelaLogin login = new TelaLogin();
-        //logins.add(login);
-        //Gson gsonLogin = new Gson();
-        //String toJsonLogin = gsonLogin.toJson(logins);
+        
+        
         //System.out.println("toJson = " + toJsonLogin);
     }//GEN-LAST:event_jbConcluirActionPerformed
 

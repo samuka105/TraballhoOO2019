@@ -55,15 +55,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         d.setCodigo(jTextField1.getText());
         d.turmas.add(a); d.turmas.add(b);
         disciplinas.add(d);
-        Gson gson = new Gson();
-        String toJsonDisciplina  = gson.toJson(disciplinas);
-                System.out.println("toJson = " + toJsonDisciplina);
-                if(arq.Write(Constantes.ARQUIVO_DISCIPLINAS, toJsonDisciplina)){    
-                    System.out.println("Texto salvo");
-                }
-                else{
-                    System.out.println("Erro!");
-                }
+       
     }
     
     

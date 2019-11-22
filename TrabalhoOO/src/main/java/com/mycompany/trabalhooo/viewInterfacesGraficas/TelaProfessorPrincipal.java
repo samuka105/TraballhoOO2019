@@ -13,18 +13,14 @@ import com.mycompany.trabalhooo.Professor;
  */
 public class TelaProfessorPrincipal extends javax.swing.JFrame {
     private Professor p;
-    private TelaDepartamentoDados telaDep;
-    private TelaDisciplinaDados telaDisc;
-    private TelaCadastroDados telaDados;
+    
     /**
      * Creates new form TelaProfessorPrincipal
      */
-    public TelaProfessorPrincipal(Professor p, TelaCadastroDados telaDados, TelaDisciplinaDados telaDisc, TelaDepartamentoDados telaDep) {
+    public TelaProfessorPrincipal(Professor p) {
         initComponents();
         this.p = p;
-        this.telaDados = telaDados;
-        this.telaDep = telaDep;
-        this.telaDisc = telaDisc;
+       
     }
 
     /**
