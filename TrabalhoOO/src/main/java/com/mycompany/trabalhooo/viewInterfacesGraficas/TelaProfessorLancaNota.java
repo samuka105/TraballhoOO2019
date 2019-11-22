@@ -40,7 +40,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
     private void encheLista(){
         int i = 0;
         while (i<t.alunos.size()){
-            jListAlunos.add(t.alunos.get(i));
+            //jListAlunos.add(t.alunos.get(i));
         }
     }
     /**

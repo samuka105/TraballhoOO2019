@@ -30,16 +30,6 @@ import javax.swing.JOptionPane;
 public class TelaDisciplinaDados extends javax.swing.JFrame {
 
  public Arquivo arq;
-
- 
- 
- 
-
- 
-
- 
-
- 
  public List<Disciplina> disciplinas;
  public List<Professor> professores;
  //DADOS DOS PROFESSORES PARA ASSOCIÁ-LOS
@@ -49,7 +39,6 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
      */
     public TelaDisciplinaDados(List<Disciplina> d, List<Professor> pr) {
         initComponents();   
-        this.telaDados = telaDados;
         this.disciplinas = new ArrayList<>();
         this.arq = new Arquivo();
     }

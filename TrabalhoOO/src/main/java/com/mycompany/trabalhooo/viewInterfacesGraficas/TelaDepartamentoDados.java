@@ -24,6 +24,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
 
      public List<Disciplina> disciplinas;
      public List<Departamento> departamentos;
+     public Arquivo arq;
     /**
      * Creates new form TelaDepartamentoDados
      */
@@ -31,6 +32,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         initComponents();
         this.disciplinas = disc;
         this.departamentos = dep;
+        this.arq = new Arquivo();
     }
 
     /**
