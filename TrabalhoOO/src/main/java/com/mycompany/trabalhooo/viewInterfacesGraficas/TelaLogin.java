@@ -5,8 +5,12 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Aluno;
+import com.mycompany.trabalhooo.Dados;
 import com.mycompany.trabalhooo.Login;
+import com.mycompany.trabalhooo.Professor;
 import java.util.Arrays;
+import java.util.List;
 import javax.swing.JFrame;
 
 /**
@@ -181,6 +185,16 @@ public class TelaLogin extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         System.out.println("Abri janela");
+        Dados dadosPessoais = new Dados();
+        List<Aluno> retornarArquivoAlunos = dadosPessoais.retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
+        List<Professor> retornarArquivoProfessor = dadosPessoais.retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
+        
+        
+        for (Aluno retornarArquivoAluno : retornarArquivoAlunos) {
+            System.out.println("retornarArquivoAluno = " + retornarArquivoAluno);
+            System.out.println("Nome:" +retornarArquivoAluno.getNomeComp());
+        }
+        TelaCadastroDados tela =  new TelaCadastroDados(cont, retornarArquivoAlunos, retornarArquivoProfessor);
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -215,7 +229,7 @@ public class TelaLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaCadastroDados telaDados = new TelaCadastroDados(5000);
+                TelaCadastroDados telaDados = new TelaCadastroDados(5000,null,null);
                 TelaDisciplinaDados t = new TelaDisciplinaDados(telaDados);
                 TelaDepartamentoDados te = new TelaDepartamentoDados(t);
                 new TelaLogin(telaDados,t,te ).setVisible(true);
