@@ -7,33 +7,34 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Professor;
+import java.util.List;
 
 /**
  *
  * @author Enedilson
  */
 public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
-    private TelaDisciplinaDados telaDisc;
     private Professor p;
     private Disciplina d;
+    //public List<Disciplina> disciplinas;
     /**
      * Creates new form TelaProfessorMinhasDisciplinas
      */
-    public TelaProfessorMinhasDisciplinas(Professor p, TelaDisciplinaDados telaDisc) {
+    public TelaProfessorMinhasDisciplinas(Professor p) {
         initComponents();
         this.d = d;
         this.p = p;
-        this.telaDisc = telaDisc;
-        jLabel1.setText(p.nomeDisciplinas.get(0));
-        jLabel2.setText(p.nomeDisciplinas.get(1));
+        //this.disciplinas = disc;
+        jLabel1.setText(p.disciplinasProf.get(0).getNome());
+        jLabel2.setText(p.disciplinasProf.get(1).getNome());
     }
-    private Disciplina buscaDisciplina(String disc){
-        int i = 0;
-        while(i<telaDisc.disciplinas.size()){
-            if(telaDisc.disciplinas.get(i).getNome().equals(disc)) return telaDisc.disciplinas.get(i);
-        }
-        return null;
-    }
+//    private Disciplina buscaDisciplina(String disc){
+//        int i = 0;
+//        while(i<telaDisc.disciplinas.size()){
+//            if(telaDisc.disciplinas.get(i).getNome().equals(disc)) return telaDisc.disciplinas.get(i);
+//        }
+//        return null;
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,15 +121,15 @@ public class TelaProfessorMinhasDisciplinas extends javax.swing.JFrame {
 
     private void jbDisciplinaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDisciplinaAActionPerformed
         // TODO add your handling code here:
-        d = buscaDisciplina(p.nomeDisciplinas.get(0));
-        TelaProfessorLancaNota telaProfNota = new TelaProfessorLancaNota(d,telaDisc);
+        d = p.disciplinasProf.get(0);
+        TelaProfessorLancaNota telaProfNota = new TelaProfessorLancaNota(d, p);
         telaProfNota.setVisible(true);
     }//GEN-LAST:event_jbDisciplinaAActionPerformed
 
     private void jbDisciplinaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDisciplinaBActionPerformed
         // TODO add your handling code here:
-        d = buscaDisciplina(p.nomeDisciplinas.get(1));
-        TelaProfessorLancaNota telaProfNota = new TelaProfessorLancaNota(d, telaDisc);
+        d = p.disciplinasProf.get(1);
+        TelaProfessorLancaNota telaProfNota = new TelaProfessorLancaNota(d, p);
         telaProfNota.setVisible(true);
     }//GEN-LAST:event_jbDisciplinaBActionPerformed
 

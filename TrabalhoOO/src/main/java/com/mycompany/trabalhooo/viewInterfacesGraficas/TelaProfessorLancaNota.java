@@ -5,27 +5,44 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Disciplina;
+import com.mycompany.trabalhooo.Professor;
+import com.mycompany.trabalhooo.Turma;
+import java.util.List;
+import javax.swing.DefaultListModel;
 
 /**
  *
  * @author Enedilson
  */
 public class TelaProfessorLancaNota extends javax.swing.JFrame {
-    
-    private Disciplina d;
-    private TelaDisciplinaDados telaDisc;
+    public Professor p;
+    public Disciplina d;
+    public Turma t;
     /**
      * Creates new form TelaProfessorLancaNota
      */
-    public TelaProfessorLancaNota(Disciplina d, TelaDisciplinaDados telaDisc) {
+    public TelaProfessorLancaNota(Disciplina d, Professor p) {
         initComponents();
+        this.p = p;
         this.d = d;
-        this.telaDisc = telaDisc;
+        this.t = buscaTurma(p);
         jLabel1.setText(d.getNome());
-       
+        jLabel2.setText("Turma " + t.getCodigo());
+        
+        
     }
-
+    public Turma buscaTurma(Professor p){
+        if(d.turmas.get(0).getProfessor() == p) return d.turmas.get(0);
+        else return d.turmas.get(1);
+    }
+    private void encheLista(){
+        int i = 0;
+        while (i<t.alunos.size()){
+            jListAlunos.add(t.alunos.get(i));
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +59,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListAlunos = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -51,6 +68,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jbVoltar = new javax.swing.JButton();
         jbLancaNota = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         jTextField4.setText("jTextField4");
 
@@ -59,17 +77,27 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         jTextField5.setText("jTextField5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Disciplina ");
 
         jLabel2.setText("Alunos");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jListAlunos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jListAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListAlunosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jListAlunos);
 
         jLabel3.setText("TVC 1");
 
@@ -97,6 +125,8 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("jLabel6");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +136,10 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel6))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -124,17 +157,19 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                        .addGap(139, 139, 139)
                         .addComponent(jbVoltar)
-                        .addGap(37, 37, 37)
+                        .addGap(33, 33, 33)
                         .addComponent(jbLancaNota)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -143,16 +178,19 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbVoltar)
-                    .addComponent(jbLancaNota))
-                .addGap(131, 131, 131))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbVoltar)
+                            .addComponent(jbLancaNota))
+                        .addGap(131, 131, 131))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
 
         pack();
@@ -169,8 +207,21 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
 
     private void jbLancaNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLancaNotaActionPerformed
         // TODO add your handling code here:
-        
+        float tvc1 = Float.parseFloat(jTextField1.getText());
+        float tvc2 = Float.parseFloat(jTextField2.getText());
+        float tvc3 = Float.parseFloat(jTextField3.getText());
+  
+        t.lancarNota(a, tvc1, tvc2, tvc3);
     }//GEN-LAST:event_jbLancaNotaActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jListAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListAlunosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListAlunosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -213,7 +264,8 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JList<String> jListAlunos;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;

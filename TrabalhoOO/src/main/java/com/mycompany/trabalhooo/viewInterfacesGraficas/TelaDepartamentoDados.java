@@ -5,6 +5,8 @@
  */
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
+import com.google.gson.Gson;
+import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.Departamento;
 import com.mycompany.trabalhooo.Disciplina;
 import java.util.List;
@@ -44,6 +46,16 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         dep.addDisciplina(buscaDisciplina(jtfDisciplina1.getText()));
         dep.addDisciplina(buscaDisciplina(jtfDisciplina2.getText()));
         dep.setNome(jtfNomeDepto.getText());
+        
+        Gson gson = new Gson();
+        String toJsonDepartamento  = gson.toJson(departamentos);
+                System.out.println("toJson = " + toJsonDepartamento);
+                if(arq.Write(Constantes.ARQUIVO_DEPARTAMENTO, toJsonDepartamento)){    
+                    System.out.println("Texto salvo");
+                }
+                else{
+                    System.out.println("Erro!");
+                }
     }
     
     private Disciplina buscaDisciplina(String d) {

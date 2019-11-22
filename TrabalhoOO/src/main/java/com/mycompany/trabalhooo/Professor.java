@@ -6,6 +6,7 @@
 package com.mycompany.trabalhooo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Professor extends Pessoa {
     private String siap;
-    public ArrayList<String> nomeDisciplinas;
+    public List<Disciplina> disciplinasProf;
     @Override
     public String getIdentificacao() {
         return siap;
@@ -28,7 +29,7 @@ public class Professor extends Pessoa {
 
     public Professor() {
         super();
-        this.nomeDisciplinas = new ArrayList<>();
+        this.disciplinasProf = new ArrayList<>();
     }
  
 }

@@ -21,12 +21,19 @@ public class Turma {
     private int maxAlunos;
     private HashMap<Aluno, Notas> notasAlunos;
     
-    public Turma(String codigo){
-        
+    public Turma(String codigo, int max){
+        this.setCodigo(codigo);
+        this.maxAlunos = maxAlunos;
+        this.alunos = new ArrayList<>();
     }
     
     //MATRICULAR
-    
+    public void setCodigo(String a){
+        this.codigo = a;
+    }
+    public String getCodigo(){
+        return codigo;
+    }
     public void matricular(Aluno a) throws Exception{
         
         
@@ -77,16 +84,14 @@ public class Turma {
     //metodo de lançar notas no historico escolar
     //metodo 
 
-    public Turma(  int maxAlunos) {
-        
-        
-        this.maxAlunos = maxAlunos;
-        this.alunos = new ArrayList<>();
-    }
+//    public Turma(int maxAlunos) {    
+//        this.maxAlunos = maxAlunos;
+//        this.alunos = new ArrayList<>();
+//    }
     
     public Professor getProfessor(){
-    return docente;
-}
+        return docente;
+    }
     
     public void AlocaProfTurma(Professor docente){
         this.docente = docente;

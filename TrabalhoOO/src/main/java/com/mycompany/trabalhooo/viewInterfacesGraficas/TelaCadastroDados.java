@@ -28,13 +28,6 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroAluno
      */
-    
-    
-    
-    
-    
-    
-    
     public HashMap<String, char []> logins;
     public List<Aluno> alunos;
     public List<Professor> professores;
@@ -315,7 +308,10 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("Aluno");
             try {
                 alocaAluno();
-                Gson gsonAluno = new Gson();
+            }catch(Exception a){
+                JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
+            }
+            Gson gsonAluno = new Gson();
                 String toJsonAluno = gsonAluno.toJson(alunos);
                 System.out.println("toJson = " + toJsonAluno);
                 if(arq.Write(Constantes.ARQUIVO_ALUNOS, toJsonAluno)){    
@@ -324,21 +320,6 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                 else{
                     System.out.println("Erro!");
                 }
-                
-                
-            }catch(Exception a){
-                JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
-            }
-            
-            
-            
-            
-          
-            
-            
-            
-            
-            
         }
         jtfCPF.setText("");
         jtfEmail.setText("");
