@@ -28,6 +28,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
     /**
      * Creates new form TelaDepartamentoDados
      */
+
     public TelaDepartamentoDados(List<Disciplina> disc, List<Departamento> dep) {
         initComponents();
         this.disciplinas = disc;
