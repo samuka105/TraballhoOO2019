@@ -10,7 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.viewInterfacesGraficas.Constantes;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List; 
 
 /**
  *

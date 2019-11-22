@@ -18,6 +18,7 @@ import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Professor;
 import com.mycompany.trabalhooo.Turma;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -46,45 +47,46 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
  Gson gsonTurmaB = new Gson();
  String toJsonTurmaB;
  
- public TelaCadastroDados telaDados;
- public ArrayList<Disciplina> disciplinas;
+ public List<Disciplina> disciplinas;
+ public List<Professor> professores;
  //DADOS DOS PROFESSORES PARA ASSOCIÁ-LOS
     
     /**
      * Creates new form TelaDisciplinaDados
      */
-    public TelaDisciplinaDados(TelaCadastroDados telaDados) {
+    public TelaDisciplinaDados(List<Disciplina> d, List<Professor> pr) {
         initComponents();   
-        this.telaDados = telaDados;
-        this.disciplinas = new ArrayList<>();
+        this.disciplinas = d;
+        this.professores = pr;
     }
     
     private void adicionaDisciplina() {
-        Turma a = new Turma("A");
-        Turma b = new Turma("B");
+        Turma a = new Turma("A", Constantes.MAX_ALUNOS);
+        Turma b = new Turma("B", Constantes.MAX_ALUNOS);
         Professor p1 = buscaProf(jtfProfessorA.getText());
         Professor p2 = buscaProf(jtfProfessorB.getText());
         a.AlocaProfTurma(p1);
         b.AlocaProfTurma(p2);
-        p1.nomeDisciplinas.add(jtfNomeDisc.getText());
-        p2.nomeDisciplinas.add(jtfNomeDisc.getText());
         Disciplina d = new Disciplina();
         d.setNome(jtfNomeDisc.getText());
         d.setCodigo(jTextField1.getText());
         d.turmas.add(a); d.turmas.add(b);
         disciplinas.add(d);
+        p1.disciplinasProf.add(d);
+        p2.disciplinasProf.add(d);
     }
     private Professor buscaProf(String nome) {
         //try{
         int i = 0;
-        while(i < telaDados.professores.size()){
-            if(telaDados.professores.get(i).getNomeComp().equals(nome)) return telaDados.professores.get(i);
+        while(i < professores.size()){
+            if(professores.get(i).getNomeComp().equals(nome)) return professores.get(i);
             i++;
         }
         //throw new Exception();
         //}catch(Exception a){
         //    JOptionPane.showMessageDialog(null,"Professor nao existe!");
         //}
+        JOptionPane.showMessageDialog(null, "Professor nao encontrado!");
         return null;
     }
     /**

@@ -7,6 +7,7 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.mycompany.trabalhooo.Departamento;
 import com.mycompany.trabalhooo.Disciplina;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,13 +20,15 @@ import javax.swing.JOptionPane;
 
 public class TelaDepartamentoDados extends javax.swing.JFrame {
 
-     public TelaDisciplinaDados telaDisc;
+     public List<Disciplina> disciplinas;
+     public List<Departamento> departamentos;
     /**
      * Creates new form TelaDepartamentoDados
      */
-    public TelaDepartamentoDados(TelaDisciplinaDados a) {
+    public TelaDepartamentoDados(List<Disciplina> disc, List<Departamento> dep) {
         initComponents();
-        this.telaDisc = a;
+        this.disciplinas = disc;
+        this.departamentos = dep;
     }
 
     /**
@@ -46,9 +49,9 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
     private Disciplina buscaDisciplina(String d) {
         //try{
         int i = 0;
-        while(i < telaDisc.disciplinas.size()){
-            if(telaDisc.disciplinas.get(i).getNome().equals(d)){
-                return telaDisc.disciplinas.get(i);
+        while(i < disciplinas.size()){
+            if(disciplinas.get(i).getNome().equals(d)){
+                return disciplinas.get(i);
             }
             i++;  
         }
@@ -56,6 +59,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         //}catch(Exception a){
         //    JOptionPane.showMessageDialog(null,"Erro no preenchimento dos dados");
         //}
+        JOptionPane.showMessageDialog(null, "Disciplina nao encontrada");
         return null;
     }
     
