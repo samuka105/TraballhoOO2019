@@ -6,6 +6,7 @@
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
     
 import com.mycompany.trabalhooo.Aluno;
+import static com.mycompany.trabalhooo.Dados.disciplinas;
 
 /**
  *
@@ -14,15 +15,13 @@ import com.mycompany.trabalhooo.Aluno;
 public class TelaAlunoMatricula extends javax.swing.JFrame {
     
     public Aluno a;
-    public TelaDisciplinaDados telaDisc;
     /**
      * Creates new form TelaAlunoMatricula
      */
-    public TelaAlunoMatricula(Aluno a, TelaDisciplinaDados telaDisc) {
+    public TelaAlunoMatricula(Aluno a) {
         initComponents();
         this.a = a;
         jLabel1.setText(a.getNomeComp());
-        this.telaDisc = telaDisc;
     }
     public void setNomesNoCheck(){
         
@@ -153,17 +152,17 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
     private void jcbCalc2AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCalc2AActionPerformed
         // TODO add your handling code here:
-        telaDisc.disciplinas.get(0).turmas.get(0).alunos.add(a);
+        disciplinas.get(0).turmas.get(0).alunos.add(a);
     }//GEN-LAST:event_jcbCalc2AActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-        telaDisc.disciplinas.get(0).turmas.get(1).alunos.add(a);
+        disciplinas.get(0).turmas.get(1).alunos.add(a);
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
-        telaDisc.disciplinas.get(1).turmas.get(0).alunos.add(a);
+        disciplinas.get(1).turmas.get(0).alunos.add(a);
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     /**

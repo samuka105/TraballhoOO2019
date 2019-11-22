@@ -234,10 +234,8 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-                TelaCadastroDados telaDados = new TelaCadastroDados(5000,null,null);
-                TelaDisciplinaDados t = new TelaDisciplinaDados(telaDados);
-                TelaDepartamentoDados te = new TelaDepartamentoDados(t);
-                new TelaLogin(telaDados,t,te ).setVisible(true);
+                TelaCadastroDados telaDados = new TelaCadastroDados(5000);
+                new TelaLogin(telaDados).setVisible(true);
             }
         });
     }

@@ -20,7 +20,6 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
     public TelaPrincipalAluno(Aluno a) {
         initComponents();
         this.a = a;
-
     }
 
     /**
@@ -107,7 +106,7 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
 
     private void jButtonMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMatriculaActionPerformed
         // TODO 
-        TelaAlunoMatricula matricula = new TelaAlunoMatricula(a, telaDisc);
+        TelaAlunoMatricula matricula = new TelaAlunoMatricula(a);
         matricula.setVisible(true);
     }//GEN-LAST:event_jButtonMatriculaActionPerformed
 
