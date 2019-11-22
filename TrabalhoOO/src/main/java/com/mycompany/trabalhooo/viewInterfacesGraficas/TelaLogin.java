@@ -7,6 +7,8 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Dados;
+import com.mycompany.trabalhooo.Departamento;
+import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
 import java.util.Arrays;
@@ -188,6 +190,8 @@ public class TelaLogin extends javax.swing.JFrame {
         Dados dadosPessoais = new Dados();
         List<Aluno> retornarArquivoAlunos = dadosPessoais.retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
         List<Professor> retornarArquivoProfessor = dadosPessoais.retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
+        List<Disciplina> retornarArquivoDisciplina = dadosPessoais.retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
+        List<Departamento> retornarArquivoDepartamento = dadosPessoais.retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
         
         
         for (Aluno retornarArquivoAluno : retornarArquivoAlunos) {
@@ -229,6 +233,7 @@ public class TelaLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+               
                 TelaCadastroDados telaDados = new TelaCadastroDados(5000,null,null);
                 TelaDisciplinaDados t = new TelaDisciplinaDados(telaDados);
                 TelaDepartamentoDados te = new TelaDepartamentoDados(t);

@@ -28,23 +28,16 @@ import javax.swing.JOptionPane;
 //RECEBE OS DADOS DE MATRÍCULAR E ADICIONA EM TURMA, CRIA TURMA, DADOS DE PROFESSORES ASSOCIANDO COM TURMA .. DADOS EM ARQUIVOS
 public class TelaDisciplinaDados extends javax.swing.JFrame {
 
- public Arquivo readDisciplina;
- public String arqDisciplina = "ArquivoDisciplina.txt";
+ public Arquivo arq;
+
  
- public Arquivo readTurmaA;
- public String arqTurmaA = "ArquivoTurmaA.txt";
  
- public Arquivo readTurmaB;
- public String arqTurmaB = "ArquivoTurmaB.txt";
  
- Gson gsonDisciplina = new Gson();
- String toJsonDisciplina;
+
  
- Gson gsonTurmaA = new Gson();
- String toJsonTurmaA;
+
  
- Gson gsonTurmaB = new Gson();
- String toJsonTurmaB;
+
  
  public TelaCadastroDados telaDados;
  public ArrayList<Disciplina> disciplinas;
@@ -57,6 +50,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         initComponents();   
         this.telaDados = telaDados;
         this.disciplinas = new ArrayList<>();
+        this.arq = new Arquivo();
     }
     
     private void adicionaDisciplina() {
@@ -73,7 +67,19 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         d.setCodigo(jTextField1.getText());
         d.turmas.add(a); d.turmas.add(b);
         disciplinas.add(d);
+        Gson gson = new Gson();
+        String toJsonDisciplina  = gson.toJson(disciplinas);
+                System.out.println("toJson = " + toJsonDisciplina);
+                if(arq.Write(Constantes.ARQUIVO_DISCIPLINAS, toJsonDisciplina)){    
+                    System.out.println("Texto salvo");
+                }
+                else{
+                    System.out.println("Erro!");
+                }
     }
+    
+    
+    
     private Professor buscaProf(String nome) {
         //try{
         int i = 0;

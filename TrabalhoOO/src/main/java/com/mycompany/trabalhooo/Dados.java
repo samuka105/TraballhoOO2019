@@ -49,4 +49,46 @@ public class Dados {
 
         return professores;
     }
+
+    public List<Departamento> retornarArquivoDepartamento(String arqDepto) {
+
+        
+        String toJsonDepartamento = arq.Read(arqDepto);
+        Gson gson = new Gson();
+        java.lang.reflect.Type myType = new TypeToken<List<Departamento>>() {
+        }.getType();
+        List<Departamento> departamentos = gson.fromJson(toJsonDepartamento, myType);
+
+        for (Departamento departamento : departamentos) {
+            System.out.println(departamento);
+        }
+
+        return departamentos;
+    }
+    
+    public List<Disciplina> retornarArquivoDisciplina(String arqDisci) {
+
+        
+        String toJsonDisciplina = arq.Read(arqDisci);
+        Gson gson = new Gson();
+        java.lang.reflect.Type myType = new TypeToken<List<Disciplina>>() {
+        }.getType();
+        
+        List<Disciplina> disciplinas = gson.fromJson(toJsonDisciplina, myType);
+        
+
+        for (Disciplina disciplina : disciplinas) {
+            System.out.println(disciplina);
+        }
+
+        return disciplinas;
+    }
+
+
+
+
+
+
+
+
 }
