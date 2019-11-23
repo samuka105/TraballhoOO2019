@@ -9,9 +9,11 @@ import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Dados;
 import static com.mycompany.trabalhooo.Dados.alunos;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
+import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.retornarArquivoDisciplina;
 import static com.mycompany.trabalhooo.Dados.salvaAlunos;
 import static com.mycompany.trabalhooo.Dados.salvaDisciplinas;
+import static com.mycompany.trabalhooo.Dados.salvaProfessores;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -391,6 +393,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         // TODO add your handling code here:
         salvaDisciplinas(disciplinas);
         salvaAlunos(alunos);
+        salvaProfessores(professores);
     }//GEN-LAST:event_formWindowClosed
 
     /**
