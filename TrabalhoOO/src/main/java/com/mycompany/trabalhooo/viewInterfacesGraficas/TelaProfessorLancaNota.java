@@ -37,7 +37,6 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         model.addAll(t.alunos);
         jListAlunos.setModel(model);
         
-        //jListAlunos.addMouseListener();
     }
     public Turma buscaTurma(Professor p){
         if(d.turmas.get(0).getProfessor() == p) return d.turmas.get(0);

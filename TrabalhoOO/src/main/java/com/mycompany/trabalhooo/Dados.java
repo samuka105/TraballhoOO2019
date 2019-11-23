@@ -23,6 +23,7 @@ public class Dados {
     public static List<Disciplina> disciplinas = new ArrayList<>();
     public static List<Departamento> departamentos = new ArrayList<>();
     public static HashMap<String, char[]> logins = new HashMap<>();
+    public static int cont;
     
     public static Arquivo arq;
     
