@@ -5,6 +5,9 @@
  */
 package com.mycompany.trabalhooo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -12,9 +15,11 @@ package com.mycompany.trabalhooo;
  */
 public class Aluno extends Pessoa{
     private String matricula;
+    public List<Turma> minhasTurmas;
     
     public Aluno() {
         super();
+        minhasTurmas = new ArrayList<>();
     }
     /**
      * @return the matricula

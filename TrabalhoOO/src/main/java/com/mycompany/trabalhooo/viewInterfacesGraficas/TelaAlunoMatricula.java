@@ -6,7 +6,15 @@
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
     
 import com.mycompany.trabalhooo.Aluno;
+import com.mycompany.trabalhooo.Dados;
+import static com.mycompany.trabalhooo.Dados.alunos;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
+import static com.mycompany.trabalhooo.Dados.retornarArquivoDisciplina;
+import static com.mycompany.trabalhooo.Dados.salvaAlunos;
+import static com.mycompany.trabalhooo.Dados.salvaDisciplinas;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -21,7 +29,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     public TelaAlunoMatricula(Aluno a) {
         initComponents();
         this.a = a;
-        jLabel1.setText(a.getNomeComp());
+      
     }
     public void setNomesNoCheck(){
         
@@ -37,24 +45,36 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
         jcbCalc2A = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
         jCheckBox8 = new javax.swing.JCheckBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        jCheckBox11 = new javax.swing.JCheckBox();
+        jCheckBox12 = new javax.swing.JCheckBox();
+        jCheckBox13 = new javax.swing.JCheckBox();
+        jCheckBox14 = new javax.swing.JCheckBox();
+        jCheckBox15 = new javax.swing.JCheckBox();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Nome do Aluno");
 
         jcbCalc2A.setText("jCheckBox1");
         jcbCalc2A.addActionListener(new java.awt.event.ActionListener() {
@@ -63,12 +83,20 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
             }
         });
 
+        jCheckBox6.setText("jCheckBox6");
+
+        jCheckBox4.setText("jCheckBox4");
+
         jCheckBox2.setText("jCheckBox2");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
             }
         });
+
+        jCheckBox5.setText("jCheckBox5");
+
+        jCheckBox7.setText("jCheckBox7");
 
         jCheckBox3.setText("jCheckBox3");
         jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -77,11 +105,14 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox4.setText("jCheckBox4");
+        jCheckBox8.setText("jCheckBox8");
 
-        jCheckBox5.setText("jCheckBox5");
-
-        jCheckBox6.setText("jCheckBox6");
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
 
         jButton1.setText("Matricular");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,57 +121,138 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox7.setText("jCheckBox7");
+        jButton2.setText("CÁLCULO 2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jCheckBox8.setText("jCheckBox8");
+        jButton3.setText("EQUAÇÕES DIFERENCIAIS ORDINÁRIAS");
+
+        jButton4.setText("ORIENTAÇÃO A OBJETOS");
+
+        jButton5.setText("INTELIGENCIA ARTIFICIAL");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jLabel1.setText("Nome do Aluno");
+
+        jButton6.setText("Voltar");
+
+        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox9.setText("jCheckBox9");
+        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox9ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox10.setText("jCheckBox10");
+        jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox10ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox11.setText("jCheckBox11");
+        jCheckBox11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox11ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox12.setText("jCheckBox12");
+        jCheckBox12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox12ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox13.setText("jCheckBox13");
+        jCheckBox13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox13ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox14.setText("jCheckBox14");
+        jCheckBox14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox14ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox15.setText("jCheckBox15");
+        jCheckBox15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox15ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jcbCalc2A)
-                        .addGap(110, 110, 110)
-                        .addComponent(jButton1))
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox8))
-                .addContainerGap(185, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox9)
+                            .addComponent(jCheckBox1)
+                            .addComponent(jCheckBox10)
+                            .addComponent(jCheckBox11)
+                            .addComponent(jCheckBox12)
+                            .addComponent(jCheckBox13)
+                            .addComponent(jCheckBox14)
+                            .addComponent(jCheckBox15))))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jcbCalc2A)
-                            .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox8)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(20, 20, 20)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckBox9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckBox10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckBox13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox15)
+                .addGap(27, 27, 27)
+                .addComponent(jButton6)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -152,18 +264,134 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
     private void jcbCalc2AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCalc2AActionPerformed
         // TODO add your handling code here:
-        disciplinas.get(0).turmas.get(0).alunos.add(a);
+        
     }//GEN-LAST:event_jcbCalc2AActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-        disciplinas.get(0).turmas.get(1).alunos.add(a);
+       
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
         // TODO add your handling code here:
-        disciplinas.get(1).turmas.get(0).alunos.add(a);
+        
     }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
+         jCheckBox1.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(0).getCodigo());
+         jCheckBox9.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(1).getCodigo());
+         jCheckBox10.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(0).getCodigo());
+         jCheckBox11.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(1).getCodigo());
+         jCheckBox11.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(1).getCodigo());
+          jCheckBox12.setText(disciplinas.get(2).getNome() + disciplinas.get(2).turmas.get(0).getCodigo());
+           jCheckBox13.setText(disciplinas.get(2).getNome() + disciplinas.get(2).turmas.get(1).getCodigo());
+            jCheckBox14.setText(disciplinas.get(3).getNome() + disciplinas.get(3).turmas.get(0).getCodigo());
+             jCheckBox15.setText(disciplinas.get(3).getNome() + disciplinas.get(3).turmas.get(1).getCodigo());
+           
+          
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+       
+        try {
+            disciplinas.get(0).turmas.get(0).matricular(a);
+            a.minhasTurmas.add(disciplinas.get(0).turmas.get(0));
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
+        // TODO add your handling code here:
+       
+        try {
+            disciplinas.get(0).turmas.get(1).matricular(a);
+            a.minhasTurmas.add(disciplinas.get(0).turmas.get(1));
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox9ActionPerformed
+
+    private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
+        // TODO add your handling code here:
+       
+        try {
+            disciplinas.get(1).turmas.get(0).matricular(a);
+            a.minhasTurmas.add(disciplinas.get(1).turmas.get(0));
+            
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox10ActionPerformed
+
+    private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            disciplinas.get(1).turmas.get(1).matricular(a);
+            a.minhasTurmas.add(disciplinas.get(1).turmas.get(1));
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox11ActionPerformed
+
+    private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
+        // TODO add your handling code here:
+       
+        try {
+            disciplinas.get(2).turmas.get(0).matricular(a);
+             a.minhasTurmas.add(disciplinas.get(2).turmas.get(0));
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox12ActionPerformed
+
+    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
+        // TODO add your handling code here:
+         
+        try {
+            disciplinas.get(2).turmas.get(1).matricular(a);
+            a.minhasTurmas.add(disciplinas.get(2).turmas.get(1));
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox13ActionPerformed
+
+    private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
+        // TODO add your handling code here:
+            
+        try {
+            disciplinas.get(3).turmas.get(0).matricular(a);
+            a.minhasTurmas.add(disciplinas.get(3).turmas.get(0));
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox14ActionPerformed
+
+    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
+        // TODO add your handling code here:
+              
+        try {
+            disciplinas.get(3).turmas.get(1).matricular(a);
+            a.minhasTurmas.add(disciplinas.get(3).turmas.get(1));
+        } catch (Exception ex) {
+            Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jCheckBox15ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        salvaDisciplinas(disciplinas);
+        salvaAlunos(alunos);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -201,7 +429,20 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox11;
+    private javax.swing.JCheckBox jCheckBox12;
+    private javax.swing.JCheckBox jCheckBox13;
+    private javax.swing.JCheckBox jCheckBox14;
+    private javax.swing.JCheckBox jCheckBox15;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
@@ -209,8 +450,11 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JCheckBox jcbCalc2A;
     // End of variables declaration//GEN-END:variables

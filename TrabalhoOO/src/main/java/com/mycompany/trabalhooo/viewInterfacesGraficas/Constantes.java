@@ -19,5 +19,6 @@ public class Constantes {
     public static final String ARQUIVO_DISCIPLINAS = "ArquivoDisciplinas.txt";
     public static final String ARQUIVO_DEPARTAMENTO = "ArquivoDepartamento.txt";
     public static final String ARQUIVO_LOGINS = "ArquivoLogins.txt";
+    public static final String ARQUIVO_CONTADOR = "ArquivoContador.txt";
     
 }
