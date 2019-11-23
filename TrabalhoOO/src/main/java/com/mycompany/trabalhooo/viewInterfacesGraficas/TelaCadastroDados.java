@@ -13,6 +13,7 @@ import com.mycompany.trabalhooo.Dados;
 import static com.mycompany.trabalhooo.Dados.alunos;
 import static com.mycompany.trabalhooo.Dados.logins;
 import static com.mycompany.trabalhooo.Dados.professores;
+import static com.mycompany.trabalhooo.Dados.salvaAlunos;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
 import java.util.ArrayList;
@@ -286,6 +287,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("Aluno");
             try {
                 alocaAluno();
+                salvaAlunos(alunos);
                 jtfCPF.setText("");
                 jtfEmail.setText("");
                 jtfIdade.setText("");

@@ -28,7 +28,7 @@ public class Dados {
     
     //MÉTODOS DE SALVAMENTO
     
-    public void salvaAlunos(List<Aluno> alunos){
+    public static void salvaAlunos(List<Aluno> alunos){
          Gson gsonAluno = new Gson();
                 String toJsonAluno = gsonAluno.toJson(alunos);
                 System.out.println("toJson = " + toJsonAluno);
@@ -40,7 +40,7 @@ public class Dados {
                 }
     }
     
-    public void salvaPraofessores(List<Professor> professores){
+    public static void salvaPraofessores(List<Professor> professores){
           Gson gsonProfessor = new Gson();
          
             String toJsonProfessor = gsonProfessor.toJson(professores);
@@ -54,7 +54,7 @@ public class Dados {
             } 
     }
     
-    public void salvaDisciplinas(List<Disciplina> disciplinas){
+    public static void salvaDisciplinas(List<Disciplina> disciplinas){
          Gson gson = new Gson();
         String toJsonDisciplina  = gson.toJson(disciplinas);
                 System.out.println("toJson = " + toJsonDisciplina);
@@ -67,7 +67,7 @@ public class Dados {
     
     }
     
-    public void salvaDepartamentos(List<Departamento> departamentos){
+    public static void salvaDepartamentos(List<Departamento> departamentos){
           Gson gson = new Gson();
           String toJsonDepartamento  = gson.toJson(departamentos);
           System.out.println("toJson = " + toJsonDepartamento);
@@ -79,7 +79,7 @@ public class Dados {
           }
     }
     
-    public void salvaLogins(HashMap<String,char []> logins){
+    public static void salvaLogins(HashMap<String,char []> logins){
         Gson gsonLogins = new Gson();
         String toJsonLogins = gsonLogins.toJson(logins);
         System.out.println("toJson = " + toJsonLogins);
@@ -93,7 +93,7 @@ public class Dados {
     }
     
     //MÉTODOS DE LEITURA
-    public List<Aluno> retornarArquivoAlunos(String arqAluno) {
+    public static List<Aluno> retornarArquivoAlunos(String arqAluno) {
 
         String toJsonAluno = arq.Read(arqAluno);
         Gson gson = new Gson();
@@ -108,7 +108,7 @@ public class Dados {
         return alunos;
     }
 
-    public List<Professor> retornarArquivoProfessor(String arqProf) {
+    public static List<Professor> retornarArquivoProfessor(String arqProf) {
 
         
         String toJsonProfessor = arq.Read(arqProf);
@@ -124,7 +124,7 @@ public class Dados {
         return professores;
     }
 
-    public List<Departamento> retornarArquivoDepartamento(String arqDepto) {
+    public static List<Departamento> retornarArquivoDepartamento(String arqDepto) {
 
         
         String toJsonDepartamento = arq.Read(arqDepto);
@@ -140,7 +140,7 @@ public class Dados {
         return departamentos;
     }
     
-    public List<Disciplina> retornarArquivoDisciplina(String arqDisci) {
+    public static List<Disciplina> retornarArquivoDisciplina(String arqDisci) {
 
         
         String toJsonDisciplina = arq.Read(arqDisci);

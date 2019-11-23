@@ -12,6 +12,10 @@ import static com.mycompany.trabalhooo.Dados.logins;
 import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
 import static com.mycompany.trabalhooo.Dados.departamentos;
+import static com.mycompany.trabalhooo.Dados.retornarArquivoAlunos;
+import static com.mycompany.trabalhooo.Dados.retornarArquivoDepartamento;
+import static com.mycompany.trabalhooo.Dados.retornarArquivoDisciplina;
+import static com.mycompany.trabalhooo.Dados.retornarArquivoProfessor;
 import com.mycompany.trabalhooo.Departamento;
 import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Login;
@@ -189,11 +193,11 @@ public class TelaLogin extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         System.out.println("Abri janela");
-        Dados dadosPessoais = new Dados();
-        alunos = dadosPessoais.retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
-        professores = dadosPessoais.retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
-        disciplinas = dadosPessoais.retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
-        departamentos = dadosPessoais.retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
+       // Dados dadosPessoais = new Dados();
+        alunos = retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
+        professores = retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
+        disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
+        departamentos = retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
         
         
         for (Aluno retornarArquivoAluno : alunos) {
