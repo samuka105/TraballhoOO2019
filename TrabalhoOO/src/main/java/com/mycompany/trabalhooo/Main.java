@@ -11,6 +11,7 @@ package com.mycompany.trabalhooo;
  */
 public class Main {
     public static void main(String[] args) {
-        
+        // mavenwithdependencies executar do terminal 
+        // colocar 
     }
 }
