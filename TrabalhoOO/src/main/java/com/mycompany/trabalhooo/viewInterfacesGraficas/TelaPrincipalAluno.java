@@ -13,16 +13,13 @@ import com.mycompany.trabalhooo.Aluno;
  */
 public class TelaPrincipalAluno extends javax.swing.JFrame {
     public Aluno a;
-    
+
     /**
      * Creates new form TelaSecundaria
      */
-    
-    //COLOCAR AS LISTAS DE DADOS COMO PARAMETRO E CRIAR AS LISTAS PARA RECEBE-LAS
     public TelaPrincipalAluno(Aluno a) {
         initComponents();
         this.a = a;
-        
     }
 
     /**
@@ -109,7 +106,7 @@ public class TelaPrincipalAluno extends javax.swing.JFrame {
 
     private void jButtonMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMatriculaActionPerformed
         // TODO 
-        TelaAlunoMatricula matricula = new TelaAlunoMatricula(a, telaDisc);
+        TelaAlunoMatricula matricula = new TelaAlunoMatricula(a);
         matricula.setVisible(true);
     }//GEN-LAST:event_jButtonMatriculaActionPerformed
 

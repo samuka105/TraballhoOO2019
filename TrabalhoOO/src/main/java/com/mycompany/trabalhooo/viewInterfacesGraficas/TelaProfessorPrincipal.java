@@ -13,14 +13,12 @@ import com.mycompany.trabalhooo.Professor;
  */
 public class TelaProfessorPrincipal extends javax.swing.JFrame {
     private Professor p;
-    
     /**
      * Creates new form TelaProfessorPrincipal
      */
     public TelaProfessorPrincipal(Professor p) {
         initComponents();
         this.p = p;
-       
     }
 
     /**
@@ -65,7 +63,7 @@ public class TelaProfessorPrincipal extends javax.swing.JFrame {
 
     private void jbMinhasDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMinhasDisciplinasActionPerformed
         // TODO add your handling code here:
-        TelaProfessorMinhasDisciplinas telaProfDisc = new TelaProfessorMinhasDisciplinas(p,telaDisc);
+        TelaProfessorMinhasDisciplinas telaProfDisc = new TelaProfessorMinhasDisciplinas(p);
         telaProfDisc.setVisible(true);
     }//GEN-LAST:event_jbMinhasDisciplinasActionPerformed
 

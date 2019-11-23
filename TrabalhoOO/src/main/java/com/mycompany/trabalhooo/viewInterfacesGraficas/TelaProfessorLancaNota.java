@@ -11,6 +11,7 @@ import com.mycompany.trabalhooo.Professor;
 import com.mycompany.trabalhooo.Turma;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 /**
  *
@@ -30,8 +31,10 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         this.t = buscaTurma(p);
         jLabel1.setText(d.getNome());
         jLabel2.setText("Turma " + t.getCodigo());
-        
-        
+        DefaultListModel <Aluno> model = new DefaultListModel<>();
+        model.addAll(t.alunos);
+        //jListAlunos = new JList<>(model);
+        //jListAlunos.addMouseListener();
     }
     public Turma buscaTurma(Professor p){
         if(d.turmas.get(0).getProfessor() == p) return d.turmas.get(0);
@@ -40,7 +43,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
     private void encheLista(){
         int i = 0;
         while (i<t.alunos.size()){
-            //jListAlunos.add(t.alunos.get(i));
+            
         }
     }
     /**
@@ -211,7 +214,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         float tvc2 = Float.parseFloat(jTextField2.getText());
         float tvc3 = Float.parseFloat(jTextField3.getText());
   
-        t.lancarNota(a, tvc1, tvc2, tvc3);
+        //t.lancarNota(a, tvc1, tvc2, tvc3);
     }//GEN-LAST:event_jbLancaNotaActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

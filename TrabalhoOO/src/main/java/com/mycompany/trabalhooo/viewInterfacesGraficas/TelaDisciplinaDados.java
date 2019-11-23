@@ -14,6 +14,8 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.google.gson.Gson;
 import com.mycompany.ArquivosDeDados.Arquivo;
+import static com.mycompany.trabalhooo.Dados.disciplinas;
+import static com.mycompany.trabalhooo.Dados.professores;
 import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Professor;
 import com.mycompany.trabalhooo.Turma;
@@ -29,18 +31,14 @@ import javax.swing.JOptionPane;
 //RECEBE OS DADOS DE MATRÍCULAR E ADICIONA EM TURMA, CRIA TURMA, DADOS DE PROFESSORES ASSOCIANDO COM TURMA .. DADOS EM ARQUIVOS
 public class TelaDisciplinaDados extends javax.swing.JFrame {
 
- public Arquivo arq;
- public List<Disciplina> disciplinas;
- public List<Professor> professores;
+
  //DADOS DOS PROFESSORES PARA ASSOCIÁ-LOS
     
     /**
      * Creates new form TelaDisciplinaDados
      */
-    public TelaDisciplinaDados(List<Disciplina> d, List<Professor> pr) {
+    public TelaDisciplinaDados() {
         initComponents();   
-        this.disciplinas = new ArrayList<>();
-        this.arq = new Arquivo();
     }
     
     private void adicionaDisciplina() {
@@ -55,7 +53,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         d.setCodigo(jTextField1.getText());
         d.turmas.add(a); d.turmas.add(b);
         disciplinas.add(d);
-       
+
     }
     
     

@@ -18,7 +18,12 @@ import java.util.List;
  * @author Enedilson
  */
 public class Dados {
-
+    public static List<Aluno> alunos = new ArrayList<>();
+    public static List<Professor> professores = new ArrayList<>();
+    public static List<Disciplina> disciplinas = new ArrayList<>();
+    public static List<Departamento> departamentos = new ArrayList<>();
+    public static HashMap<String, char[]> logins = new HashMap<>();
+    
     public static Arquivo arq;
     
     //MÉTODOS DE SALVAMENTO
