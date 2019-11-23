@@ -7,7 +7,10 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.google.gson.Gson;
 import com.mycompany.ArquivosDeDados.Arquivo;
+import com.mycompany.trabalhooo.Dados;
+import static com.mycompany.trabalhooo.Dados.departamentos;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
+import static com.mycompany.trabalhooo.Dados.salvaDepartamentos;
 import com.mycompany.trabalhooo.Departamento;
 import com.mycompany.trabalhooo.Disciplina;
 import java.util.List;
@@ -46,6 +49,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         dep.addDisciplina(buscaDisciplina(jtfDisciplina1.getText()));
         dep.addDisciplina(buscaDisciplina(jtfDisciplina2.getText()));
         dep.setNome(jtfNomeDepto.getText());
+        salvaDepartamentos(departamentos);
     }
     
     private Disciplina buscaDisciplina(String d) {

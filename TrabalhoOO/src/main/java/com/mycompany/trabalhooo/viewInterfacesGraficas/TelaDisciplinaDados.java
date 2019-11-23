@@ -14,8 +14,10 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 
 import com.google.gson.Gson;
 import com.mycompany.ArquivosDeDados.Arquivo;
+import com.mycompany.trabalhooo.Dados;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
 import static com.mycompany.trabalhooo.Dados.professores;
+import static com.mycompany.trabalhooo.Dados.salvaDisciplinas;
 import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Professor;
 import com.mycompany.trabalhooo.Turma;
@@ -53,6 +55,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         d.setCodigo(jTextField1.getText());
         d.turmas.add(a); d.turmas.add(b);
         disciplinas.add(d);
+        salvaDisciplinas(disciplinas);
 
     }
     
