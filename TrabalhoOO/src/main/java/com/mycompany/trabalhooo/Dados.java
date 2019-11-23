@@ -40,7 +40,7 @@ public class Dados {
                 }
     }
     
-    public static void salvaPraofessores(List<Professor> professores){
+    public static void salvaProfessores(List<Professor> professores){
           Gson gsonProfessor = new Gson();
          
             String toJsonProfessor = gsonProfessor.toJson(professores);

@@ -14,6 +14,7 @@ import static com.mycompany.trabalhooo.Dados.alunos;
 import static com.mycompany.trabalhooo.Dados.logins;
 import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.salvaAlunos;
+import static com.mycompany.trabalhooo.Dados.salvaProfessores;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
 import java.util.ArrayList;
@@ -276,6 +277,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("Prof");
             try {
                 alocaProf();
+                salvaProfessores(professores);
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
