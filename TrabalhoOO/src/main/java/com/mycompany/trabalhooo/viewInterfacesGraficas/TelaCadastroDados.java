@@ -11,9 +11,11 @@ import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Dados;
 import static com.mycompany.trabalhooo.Dados.alunos;
+import static com.mycompany.trabalhooo.Dados.cont;
 import static com.mycompany.trabalhooo.Dados.logins;
 import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.salvaAlunos;
+import static com.mycompany.trabalhooo.Dados.salvaLogins;
 import static com.mycompany.trabalhooo.Dados.salvaProfessores;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
@@ -34,10 +36,8 @@ public class TelaCadastroDados extends javax.swing.JFrame {
      * Creates new form TelaCadastroAluno
      */
     public String marca;
-    public int cont;
-    public TelaCadastroDados(int cont) {
+    public TelaCadastroDados() {
         initComponents();  
-        this.cont = cont;
     }
     public String getMarca(){
         return marca;
@@ -234,14 +234,17 @@ public class TelaCadastroDados extends javax.swing.JFrame {
     }
     private void alocaAluno() throws Exception{
         try{
+        System.out.println("Entrei");
         Aluno a = new Aluno();
+            System.out.println("Aluno Criado");
         a.setCpf(jtfCPF.getText());
         a.setNomeComp(jtfNomeCompleto.getText());
-        confereExistenciaAluno(a.getCpf(), a.getNomeComp());
+        //confereExistenciaAluno(a.getCpf(), a.getNomeComp());
         a.setEmail(jtfEmail.getText());
         a.setIdade(jtfIdade.getText());
         confereLogin(jtfLogin.getText()); confereSenha(jpfSenha.getPassword());
         a.setLogin(jtfLogin.getText(), jpfSenha.getPassword());
+        System.out.println("Tudo bem");
         a.setIdentificacao(cont);
         cont =-14;
         System.out.println("Aluno adicionado");
@@ -252,12 +255,12 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         }
         
     }
-    private void confereExistenciaAluno(String cpf, String nome) throws Exception{
-        int i = 0;
-        while(i<alunos.size()){
-            if(alunos.get(i).getNomeComp().equals(nome) && alunos.get(i).getCpf().equals(cpf)) throw new Exception();
-        }
-    }
+//    private void confereExistenciaAluno(String cpf, String nome) throws Exception{
+//        int i = 0;
+//        while(i<alunos.size()){
+//            if(alunos.get(i).getNomeComp().equals(nome) && alunos.get(i).getCpf().equals(cpf)) throw new Exception();
+//        }
+//    }
     private void confereLogin(String id) throws Exception{
         if(logins.containsKey(id)){
             JOptionPane.showMessageDialog(null, "Login ja existe!");
@@ -278,6 +281,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             try {
                 alocaProf();
                 salvaProfessores(professores);
+                salvaLogins(logins);
+                jtfCPF.setText("");
+                jtfEmail.setText("");
+                jtfIdade.setText("");
+                jtfLogin.setText("");
+                jtfNomeCompleto.setText("");
+                jpfSenha.setText("");
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
@@ -290,6 +300,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             try {
                 alocaAluno();
                 salvaAlunos(alunos);
+                salvaLogins(logins);
                 jtfCPF.setText("");
                 jtfEmail.setText("");
                 jtfIdade.setText("");

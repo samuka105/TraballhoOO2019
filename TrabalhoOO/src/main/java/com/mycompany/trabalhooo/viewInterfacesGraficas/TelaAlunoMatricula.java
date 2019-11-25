@@ -6,7 +6,6 @@
 package com.mycompany.trabalhooo.viewInterfacesGraficas;
     
 import com.mycompany.trabalhooo.Aluno;
-import com.mycompany.trabalhooo.Dados;
 import static com.mycompany.trabalhooo.Dados.alunos;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
 import static com.mycompany.trabalhooo.Dados.professores;

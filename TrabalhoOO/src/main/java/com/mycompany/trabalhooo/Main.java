@@ -5,6 +5,9 @@
  */
 package com.mycompany.trabalhooo;
 
+import com.mycompany.trabalhooo.viewInterfacesGraficas.TelaCadastroDados;
+import com.mycompany.trabalhooo.viewInterfacesGraficas.TelaLogin;
+
 /**
  *
  * @author Ronan
@@ -13,5 +16,8 @@ public class Main {
     public static void main(String[] args) {
         // mavenwithdependencies executar do terminal 
         // colocar 
+        TelaCadastroDados telaDados = new TelaCadastroDados();
+        TelaLogin inicio = new TelaLogin(telaDados);
+        inicio.setVisible(true);
     }
 }

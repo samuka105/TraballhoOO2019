@@ -12,6 +12,7 @@ import static com.mycompany.trabalhooo.Dados.logins;
 import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
 import static com.mycompany.trabalhooo.Dados.departamentos;
+import static com.mycompany.trabalhooo.Dados.retornaLogin;
 import static com.mycompany.trabalhooo.Dados.retornarArquivoAlunos;
 import static com.mycompany.trabalhooo.Dados.retornarArquivoDepartamento;
 import static com.mycompany.trabalhooo.Dados.retornarArquivoDisciplina;
@@ -30,15 +31,12 @@ import javax.swing.JFrame;
  * @author ice
  */
 public class TelaLogin extends javax.swing.JFrame {
-    private int cont;
-    public TelaCadastroDados telaDados;
+    
     /**
      * Creates new form TelaInicial
      */
-    public TelaLogin(TelaCadastroDados telaDados ) {
+    public TelaLogin( ) {
         initComponents();
-        this.telaDados = telaDados;
-        this.cont = 5000;
     }
 
     /**
@@ -157,7 +155,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 System.out.println(id);
                 while(i<alunos.size()){
                     if(alunos.get(i).getLogin().getLogin().equals(id)){
-                        TelaPrincipalAluno proxima = new TelaPrincipalAluno(alunos.get(i));
+                        TelaAlunoPrincipal proxima = new TelaAlunoPrincipal(alunos.get(i));
                         proxima.setVisible(true);
                         break;
                         
@@ -186,7 +184,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // CADASTRO
         //TelaLogin tela = new TelaLogin();
-        TelaCadastro t = new TelaCadastro(cont);
+        TelaCadastro t = new TelaCadastro();
         t.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -198,7 +196,7 @@ public class TelaLogin extends javax.swing.JFrame {
         professores = retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
         disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
         departamentos = retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
-        
+        logins = retornaLogin(Constantes.ARQUIVO_LOGINS);
         
         for (Aluno retornarArquivoAluno : alunos) {
             System.out.println("retornarArquivoAluno = " + retornarArquivoAluno);
@@ -239,8 +237,8 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-                TelaCadastroDados telaDados = new TelaCadastroDados(5000);
-                new TelaLogin(telaDados).setVisible(true);
+               // TelaCadastroDados telaDados = new TelaCadastroDados();
+               // new TelaLogin(telaDados).setVisible(true);
             }
         });
     }
