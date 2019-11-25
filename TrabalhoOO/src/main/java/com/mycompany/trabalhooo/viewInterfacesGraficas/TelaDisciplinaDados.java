@@ -49,14 +49,26 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         Professor p1 = new Professor();
         Professor p2 = new Professor();
         p1 = buscaProf(jtfProfessorA.getText());
-        p2 = buscaProf(jtfProfessorB.getText());
         a.AlocaProfTurma(p1);
-        b.AlocaProfTurma(p2);
-        Disciplina d = new Disciplina();
-        d.setNome(jtfNomeDisc.getText());
-        d.setCodigo(jTextField1.getText());
-        d.turmas.add(a); d.turmas.add(b);
-        disciplinas.add(d);
+        if(jtfProfessorB.getText().equals("")){
+            Disciplina d = new Disciplina();
+            d.setNome(jtfNomeDisc.getText());
+            d.setCodigo(jTextField1.getText());
+            d.turmas.add(a); d.turmas.add(b);
+            disciplinas.add(d);
+        }
+        else {
+            p2 = buscaProf(jtfProfessorB.getText());;
+            b.AlocaProfTurma(p2);
+            Disciplina d = new Disciplina();
+            d.setNome(jtfNomeDisc.getText());
+            d.setCodigo(jTextField1.getText());
+            d.turmas.add(a); d.turmas.add(b);
+            disciplinas.add(d);
+        }
+        
+        
+        
      
         
 
@@ -71,6 +83,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         while(i < professores.size()){
             if(professores.get(i).getNomeComp().equals(nome)) return professores.get(i);
             i++;
+            
         }
         //throw new Exception();
         //}catch(Exception a){
