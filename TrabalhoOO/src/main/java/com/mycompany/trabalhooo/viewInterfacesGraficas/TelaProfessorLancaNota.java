@@ -253,7 +253,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaProfessorLancaNota(null,null).setVisible(true);
+                //new TelaProfessorLancaNota(null,null).setVisible(true);
             }
         });
     }

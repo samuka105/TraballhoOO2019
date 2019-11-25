@@ -93,6 +93,19 @@ public class Dados {
         
     }
     
+       public static void salvaCont(int cont){
+        Gson gsonCont = new Gson();
+        String toJsonCont = gsonCont.toJson(cont);
+        System.out.println("toJson = " + toJsonCont);
+        if(arq.Write(Constantes.ARQUIVO_CONTADOR, toJsonCont)){    
+                System.out.println("Texto salvo");
+            }
+             else{
+            System.out.println("Erro!");
+            } 
+        
+    }
+    
     //MÉTODOS DE LEITURA
     public static List<Aluno> retornarArquivoAlunos(String arqAluno) {
 
@@ -159,6 +172,24 @@ public class Dados {
         return disciplinas;
     }
 
+//GABRIEL
+    public static int retornarArquivoContador(String arqCont) {
+
+        
+        String toJsonCont = arq.Read(arqCont);
+        Gson gson = new Gson();
+        java.lang.reflect.Type myType = new TypeToken<List<int>>() {
+        }.getType();
+        
+        List<int> conts = gson.fromJson(toJsonCont, myType); 
+        
+
+        for (Cont cont : conts) {
+            System.out.println(cont);
+        }
+
+        return cont;
+    }
 
 
 

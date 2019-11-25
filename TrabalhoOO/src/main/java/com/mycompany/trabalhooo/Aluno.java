@@ -15,10 +15,11 @@ import java.util.List;
  */
 public class Aluno extends Pessoa{
     private String matricula;
-    public List<Turma> turmasAluno;
+    public List<Turma> minhasTurmas;
+    
     public Aluno() {
         super();
-        this.turmasAluno = new ArrayList<>();
+        this.minhasTurmas = new ArrayList<>();
     }
     /**
      * @return the matricula
