@@ -26,6 +26,10 @@ public class Turma {
         this.maxAlunos = maxAlunos;
         this.alunos = new ArrayList<>();
     }
+
+    public Turma() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //MATRICULAR
     public void setCodigo(String a){

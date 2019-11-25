@@ -157,7 +157,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 System.out.println(id);
                 while(i<alunos.size()){
                     if(alunos.get(i).getLogin().getLogin().equals(id)){
-                        TelaPrincipalAluno proxima = new TelaPrincipalAluno(alunos.get(i));
+                        TelaAlunoPrincipal proxima = new TelaAlunoPrincipal(alunos.get(i));
                         proxima.setVisible(true);
                         break;
                         
