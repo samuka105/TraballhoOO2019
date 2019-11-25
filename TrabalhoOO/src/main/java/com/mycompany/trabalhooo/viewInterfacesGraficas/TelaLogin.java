@@ -138,8 +138,8 @@ public class TelaLogin extends javax.swing.JFrame {
             System.out.println("confirmou login");
             if(Arrays.equals(logins.get(id), senha)){
                 System.out.println("confirmou senha");
-                if(telaDados.getMarca().equals(Constantes.ALUNO)) procuraAluno(id);
-                else procuraProfessor(id);            
+                procuraAluno(id);
+                procuraProfessor(id);            
             }
         } else{
             System.out.println("Errou");
@@ -157,7 +157,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     if(alunos.get(i).getLogin().getLogin().equals(id)){
                         TelaAlunoPrincipal proxima = new TelaAlunoPrincipal(alunos.get(i));
                         proxima.setVisible(true);
-                        break;
+                        
                         
                     }
                     i++;
@@ -172,7 +172,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     if(professores.get(i).getLogin().getLogin().equals(id)){
                         TelaProfessorPrincipal prox = new TelaProfessorPrincipal(professores.get(i));
                         prox.setVisible(true);
-                        break;
+                        
                     }
                     i++;
                 }
@@ -193,10 +193,11 @@ public class TelaLogin extends javax.swing.JFrame {
         System.out.println("Abri janela");
        // Dados dadosPessoais = new Dados();
         alunos = retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
+        logins = retornaLogin(Constantes.ARQUIVO_LOGINS);
         professores = retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
         disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
         departamentos = retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
-        logins = retornaLogin(Constantes.ARQUIVO_LOGINS);
+        
         
         for (Aluno retornarArquivoAluno : alunos) {
             System.out.println("retornarArquivoAluno = " + retornarArquivoAluno);
