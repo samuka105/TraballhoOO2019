@@ -15,6 +15,7 @@ import static com.mycompany.trabalhooo.Dados.salvaDisciplinas;
 import static com.mycompany.trabalhooo.Dados.salvaProfessores;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -147,11 +148,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         jLabel1.setText("Nome do Aluno");
 
         jButton6.setText("Voltar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         jCheckBox1.setText("jCheckBox1");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +280,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        System.out.println("Abri janela");
         disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
          jCheckBox1.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(0).getCodigo());
          jCheckBox9.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(1).getCodigo());
@@ -399,11 +394,6 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         salvaAlunos(alunos);
         salvaProfessores(professores);
     }//GEN-LAST:event_formWindowClosed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

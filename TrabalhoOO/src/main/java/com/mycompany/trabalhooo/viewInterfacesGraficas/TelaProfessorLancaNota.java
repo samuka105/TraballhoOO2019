@@ -10,6 +10,8 @@ import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Professor;
 import com.mycompany.trabalhooo.Turma;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
@@ -30,22 +32,22 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         this.d = d;
         this.t = buscaTurma(p);
         jLabel1.setText(d.getNome());
-        jLabel2.setText("Turma " + t.getCodigo());
+        jLabel6.setText("Turma " + t.getCodigo());
         DefaultListModel <Aluno> model = new DefaultListModel<>();
         model.addAll(t.alunos);
-        //jListAlunos = new JList<>(model);
-        //jListAlunos.addMouseListener();
+        jListAlunos.setModel(model);
+        
     }
     public Turma buscaTurma(Professor p){
         if(d.turmas.get(0).getProfessor() == p) return d.turmas.get(0);
         else return d.turmas.get(1);
     }
-    private void encheLista(){
-        int i = 0;
-        while (i<t.alunos.size()){
-            
-        }
-    }
+//    private void encheLista(){
+//        int i = 0;
+//        while (i<t.alunos.size()){
+//            
+//        }
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,11 +92,6 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
 
         jLabel2.setText("Alunos");
 
-        jListAlunos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jListAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListAlunosMouseClicked(evt);
@@ -213,7 +210,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         float tvc1 = Float.parseFloat(jTextField1.getText());
         float tvc2 = Float.parseFloat(jTextField2.getText());
         float tvc3 = Float.parseFloat(jTextField3.getText());
-  
+        
         //t.lancarNota(a, tvc1, tvc2, tvc3);
     }//GEN-LAST:event_jbLancaNotaActionPerformed
 
@@ -224,6 +221,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
 
     private void jListAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListAlunosMouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jListAlunosMouseClicked
 
     /**
@@ -256,7 +254,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new TelaProfessorLancaNota().setVisible(true);
+                //new TelaProfessorLancaNota(null,null).setVisible(true);
             }
         });
     }
@@ -268,7 +266,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jListAlunos;
+    private javax.swing.JList<Aluno> jListAlunos;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;

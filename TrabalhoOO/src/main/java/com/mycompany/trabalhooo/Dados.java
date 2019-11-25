@@ -178,20 +178,20 @@ public class Dados {
         
         String toJsonCont = arq.Read(arqCont);
         Gson gson = new Gson();
-        java.lang.reflect.Type myType = new TypeToken<List<int>>() {
-        }.getType();
         
-        List<int> conts = gson.fromJson(toJsonCont, myType);
-        
-
-        for (Cont cont : conts) {
-            System.out.println(cont);
-        }
-
         return cont;
     }
 
+    public static HashMap<String, char[]> retornaLogin(String arqLogins) {
 
+        String toJsonLogins = arq.Read(arqLogins);
+        Gson gson = new Gson();
+        java.lang.reflect.Type myType = new TypeToken<HashMap<String, char []>>() {
+        }.getType();
+        HashMap<String, char []> login = gson.fromJson(toJsonLogins, myType);
+
+        return login;
+    }
 
 
 

@@ -19,7 +19,7 @@ public class Aluno extends Pessoa{
     
     public Aluno() {
         super();
-        minhasTurmas = new ArrayList<>();
+        this.minhasTurmas = new ArrayList<>();
     }
     /**
      * @return the matricula
@@ -37,20 +37,4 @@ public class Aluno extends Pessoa{
         int aux = cont -14;
         this.matricula = Integer.toString(aux) + "-" + "A";
     }   
-    
-    //metodo matricular DEFININDO
-   
-    // metodo ver nota
-    // metodo ver historico
-    // metodo tranca
-    
-    public void imprimeAluno(){
-        System.out.println("Nome:"+ this.getNomeComp());
-        System.out.println("Idade:"+ this.getIdade());
-        System.out.println("Email:"+ this.getEmail());
-        System.out.println("Cpf:"+ this.getCpf());
-        //System.out.println("Matricula:"+ this.getMatricula());
-        //System.out.println("Login:"+ this.login.getLogin());
-        //System.out.println("Senha:"+ this.login.getSenha());
-    }
 }

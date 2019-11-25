@@ -16,14 +16,13 @@ import java.util.List;
  * @author Geral
  */
 public class TelaCadastro extends javax.swing.JFrame {
-    private int cont;
+
     
     /**
      * Creates new form TelaCadastro
      */
-    public TelaCadastro(int cont) {
+    public TelaCadastro() {
         initComponents();
-        this.cont = cont;
     }
 
     /**
@@ -118,14 +117,14 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTÃO ALUNO:
-        TelaCadastroDados tela = new TelaCadastroDados(cont);
+        TelaCadastroDados tela = new TelaCadastroDados();
         tela.setMarca(Constantes.ALUNO);
         tela.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // BOTAO PROFESSOR:
-        TelaCadastroDados tela = new TelaCadastroDados(cont);
+        TelaCadastroDados tela = new TelaCadastroDados();
         tela.setMarca(Constantes.PROFESSOR);
         tela.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
