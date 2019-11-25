@@ -49,7 +49,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
         dep.addDisciplina(buscaDisciplina(jtfDisciplina1.getText()));
         dep.addDisciplina(buscaDisciplina(jtfDisciplina2.getText()));
         dep.setNome(jtfNomeDepto.getText());
-        salvaDepartamentos(departamentos);
+        
     }
     
     private Disciplina buscaDisciplina(String d) {
@@ -206,7 +206,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-       
+       salvaDepartamentos(departamentos);
     }//GEN-LAST:event_formWindowClosed
 
     /**

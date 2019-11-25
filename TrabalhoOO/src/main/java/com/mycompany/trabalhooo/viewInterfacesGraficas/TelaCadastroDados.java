@@ -79,6 +79,11 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jlbNomeCompleto.setText("Nome Completo");
 
@@ -237,7 +242,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         Aluno a = new Aluno();
         a.setCpf(jtfCPF.getText());
         a.setNomeComp(jtfNomeCompleto.getText());
-        confereExistenciaAluno(a.getCpf(), a.getNomeComp());
+       // confereExistenciaAluno(a.getCpf(), a.getNomeComp());
         a.setEmail(jtfEmail.getText());
         a.setIdade(jtfIdade.getText());
         confereLogin(jtfLogin.getText()); confereSenha(jpfSenha.getPassword());
@@ -277,7 +282,13 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("Prof");
             try {
                 alocaProf();
-                salvaProfessores(professores);
+                
+                jtfCPF.setText("");
+                jtfEmail.setText("");
+                jtfIdade.setText("");
+                jtfLogin.setText("");
+                jtfNomeCompleto.setText("");
+                jpfSenha.setText("");
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
@@ -289,7 +300,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
             System.out.println("Aluno");
             try {
                 alocaAluno();
-                salvaAlunos(alunos);
+                
                 jtfCPF.setText("");
                 jtfEmail.setText("");
                 jtfIdade.setText("");
@@ -332,6 +343,14 @@ public class TelaCadastroDados extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        salvaAlunos(alunos);
+        salvaProfessores(professores);
+        
+        
+    }//GEN-LAST:event_formWindowClosed
     
 
     
