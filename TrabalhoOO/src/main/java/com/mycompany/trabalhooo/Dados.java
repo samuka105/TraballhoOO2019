@@ -9,9 +9,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mycompany.ArquivosDeDados.Arquivo;
 import com.mycompany.trabalhooo.viewInterfacesGraficas.Constantes;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List; 
+import java.util.Map;
 
 /**
  *
@@ -183,14 +185,14 @@ public class Dados {
     }
 
     public static HashMap<String, char[]> retornaLogin(String arqLogins) {
-
+        System.out.println("Entrou");
         String toJsonLogins = arq.Read(arqLogins);
         Gson gson = new Gson();
-        java.lang.reflect.Type myType = new TypeToken<HashMap<String, char []>>() {
-        }.getType();
-        HashMap<String, char []> login = gson.fromJson(toJsonLogins, myType);
-
-        return login;
+        Type type = new TypeToken<HashMap<String, char []>>(){}.getType();
+        System.out.println("Progresso");
+        HashMap<String, char []> myMap = gson.fromJson(toJsonLogins, type);
+        System.out.println("Confere");
+        return myMap;
     }
 
 
