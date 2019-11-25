@@ -34,7 +34,7 @@ public class TelaAlunoTrancamento extends javax.swing.JFrame {
         initComponents();
         this.a = a;
         jLabel1.setText(a.getNomeComp());
-        t = new Turma();
+        t = new Turma("A",50);
         
     }
     

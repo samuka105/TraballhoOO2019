@@ -17,6 +17,8 @@ import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.salvaAlunos;
 import static com.mycompany.trabalhooo.Dados.salvaLogins;
 import static com.mycompany.trabalhooo.Dados.salvaProfessores;
+import static com.mycompany.trabalhooo.Dados.salvaCont;
+import static com.mycompany.trabalhooo.Dados.cont;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
 import java.util.ArrayList;
@@ -293,6 +295,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                 jtfLogin.setText("");
                 jtfNomeCompleto.setText("");
                 jpfSenha.setText("");
+                salvaCont(cont);
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }
@@ -312,6 +315,7 @@ public class TelaCadastroDados extends javax.swing.JFrame {
                 jtfLogin.setText("");
                 jtfNomeCompleto.setText("");
                 jpfSenha.setText("");
+                salvaCont(cont);
             }catch(Exception a){
                 JOptionPane.showMessageDialog(null, "Algum dos itens foi preenchido incorretamente");
             }

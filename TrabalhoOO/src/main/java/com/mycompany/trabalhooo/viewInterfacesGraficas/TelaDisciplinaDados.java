@@ -46,8 +46,10 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
     private void adicionaDisciplina() {
         Turma a = new Turma("A", Constantes.MAX_ALUNOS);
         Turma b = new Turma("B", Constantes.MAX_ALUNOS);
-        Professor p1 = buscaProf(jtfProfessorA.getText());
-        Professor p2 = buscaProf(jtfProfessorB.getText());
+        Professor p1 = new Professor();
+        Professor p2 = new Professor();
+        p1 = buscaProf(jtfProfessorA.getText());
+        p2 = buscaProf(jtfProfessorB.getText());
         a.AlocaProfTurma(p1);
         b.AlocaProfTurma(p2);
         Disciplina d = new Disciplina();
@@ -55,7 +57,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
         d.setCodigo(jTextField1.getText());
         d.turmas.add(a); d.turmas.add(b);
         disciplinas.add(d);
-        salvaDisciplinas(disciplinas);
+     
         
 
     }
@@ -65,6 +67,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
     private Professor buscaProf(String nome) {
         //try{
         int i = 0;
+        if(nome.equals("")) return null;
         while(i < professores.size()){
             if(professores.get(i).getNomeComp().equals(nome)) return professores.get(i);
             i++;
@@ -262,6 +265,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
      //try {
          // TODO add your handling code here:
          adicionaDisciplina();
+         salvaDisciplinas(disciplinas);
          System.out.println("Disciplina adicionada");
          jTextField1.setText(" ");
          jtfNomeDisc.setText(" ");

@@ -191,6 +191,7 @@ public class TelaDepartamentoDados extends javax.swing.JFrame {
          //try {
              // TODO add your handling code here:
              adicionaDepartamento();
+             salvaDepartamentos(departamentos);
              JOptionPane.showMessageDialog(null, "Departamento Criado!");
              jtfDisciplina1.setText("");
              jtfDisciplina2.setText("");

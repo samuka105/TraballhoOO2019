@@ -30,6 +30,15 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     public TelaAlunoMatricula(Aluno a) {
         initComponents();
         this.a = a;
+        jCheckBox1.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(0).getCodigo());
+        jCheckBox9.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(1).getCodigo());
+        jCheckBox10.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(0).getCodigo());
+        jCheckBox11.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(1).getCodigo());
+        jCheckBox11.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(1).getCodigo());
+        jCheckBox12.setText(disciplinas.get(2).getNome() + disciplinas.get(2).turmas.get(0).getCodigo());
+        jCheckBox13.setText(disciplinas.get(2).getNome() + disciplinas.get(2).turmas.get(1).getCodigo());
+        jCheckBox14.setText(disciplinas.get(3).getNome() + disciplinas.get(3).turmas.get(0).getCodigo());
+        jCheckBox15.setText(disciplinas.get(3).getNome() + disciplinas.get(3).turmas.get(1).getCodigo());
       
     }
     public void setNomesNoCheck(){
@@ -281,15 +290,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
-         jCheckBox1.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(0).getCodigo());
-         jCheckBox9.setText(disciplinas.get(0).getNome() + disciplinas.get(0).turmas.get(1).getCodigo());
-         jCheckBox10.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(0).getCodigo());
-         jCheckBox11.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(1).getCodigo());
-         jCheckBox11.setText(disciplinas.get(1).getNome() + disciplinas.get(1).turmas.get(1).getCodigo());
-          jCheckBox12.setText(disciplinas.get(2).getNome() + disciplinas.get(2).turmas.get(0).getCodigo());
-           jCheckBox13.setText(disciplinas.get(2).getNome() + disciplinas.get(2).turmas.get(1).getCodigo());
-            jCheckBox14.setText(disciplinas.get(3).getNome() + disciplinas.get(3).turmas.get(0).getCodigo());
-             jCheckBox15.setText(disciplinas.get(3).getNome() + disciplinas.get(3).turmas.get(1).getCodigo());
+         
            
           
     }//GEN-LAST:event_formWindowOpened
@@ -305,6 +306,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(0).turmas.get(0).matricular(a);
             a.minhasTurmas.add(disciplinas.get(0).turmas.get(0));
+            System.out.println("Matricula feita");
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -316,6 +318,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(0).turmas.get(1).matricular(a);
             a.minhasTurmas.add(disciplinas.get(0).turmas.get(1));
+            System.out.println("Matricula feita");
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -327,6 +330,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(1).turmas.get(0).matricular(a);
             a.minhasTurmas.add(disciplinas.get(1).turmas.get(0));
+            System.out.println("Matricula feita");
             
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
@@ -339,6 +343,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(1).turmas.get(1).matricular(a);
             a.minhasTurmas.add(disciplinas.get(1).turmas.get(1));
+            System.out.println("Matricula feita");
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -350,6 +355,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(2).turmas.get(0).matricular(a);
              a.minhasTurmas.add(disciplinas.get(2).turmas.get(0));
+             System.out.println("Matricula feita");
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -361,6 +367,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(2).turmas.get(1).matricular(a);
             a.minhasTurmas.add(disciplinas.get(2).turmas.get(1));
+            System.out.println("Matricula feita");
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -372,6 +379,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(3).turmas.get(0).matricular(a);
             a.minhasTurmas.add(disciplinas.get(3).turmas.get(0));
+            System.out.println("Matricula feita");
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -383,6 +391,7 @@ public class TelaAlunoMatricula extends javax.swing.JFrame {
         try {
             disciplinas.get(3).turmas.get(1).matricular(a);
             a.minhasTurmas.add(disciplinas.get(3).turmas.get(1));
+            System.out.println("Matricula feita");
         } catch (Exception ex) {
             Logger.getLogger(TelaAlunoMatricula.class.getName()).log(Level.SEVERE, null, ex);
         }

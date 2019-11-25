@@ -8,6 +8,8 @@ package com.mycompany.trabalhooo.viewInterfacesGraficas;
 import com.mycompany.trabalhooo.Aluno;
 import com.mycompany.trabalhooo.Dados;
 import static com.mycompany.trabalhooo.Dados.alunos;
+import static com.mycompany.trabalhooo.Dados.cont;
+import static com.mycompany.trabalhooo.Dados.retornarArquivoContador;
 import static com.mycompany.trabalhooo.Dados.logins;
 import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
@@ -193,10 +195,17 @@ public class TelaLogin extends javax.swing.JFrame {
         System.out.println("Abri janela");
        // Dados dadosPessoais = new Dados();
         alunos = retornarArquivoAlunos(Constantes.ARQUIVO_ALUNOS);
+        System.out.println(alunos.size());
         logins = retornaLogin(Constantes.ARQUIVO_LOGINS);
+        System.out.println(logins.size());
         professores = retornarArquivoProfessor(Constantes.ARQUIVO_PROFESSORES);
+        System.out.println(professores.size());
         disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
+        System.out.println(disciplinas.size());
         departamentos = retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
+        System.out.println(departamentos.size());
+        cont = retornarArquivoContador(Constantes.ARQUIVO_CONTADOR);
+        System.out.println(cont);
         
         
         for (Aluno retornarArquivoAluno : alunos) {
