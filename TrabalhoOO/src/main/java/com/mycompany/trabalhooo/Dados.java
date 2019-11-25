@@ -180,7 +180,8 @@ public class Dados {
         
         String toJsonCont = arq.Read(arqCont);
         Gson gson = new Gson();
-        
+        String conta = gson.fromJson(toJsonCont, String.class);
+        Integer cont = Integer.parseInt(conta);
         return cont;
     }
 
