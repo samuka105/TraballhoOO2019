@@ -54,7 +54,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
             Disciplina d = new Disciplina();
             d.setNome(jtfNomeDisc.getText());
             d.setCodigo(jTextField1.getText());
-            d.turmas.add(a); d.turmas.add(b);
+            d.getTurmas().add(a); 
             disciplinas.add(d);
         }
         else {
@@ -63,7 +63,7 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
             Disciplina d = new Disciplina();
             d.setNome(jtfNomeDisc.getText());
             d.setCodigo(jTextField1.getText());
-            d.turmas.add(a); d.turmas.add(b);
+            d.getTurmas().add(a); d.getTurmas().add(b);
             disciplinas.add(d);
         }
         

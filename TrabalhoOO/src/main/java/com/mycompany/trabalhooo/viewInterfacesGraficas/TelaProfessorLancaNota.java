@@ -20,9 +20,11 @@ import javax.swing.JList;
  * @author Enedilson
  */
 public class TelaProfessorLancaNota extends javax.swing.JFrame {
+
     public Professor p;
     public Disciplina d;
     public Turma t;
+
     /**
      * Creates new form TelaProfessorLancaNota
      */
@@ -33,14 +35,22 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         this.t = buscaTurma(p);
         jLabel1.setText(d.getNome());
         jLabel6.setText("Turma " + t.getCodigo());
-        DefaultListModel <Aluno> model = new DefaultListModel<>();
-        model.addAll(t.alunos);
-        jListAlunos.setModel(model);
+        DefaultListModel<Aluno> model = new DefaultListModel<>();
         
+        for (Aluno aluno : t.alunos) {
+            model.addElement(aluno);
+        }
+
+        jListAlunos.setModel(model);
+
     }
-    public Turma buscaTurma(Professor p){
-        if(d.turmas.get(0).getProfessor() == p) return d.turmas.get(0);
-        else return d.turmas.get(1);
+
+    public Turma buscaTurma(Professor p) {
+        if (d.getTurmas().get(0).getProfessor() == p) {
+            return d.getTurmas().get(0);
+        } else {
+            return d.getTurmas().get(1);
+        }
     }
 //    private void encheLista(){
 //        int i = 0;
@@ -48,6 +58,7 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
 //            
 //        }
 //    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -210,18 +221,18 @@ public class TelaProfessorLancaNota extends javax.swing.JFrame {
         float tvc1 = Float.parseFloat(jTextField1.getText());
         float tvc2 = Float.parseFloat(jTextField2.getText());
         float tvc3 = Float.parseFloat(jTextField3.getText());
-        
+
         //t.lancarNota(a, tvc1, tvc2, tvc3);
     }//GEN-LAST:event_jbLancaNotaActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_formWindowOpened
 
     private void jListAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListAlunosMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jListAlunosMouseClicked
 
     /**

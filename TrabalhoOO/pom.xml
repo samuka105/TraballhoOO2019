@@ -25,7 +25,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.mtcompany.trabalhoo.Main</mainClass>
+                            <mainClass>com.mycompany.trabalhooo.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

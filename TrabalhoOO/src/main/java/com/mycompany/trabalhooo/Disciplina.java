@@ -28,7 +28,7 @@ public class Disciplina {
     
     
     //lista de todas as turmas
-    public List<Turma> turmas;
+    private List<Turma> turmas;
     //public List<Professor> professores;
     public Disciplina(){
         this.turmas = new ArrayList<>();
@@ -48,6 +48,20 @@ public class Disciplina {
      */
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    /**
+     * @return the turmas
+     */
+    public List<Turma> getTurmas() {
+        return turmas;
+    }
+
+    /**
+     * @param turmas the turmas to set
+     */
+    public void setTurmas(List<Turma> turmas) {
+        this.turmas = turmas;
     }
     
     

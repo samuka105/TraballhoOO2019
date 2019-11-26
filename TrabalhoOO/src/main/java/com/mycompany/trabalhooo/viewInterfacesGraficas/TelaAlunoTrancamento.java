@@ -43,9 +43,9 @@ public class TelaAlunoTrancamento extends javax.swing.JFrame {
         first:
         for(int i = 0; i< disciplinas.size(); i++){
             second:
-            for(int j=0; j< disciplinas.get(i).turmas.size();j++){
-                if(disciplinas.get(i).turmas.get(j) == t){
-                    disciplinas.get(i).turmas.get(j).tranca(a);
+            for(int j=0; j< disciplinas.get(i).getTurmas().size();j++){
+                if(disciplinas.get(i).getTurmas().get(j) == t){
+                    disciplinas.get(i).getTurmas().get(j).tranca(a);
                     a.minhasTurmas.remove(t);
                     break first;
                 }
@@ -56,8 +56,8 @@ public class TelaAlunoTrancamento extends javax.swing.JFrame {
    public void confExistenciaTurma1(Aluno a, Turma t){
        first: 
        for(int i = 0; i< disciplinas.size(); i++){
-            for(int j=0; j< disciplinas.get(i).turmas.size();j++){
-                if(disciplinas.get(i).turmas.get(j) == t){
+            for(int j=0; j< disciplinas.get(i).getTurmas().size();j++){
+                if(disciplinas.get(i).getTurmas().get(j) == t){
                     jCheckBox1.setText(disciplinas.get(i).getNome() +" - "+ t.getCodigo());
                     break first;
                 }
@@ -71,8 +71,8 @@ public class TelaAlunoTrancamento extends javax.swing.JFrame {
     public void confExistenciaTurma2(Aluno a, Turma t){
        first: 
        for(int i = 0; i< disciplinas.size(); i++){
-            for(int j=0; j< disciplinas.get(i).turmas.size();j++){
-                if(disciplinas.get(i).turmas.get(j) == t){
+            for(int j=0; j< disciplinas.get(i).getTurmas().size();j++){
+                if(disciplinas.get(i).getTurmas().get(j) == t){
                     jCheckBox2.setText(disciplinas.get(i).getNome() +" - "+ t.getCodigo());
                     break first;
                 }
@@ -86,8 +86,8 @@ public class TelaAlunoTrancamento extends javax.swing.JFrame {
      public void confExistenciaTurma3(Aluno a, Turma t){
        first: 
        for(int i = 0; i< disciplinas.size(); i++){
-            for(int j=0; j< disciplinas.get(i).turmas.size();j++){
-                if(disciplinas.get(i).turmas.get(j) == t){
+            for(int j=0; j< disciplinas.get(i).getTurmas().size();j++){
+                if(disciplinas.get(i).getTurmas().get(j) == t){
                     jCheckBox3.setText(disciplinas.get(i).getNome() +" - "+ t.getCodigo());
                     break first;
                 }
@@ -106,8 +106,8 @@ public class TelaAlunoTrancamento extends javax.swing.JFrame {
     public void confExistenciaTurma4(Aluno a, Turma t){
        first: 
        for(int i = 0; i< disciplinas.size(); i++){
-            for(int j=0; j< disciplinas.get(i).turmas.size();j++){
-                if(disciplinas.get(i).turmas.get(j) == t){
+            for(int j=0; j< disciplinas.get(i).getTurmas().size();j++){
+                if(disciplinas.get(i).getTurmas().get(j) == t){
                     jCheckBox4.setText(disciplinas.get(i).getNome() +" - "+ t.getCodigo());
                     break first;
                 }
