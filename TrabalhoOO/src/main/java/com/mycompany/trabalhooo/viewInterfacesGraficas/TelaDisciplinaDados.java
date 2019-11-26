@@ -44,8 +44,8 @@ public class TelaDisciplinaDados extends javax.swing.JFrame {
     }
     
     private void adicionaDisciplina() {
-        Turma a = new Turma("A", Constantes.MAX_ALUNOS);
-        Turma b = new Turma("B", Constantes.MAX_ALUNOS);
+        Turma a = new Turma("A");
+        Turma b = new Turma("B");
         Professor p1 = new Professor();
         Professor p2 = new Professor();
         p1 = buscaProf(jtfProfessorA.getText());

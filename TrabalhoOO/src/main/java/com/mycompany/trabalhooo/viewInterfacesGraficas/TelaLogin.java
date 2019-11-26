@@ -13,13 +13,13 @@ import static com.mycompany.trabalhooo.Dados.retornarArquivoContador;
 import static com.mycompany.trabalhooo.Dados.logins;
 import static com.mycompany.trabalhooo.Dados.professores;
 import static com.mycompany.trabalhooo.Dados.disciplinas;
-import static com.mycompany.trabalhooo.Dados.departamentos;
+
 import static com.mycompany.trabalhooo.Dados.retornaLogin;
 import static com.mycompany.trabalhooo.Dados.retornarArquivoAlunos;
-import static com.mycompany.trabalhooo.Dados.retornarArquivoDepartamento;
+
 import static com.mycompany.trabalhooo.Dados.retornarArquivoDisciplina;
 import static com.mycompany.trabalhooo.Dados.retornarArquivoProfessor;
-import com.mycompany.trabalhooo.Departamento;
+
 import com.mycompany.trabalhooo.Disciplina;
 import com.mycompany.trabalhooo.Login;
 import com.mycompany.trabalhooo.Professor;
@@ -93,18 +93,23 @@ public class TelaLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfId)
-                            .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jtfId)
+                                .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(62, 62, 62))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jButton2)))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,11 +123,11 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(31, 31, 31))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -202,8 +207,7 @@ public class TelaLogin extends javax.swing.JFrame {
         System.out.println(professores.size());
         disciplinas = retornarArquivoDisciplina(Constantes.ARQUIVO_DISCIPLINAS);
         System.out.println(disciplinas.size());
-        departamentos = retornarArquivoDepartamento(Constantes.ARQUIVO_DEPARTAMENTO);
-        System.out.println(departamentos.size());
+        
         cont = retornarArquivoContador(Constantes.ARQUIVO_CONTADOR);
         System.out.println(cont);
         

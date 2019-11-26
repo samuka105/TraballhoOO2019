@@ -5,6 +5,7 @@
  */
 package com.mycompany.trabalhooo;
 
+import com.mycompany.trabalhooo.viewInterfacesGraficas.Constantes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,9 +22,9 @@ public class Turma {
     private int maxAlunos;
     private HashMap<Aluno, Notas> notasAlunos;
     
-    public Turma(String codigo, int max){
+    public Turma(String codigo){
         this.setCodigo(codigo);
-        this.maxAlunos = maxAlunos;
+        this.maxAlunos = Constantes.MAX_ALUNOS;
         this.alunos = new ArrayList<>();
     }
 
@@ -36,17 +37,17 @@ public class Turma {
     public String getCodigo(){
         return codigo;
     }
-    public void matricular(Aluno a) throws Exception{
+    public void matricular(Aluno a){ //throws Exception{
         
         
-        try{
-            if(alunos.size() >= this.maxAlunos) throw new Exception();
-            else alunos.add(a);
+        //try{
+           // if(alunos.size() >= this.maxAlunos) throw new Exception();
+            /*else*/ alunos.add(a);
             //Turma com vagas
-        } catch(Exception e){
+       /* } catch(Exception e){
             System.out.println("ERRO! Turma cheia.");
             //Turma cheia
-        }
+        }*/
     }
     
     public void tranca(Aluno a){

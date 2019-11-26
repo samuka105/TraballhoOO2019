@@ -23,7 +23,7 @@ public class Dados {
     public static List<Aluno> alunos = new ArrayList<>();
     public static List<Professor> professores = new ArrayList<>();
     public static List<Disciplina> disciplinas = new ArrayList<>();
-    public static List<Departamento> departamentos = new ArrayList<>();
+
     public static HashMap<String, char[]> logins = new HashMap<>();
     public static int cont;
     
@@ -70,7 +70,7 @@ public class Dados {
     
     }
     
-    public static void salvaDepartamentos(List<Departamento> departamentos){
+  /*  public static void salvaDepartamentos(List<Departamento> departamentos){
           Gson gson = new Gson();
           String toJsonDepartamento  = gson.toJson(departamentos);
           System.out.println("toJson = " + toJsonDepartamento);
@@ -81,7 +81,7 @@ public class Dados {
                 System.out.println("Erro!");
           }
     }
-    
+    */
     public static void salvaLogins(HashMap<String,char []> logins){
         Gson gsonLogins = new Gson();
         String toJsonLogins = gsonLogins.toJson(logins);
@@ -140,7 +140,7 @@ public class Dados {
         return professores;
     }
 
-    public static List<Departamento> retornarArquivoDepartamento(String arqDepto) {
+   /* public static List<Departamento> retornarArquivoDepartamento(String arqDepto) {
 
         
         String toJsonDepartamento = arq.Read(arqDepto);
@@ -155,7 +155,7 @@ public class Dados {
 
         return departamentos;
     }
-    
+    */
     public static List<Disciplina> retornarArquivoDisciplina(String arqDisci) {
 
         
